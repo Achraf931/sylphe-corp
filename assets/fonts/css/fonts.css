@@ -1,0 +1,112 @@
+@font-face {
+  font-family: 'SoleilRegular';
+  src: url('../Soleil.eot');
+  src: url('../Soleil.eot?#iefix') format('embedded-opentype'),
+  url('../Soleil.woff2') format('woff2'),
+  url('../Soleil.woff') format('woff'),
+  url('../Soleil.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'SoleilLight';
+  src: url('../Soleil-Light.eot');
+  src: url('../Soleil-Light.eot?#iefix') format('embedded-opentype'),
+  url('../Soleil-Light.woff2') format('woff2'),
+  url('../Soleil-Light.woff') format('woff'),
+  url('../Soleil-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'SoleilSemiBold';
+  src: url('../SoleilSb.eot');
+  src: url('../SoleilSb.eot?#iefix') format('embedded-opentype'),
+  url('../SoleilSb.woff2') format('woff2'),
+  url('../SoleilSb.woff') format('woff'),
+  url('../SoleilSb.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'SoleilBook';
+  src: url('../SoleilBk.eot');
+  src: url('../SoleilBk.eot?#iefix') format('embedded-opentype'),
+  url('../SoleilBk.woff2') format('woff2'),
+  url('../SoleilBk.woff') format('woff'),
+  url('../SoleilBk.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'SoleilBi';
+  src: url('../Soleil-BoldItalic.eot');
+  src: url('../Soleil-BoldItalic.eot?#iefix') format('embedded-opentype'),
+  url('../Soleil-BoldItalic.woff2') format('woff2'),
+  url('../Soleil-BoldItalic.woff') format('woff'),
+  url('../Soleil-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'SoleilBold';
+  src: url('../Soleil-Bold.eot');
+  src: url('../Soleil-Bold.eot?#iefix') format('embedded-opentype'),
+  url('../Soleil-Bold.woff2') format('woff2'),
+  url('../Soleil-Bold.woff') format('woff'),
+  url('../Soleil-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: fallback;
+}
+
+*, *::before, *::after  {
+  font-family: SoleilRegular, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 54px;
+  font-family: SoleilBold, SoleilSemiBold, SoleilBook, SoleilRegular, Arial, sans-serif;
+  font-weight: normal;
+}
+
+@media all and (max-width: 768px) {
+  h1 {
+    font-size: 35px;
+  }
+}
+
+@media all and (max-width: 480px) {
+  h1 {
+    font-size: 30px;
+  }
+}
+
+h2 {
+  font-size: 35px;
+  font-family: SoleilBold, SoleilSemiBold, SoleilBook, SoleilRegular, Arial, sans-serif;
+  font-weight: normal;
+}
+
+h1, h2 {
+  line-height: normal;
+}
+
+.font24 {
+  font-size: 24px;
+  line-height: 38px;
+}
+
+nav a {
+  font-family: SoleilSemiBold, SoleilBook, SoleilRegular, Arial, sans-serif;
+}
