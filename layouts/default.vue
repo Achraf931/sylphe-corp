@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div ref="sylphe_container" class="sylphe_container h-screen w-screen max-w-screen max-h-screen transition-all duration-700 ease-in-out fixed top-0 left-0" style="z-index: 999999999; background-color: #1E1F1D;">
-      <video ref="sylphe" muted playsinline autoplay preload="metadata" class="video-first h-full w-full max-w-screen max-h-screen">
+    <div ref="sylphe_container" class="sylphe_container h-screen w-screen max-w-screen max-h-screen transition-all duration-700 ease-in-out fixed top-0 left-0" style="z-index: 999999999;">
+      <video ref="sylphe" muted playsinline autoplay preload="metadata" class="object-cover video-first h-full w-full max-w-screen max-h-screen">
         <source src="/sylphe.mp4" type="video/mp4">
       </video>
     </div>
