@@ -48,6 +48,11 @@
               .call(() => {
                 this.$viewportObserverState.active = true
               }, null, '+=0.4')
+            .to(this.$gsap.utils.toArray('.top-text'), {
+              autoAlpha: 1,
+              x: 0,
+              y: 0
+            }, 2)
           }
         })
     }
@@ -55,7 +60,7 @@
 </script>
 
 <style lang="scss">
-.is-visible {
+.is-visible, .top-text {
   opacity: 0;
   transform: translateY(30px);
 }

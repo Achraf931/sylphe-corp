@@ -1,11 +1,11 @@
 <template>
   <div>
     <section id="topPage" class="relative w-full max-w-full h-screen bg-blue flex items-center justify-center flex-col text-white">
-      <div v-observe="{ onEnter: visibility, once: true }" class="is-visible-top box-content py-0 px-7.5 text-center">
-        <h1 class="lg:text-32px text-3vw leading-normal">{{ $t('Home.topPageTitlePart1') }}</h1>
-        <h1 class="lg:text-32px text-3vw leading-normal font-bold mb-13 md:mb-5">{{ $t('Home.topPageTitlePart2') }}</h1>
+      <div class="box-content py-0 px-7.5 text-center">
+        <h1 class="top-text lg:text-32px text-3vw leading-normal">{{ $t('Home.topPageTitlePart1') }}</h1>
+        <h1 class="top-text lg:text-32px text-3vw leading-normal font-bold mb-13 md:mb-5">{{ $t('Home.topPageTitlePart2') }}</h1>
         <h2 v-html="$t('Home.description')"
-            class="2xl:text-24px text-1.5vw font-regular m-auto 2xl:w-full w-1/2 2xl:max-w-640 xs:text-base xs:leading-5 md:text-xl md:leading-6"/>
+            class="top-text 2xl:text-24px text-1.5vw font-regular m-auto 2xl:w-full w-1/2 2xl:max-w-640 xs:text-base xs:leading-5 md:text-xl md:leading-6"/>
       </div>
     </section>
 
