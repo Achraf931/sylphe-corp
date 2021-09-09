@@ -18,7 +18,7 @@ export default {
     title: 'Des superhumains,<br>pas des robots\u00a0!',
     button: 'Découvrir l\'agence',
     text1: 'On entretient la même relation avec nos clients que dans notre équipe\u00a0: Pas de complications inutiles\u00a0!',
-    text: 'On entretient la même relation avec nos clients que dans notre équipe\u00a0:<br>Pas de complications inutiles\u00a0! Humains avant tout, en paroles comme en actes\u00a0: chacun se doit d’être à l’aise, écouté et compris dans ses besoins\u00a0!',
+    text: 'On entretient la même relation avec nos clients que dans notre équipe\u00a0: pas de complications inutiles\u00a0! Humains avant tout, en paroles comme en actes\u00a0: chacun se doit d’être à l’aise, écouté et compris dans ses besoins\u00a0!',
   },
   projects: {
     trial: 'Version d\'essai',

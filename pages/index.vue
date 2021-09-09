@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section id="topPage" class="relative w-full max-w-full h-screen bg-blue flex items-center justify-center flex-col text-white">
+    <section id="topPage" style="margin-bottom: 100vh;" class="z-10 relative w-full max-w-full h-screen bg-blue flex items-center justify-center flex-col text-white">
       <div class="box-content py-0 px-7.5 text-center">
         <h1 class="top-text lg:text-32px text-3vw leading-normal">{{ $t('Home.topPageTitlePart1') }}</h1>
         <h1 class="top-text lg:text-32px text-3vw leading-normal font-bold mb-13 md:mb-5">{{ $t('Home.topPageTitlePart2') }}</h1>
@@ -9,14 +9,14 @@
       </div>
     </section>
 
-    <section class="relative w-full max-w-full h-screen flex items-center justify-center" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/showreel/SHOWREEL.png');  background-repeat: no-repeat; background-position: center center; background-size: cover;">
+    <section class="fixed left-0 top-0 w-full max-w-full h-screen flex items-center justify-center" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/showreel/SHOWREEL.png');  background-repeat: no-repeat; background-position: center center; background-size: cover; z-index: -1">
       <div class="py-2.5 border-b-2 border-white border-solid flex items-center justify-between">
         <h2 class="font-bold text-white">Showreel</h2>
         <p class="ml-2 text-white text-4xl font-bold">→</p>
       </div>
     </section>
 
-    <section class="relative w-full max-w-full h-screen flex items-center justify-center">
+    <section id="secret" class="z-10 overflow-hidden relative w-full max-w-full h-screen bg-white flex items-center justify-center">
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2">
         <h2 class="mb-4 text-2.5vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Home.body.title') }}</h2>
 
@@ -24,41 +24,53 @@
       </div>
     </section>
 
+    <section class="z-10 bg-lightGray w-full max-w-full h-screen px-0 md:text-24px md:mx-auto md:mt-auto flex justify-between items-center">
+      <div class="relative overflow-hidden w-1/4 h-full">
+        <div class="sidebar-service w-full h-full bg-white" style="transform: translateX(-100%)"></div>
+      </div>
 
-
-
-
-    <section class="bg-lightGray w-full max-w-full h-screen px-0 md:text-24px md:mx-auto md:mt-auto flex justify-between items-center">
-      <div class="bg-white" style="width: 300px; height: 95vh"></div>
-      <div class="flex items-center flex-col mb-14">
+      <div class="w-2/4 flex items-center flex-col">
         <p :class="{'service-selected': currentService === 'events'}" @click="currentService = 'events'"
            @mouseover="currentService = 'events'"
+           @mouseenter="enterService('events')"
+           @mouseleave="leaveService('events')"
            class="capitalize cursor-pointer text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal">
           {{ $t('tmp.home.events') }}</p>
         <p :class="{'service-selected': currentService === 'digital'}" @click="currentService = 'digital'"
            @mouseover="currentService = 'digital'"
+           @mouseenter="enterService('digital')"
+           @mouseleave="leaveService('digital')"
            class="cursor-pointer text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal">
           {{ $t('tmp.home.digital') }}</p>
         <p :class="{'service-selected': currentService === 'influence'}" @click="currentService = 'influence'"
            @mouseover="currentService = 'influence'"
+           @mouseenter="enterService('influence')"
+           @mouseleave="leaveService('influence')"
            class="cursor-pointer text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal">
           {{ $t('tmp.home.influence') }}</p>
         <p :class="{'service-selected': currentService === 'products'}" @click="currentService = 'products'"
            @mouseover="currentService = 'products'"
+           @mouseenter="enterService('products')"
+           @mouseleave="leaveService('products')"
            class="cursor-pointer text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal">
           {{ $t('tmp.home.production') }}</p>
         <p :class="{'service-selected': currentService === 'design'}" @click="currentService = 'design'"
            @mouseover="currentService = 'design'"
+           @mouseenter="enterService('design')"
+           @mouseleave="leaveService('design')"
            class="cursor-pointer text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal">
           {{ $t('tmp.home.design') }}</p>
       </div>
-      <div class="bg-white" style="width: 300px; height: 95vh"></div>
+
+      <div class="relative overflow-hidden w-1/4 h-full">
+        <div class="sidebar-service w-full h-full bg-white" style="transform: translateX(100%)"></div>
+      </div>
     </section>
 
 
 
 
-    <section id="teams" class="relative w-full max-w-full h-screen flex items-center justify-between bg-blue">
+    <section id="teams" class="z-10 relative w-full max-w-full h-screen flex items-center justify-between bg-blue">
       <div class="pl-10 w-1/4 h-full overflow-hidden flex flex-col-reverse">
         <div class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="height: 206px; min-height: 206px; transform: translateY(-100%)">1</div>
         <div class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="height: 206px; min-height: 206px; transform: translateY(-100%)">2</div>
@@ -158,12 +170,12 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
           <img class="absolute bottom-2.5 w-24 -right-12 md:hidden" src="/items/deco-2@2x.png.webp" alt="Wave">
         </section>-->
 
-    <section id="projects" class="relative overflow-hidden w-full max-w-screen h-screen">
-      <div class="flex flex-col items-center justify-center w-full h-full">
-        <h1 style="font-size: 4vw;" class="mb-10 text-center">Vous voulez connaître<br>notre niveau de jeu ?</h1>
-        <p class="mb-10 text-center">On n’a pas le droit de montrer tous nos projets, mais<br>
+    <section id="projects" class="z-10 relative overflow-hidden w-full max-w-screen h-screen">
+      <div class="flex flex-col bg-white items-center justify-center w-full h-full">
+        <h2 class="mb-4 mt-auto text-2.5vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Vous voulez connaître<br>notre niveau de jeu ?</h2>
+        <p class="text-1.5vw leading-normal font-regular text-center md:text-xl max-w-640">On n’a pas le droit de montrer tous nos projets, mais<br>
           on a quand même fait une belle petite sélection pour que vous puissiez avoir une idée de ce qu’on sait faire. </p>
-        <p class="font-bold text-center">SCROLLEZ →</p>
+        <p class="font-bold text-center mb-20 mt-auto">SCROLLEZ →</p>
       </div>
 
       <div class="project absolute flex items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/huetwyanf/image/upload/v1625055102/Passy_Plaza_SUMMER_SOLDES_2021_2aaaa05492.png')">
@@ -181,39 +193,46 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
       <div class="project absolute flex items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/huetwyanf/image/upload/v1624884841/passy_plaza_respecte_ta_mer_1024x480px_218b2bad24.jpg')">
         <p style="font-size: 4vw;" class="p text-white font-bold">Titre du projet</p>
       </div>
+    </section>
 
-      <div class="project bg-white absolute flex flex-col items-center justify-center p-10">
-        <p class="p font-bold text-black mb-10" style="font-size: 4vw;">Ils nous ont fait confiance</p>
+    <section class="z-10 w-full max-w-screen h-screen bg-lightGray flex flex-col items-center justify-center p-10">
+      <p class="p font-bold text-black mb-10" style="font-size: 4vw;">Ils nous ont fait confiance</p>
 
-        <div class="my-auto grid grid-cols-5 gap-10">
-          <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-          <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-          <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-          <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-          <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-          <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-          <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-          <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-          <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-          <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-          <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-          <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-          <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-          <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-          <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-          <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-          <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-          <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-          <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-          <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-        </div>
+      <div class="grid grid-cols-5 gap-10">
+        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
+        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
+        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
+        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
+        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
+        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
+        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
+        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
+        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
+        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
+        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
+        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
+        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
+        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
+        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
+        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
+        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
+        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
+        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
+        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
       </div>
+    </section>
 
-
-      <div class="project bg-blue absolute flex items-center justify-center flex-col">
-        <p style="font-size: 4vw;" class="p text-white font-bold mb-10">Challengez-nous !</p>
-        <p style="font-size: 2vw;" class="p text-white mb-10">Petit plus de la maison : nous adorons les besoins compliqués et les réponses sur-mesure.</p>
+    <section id="challenge" class="z-10 w-full max-w-screen h-screen bg-blue flex items-center justify-between">
+      <div class="relative overflow-hidden w-1/4 h-full">
+        <div class="sidebar-challenge w-full h-full bg-white" style="transform: translateX(-100%)"></div>
+      </div>
+      <div class="w-2/4 flex flex-col items-center px-10 text-center">
+        <p style="font-size: 4vw;" class="p leading-normal text-white font-bold mb-10">Challengez-nous !</p>
+        <p style="font-size: 2vw;" class="p leading-normal text-white mb-10">Petit plus de la maison : nous adorons les besoins compliqués et les réponses sur-mesure.</p>
         <a id="buttonCall" href="https://calendly.com/sylphe/reunion" target="_blank" rel="noreferrer noopener" class="defaultButton mt-10 hoverAnimation md:text-13px text-1.2vw leading-normal">Nous contacter</a>
+      </div>
+      <div class="relative overflow-hidden w-1/4 h-full">
+        <div class="sidebar-challenge w-full h-full bg-white" style="transform: translateX(100%)"></div>
       </div>
     </section>
   </div>
@@ -284,7 +303,7 @@ export default {
           pin: true,
           start: 'top top',
           end: '+=3000',
-          scrub: 1
+          scrub: true
         },
         ease: 'power2.inOut'
       })
@@ -294,23 +313,64 @@ export default {
       const img = projects[i].childNodes[2];
       const a = projects[i].childNodes[4];
 
-      ptl.to({}, {duration: 2})
+      ptl.to({}, {scrub: 2, duration: 10})
         .to(projects[i], {
           x: '-50%',
           left: '50%',
-          duration: 6
+          duration: 15
         })
         .to(projects[i], {
           maxWidth: '100vw',
-          height: '100vh'
+          height: '100vh',
+          duration: 15
         })
         .to([p, img, a], {
-          autoAlpha: 1
-        }, '-=0.5')
-        .to({}, { duration: 2} )
+          autoAlpha: 1,
+          duration: 15
+        }, '<')
+        .to({}, { duration: 4} )
     }
 
-    ptl.to({}, { duration: 2 })
+    ptl.to({}, { duration: 4 })
+
+
+    //  Anim challenge section
+    const chtl = this.$gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '#challenge',
+          start: 'top bottom',
+          end: '+=100%',
+          scrub: 0.1
+        },
+        ease: 'power2.inOut'
+      })
+      .to('.sidebar-challenge', {
+        x: 0,
+        duration: 4
+      })
+  },
+  methods: {
+    enterService(service) {
+      this.$gsap
+        .timeline({ ease: 'power2.inOut' })
+        .to('.sidebar-service', {
+          x: 0,
+          duration: 0.2
+        })
+    },
+    leaveService(service) {
+      this.$gsap
+        .timeline({ ease: 'power2.inOut' })
+        .to(this.$gsap.utils.toArray('.sidebar-service')[0], {
+          x: '-100%',
+          duration: 0.2
+        })
+        .to(this.$gsap.utils.toArray('.sidebar-service')[1], {
+          x: '100%',
+          duration: 0.2
+        }, 0)
+    }
   }
 }
 </script>
