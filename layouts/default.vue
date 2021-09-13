@@ -1,7 +1,7 @@
 <template>
   <div>
     <div ref="sylphe_container" class="sylphe_container h-screen w-screen max-w-screen max-h-screen transition-all duration-700 ease-in-out fixed top-0 left-0" style="z-index: 999999999;">
-      <video ref="sylphe" muted playsinline autoplay preload="metadata" class="object-cover video-first h-full w-full max-w-screen max-h-screen">
+      <video ref="sylphe" muted playsinline preload="metadata" class="object-cover video-first h-full w-full max-w-screen max-h-screen">
         <source src="/sylphe.mp4" type="video/mp4">
       </video>
     </div>
@@ -35,27 +35,6 @@
   Vue.mixin(transition)
 
   export default {
-    beforeMount() {
-      this.$gsap
-        .timeline()
-        .call(() => {
-          this.$refs.sylphe.play()
-          this.$refs.sylphe.onended = () => {
-            this.$gsap.timeline()
-              .to(document.querySelector('.sylphe_container'), {
-                autoAlpha: 0
-              })
-              .call(() => {
-                this.$viewportObserverState.active = true
-              }, null, '+=0.4')
-            .to(this.$gsap.utils.toArray('.top-text'), {
-              autoAlpha: 1,
-              x: 0,
-              y: 0
-            }, 2)
-          }
-        })
-    }
   }
 </script>
 
@@ -293,22 +272,5 @@
       transform: translate(-3px, -3px);
       box-shadow: 3px 3px 0 0 black;
     }
-  }
-
-  .defaultButton {
-    background-color: white;
-    border: 1px solid black;
-    color: black;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    min-height: 45px;
-    justify-content: center;
-    max-width: fit-content;
-    width: 100%;
-    font-family: SoleilBold, SoleilSemiBold, SoleilBook, SoleilRegular, Arial, sans-serif;
-    @apply md:text-13px text-1.2vw leading-normal;
   }
 </style>

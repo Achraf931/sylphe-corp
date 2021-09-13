@@ -1,24 +1,21 @@
 <template>
 <!--  <div id="burger" :class="{ 'active' : isBurgerActive }" @click.prevent="toggle">-->
   <div ref="burger" id="burger">
-    <div id="menu" class="bg-white max-w-screen w-full fixed top-0 left-0">
+    <div id="menu" class="bg-white max-w-screen w-full fixed top-0 left-0" style="z-index: -1;">
       <ul class="flex flex-col justify-center w-full h-full items-center">
-        <li class="mb-6 item-burger">
-          <NuxtLink class="text-24px font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" :to="localePath({name: 'index'})">{{ $t('nav.home') }}</NuxtLink>
+        <li class="mb-6 item-burger z-10">
+          <NuxtLink class="md:text-24px text-3vw font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" :to="localePath({name: 'index'})">{{ $t('nav.home') }}</NuxtLink>
         </li>
         <!--          <li class="mb-6" @click="closeSidebarPanel">
                     <NuxtLink class="text-24px font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" :to="localePath({name: 'services'})">{{ $t('nav.services') }}</NuxtLink>
                   </li>-->
         <li class="mb-6 item-burger">
-          <NuxtLink class="text-24px font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" :to="localePath({name: 'culture'})">{{ $t('nav.culture') }}</NuxtLink>
+          <NuxtLink class="md:text-24px text-3vw font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" :to="localePath({name: 'culture'})">{{ $t('nav.culture') }}</NuxtLink>
         </li>
         <li class="mb-6 item-burger">
-          <NuxtLink class="text-24px font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" :to="localePath({name: 'works'})">{{ $t('nav.works') }}</NuxtLink>
+          <NuxtLink class="md:text-24px text-3vw font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" :to="localePath({name: 'contact'})">{{ $t('nav.contact') }}</NuxtLink>
         </li>
-        <li class="mb-6 item-burger">
-          <NuxtLink class="text-24px font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" :to="localePath({name: 'contact'})">{{ $t('nav.contact') }}</NuxtLink>
-        </li>
-        <a class="hoverAnimation item-burger text-sm border border-solid border-black rounded-5 px-5 py-3 mb-0 font-bold" href="https://calendly.com/sylphe/reunion" target="_blank" rel="noreferrer noopener">{{ $t('nav.call') }}</a>
+        <a href="https://calendly.com/sylphe/reunion" target="_blank" rel="noreferrer noopener" class="item-burger defaultButton hoverAnimation">{{ $t('nav.call') }}</a>
       </ul>
     </div>
     <slot>
@@ -77,22 +74,35 @@
 
             tl.to(items, {
               y: 0,
-              display: 'block',
               autoAlpha: 1,
+              display: 'flex',
               duration: 1,
               ease: 'power3.out'
-            }, '-=0.75')
-
+            }, '-=0.75');
         }
       })
     }
   }
 </script>
 <style lang="scss" scoped>
+.defaultButton {
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+  align-items: center;
+  min-height: 45px;
+  justify-content: center;
+  font-family: SoleilBold, SoleilSemiBold, SoleilBook, SoleilRegular, Arial, sans-serif;
+  @apply md:text-13px text-1.2vw leading-normal;
+}
+
 .item-burger {
   opacity: 0;
-  visibility: hidden;
   display: none;
+  visibility: hidden;
   transform: translate(0, -40px);
 }
   .bgBlack {

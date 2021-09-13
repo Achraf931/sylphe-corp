@@ -33,6 +33,10 @@
 </g>
 </svg>
       </NuxtLink>
+      <div v-observe="{ onEnter: visibility, once: true }" @mouseenter="enterAnim()" @mouseleave="leaveAnim()" class="is-visible-top flex ml-auto">
+        <p @click="switchLanguage(locale.code)" class="is-visible-lang uppercase mr-5 opacity-50 cursor-pointer hover:opacity-100 transition-all duration-150 ease-in-out" v-for="locale in $i18n.locales" :key="locale.code" v-if="locale.code !== $i18n.locale">{{ locale.code }}</p>
+        <p ref="lang" id="lang" class="uppercase font-bold mr-5 cursor-default">{{ $i18n.locales.find(elem => elem.code === $i18n.locale).code }}</p>
+      </div>
       <IncludesBurger burgerColor="black"/>
     </nav>
   </header>
@@ -40,10 +44,45 @@
 
 <script>
 export default {
+  methods: {
+    enterAnim() {
+      this.$gsap
+        .timeline()
+        .to(this.$gsap.utils.toArray('.is-visible-lang'), {
+          autoAlpha: 1,
+          duration: 0.2,
+          ease: 'power2.out',
+          x: 0
+        })
+    },
+    leaveAnim() {
+      this.$gsap
+        .timeline()
+        .to(this.$gsap.utils.toArray('.is-visible-lang'), {
+          autoAlpha: 0,
+          duration: 0.2,
+          ease: 'power2.out',
+          x: '40px'
+        })
+    },
+    switchLanguage(lang) {
+      this.$router.push(this.switchLocalePath(lang))
+      this.$viewportObserverState.active = false
+      setTimeout(() => {
+        this.$viewportObserverState.active = true
+      }, 400)
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+.is-visible-lang {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(40px);
+}
+
 .st0{fill:#0D0C0D;}
 
 nav > a:first-child {

@@ -2,10 +2,10 @@
   <div>
     <section id="topPage" style="margin-bottom: 100vh;" class="z-10 relative w-full max-w-full h-screen bg-blue flex items-center justify-center flex-col text-white">
       <div class="box-content py-0 px-7.5 text-center">
-        <h1 class="top-text lg:text-32px text-3vw leading-normal">{{ $t('Home.topPageTitlePart1') }}</h1>
-        <h1 class="top-text lg:text-32px text-3vw leading-normal font-bold mb-13 md:mb-5">{{ $t('Home.topPageTitlePart2') }}</h1>
-        <h2 v-html="$t('Home.description')"
-            class="top-text 2xl:text-24px text-1.5vw font-regular m-auto 2xl:w-full w-1/2 2xl:max-w-640 xs:text-base xs:leading-5 md:text-xl md:leading-6"/>
+        <h1 v-observe="{ onEnter: visibility, threshold: 1 }" class="is-visible lg:text-32px text-3vw leading-normal">{{ $t('Home.topPageTitlePart1') }}</h1>
+        <h1 v-observe="{ onEnter: visibility, threshold: 1 }" class="is-visible lg:text-32px text-3vw leading-normal font-bold mb-13 md:mb-5">{{ $t('Home.topPageTitlePart2') }}</h1>
+        <h2 v-observe="{ onEnter: visibility, threshold: 1 }" v-html="$t('Home.description')"
+            class="is-visible 2xl:text-24px text-1.5vw font-regular m-auto 2xl:w-full w-1/2 2xl:max-w-640 xs:text-base xs:leading-5 md:text-xl md:leading-6"/>
       </div>
     </section>
 
@@ -18,9 +18,9 @@
 
     <section id="secret" class="z-10 overflow-hidden relative w-full max-w-full h-screen bg-white flex items-center justify-center">
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2">
-        <h2 class="mb-4 text-2.5vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Home.body.title') }}</h2>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible mb-4 text-2.5vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Home.body.title') }}</h2>
 
-        <p class="text-1.5vw leading-normal font-regular md:text-xl" v-html="$t('Home.body.text')"/>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl" v-html="$t('Home.body.text')"/>
       </div>
     </section>
 
@@ -72,30 +72,28 @@
 
     <section id="teams" class="z-10 relative w-full max-w-full h-screen flex items-center justify-between bg-blue">
       <div class="pl-10 w-1/4 h-full overflow-hidden flex flex-col-reverse">
-        <div class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="height: 206px; min-height: 206px; transform: translateY(-100%)">1</div>
-        <div class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="height: 206px; min-height: 206px; transform: translateY(-100%)">2</div>
-        <div class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="height: 206px; min-height: 206px; transform: translateY(-100%)">3</div>
-        <div class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="height: 206px; min-height: 206px; transform: translateY(-100%)">4</div>
-        <div class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="height: 206px; min-height: 206px; transform: translateY(-100%)">5</div>
-        <div class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="height: 206px; min-height: 206px; transform: translateY(-100%)">6</div>
+        <img src="/team/samy.webp" alt="Samy" class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="transform: translateY(-100%)"/>
+        <img src="/team/pierre.webp" alt="Pierre" class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="transform: translateY(-100%)"/>
+        <img src="/team/allison.webp" alt="Allison" class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="transform: translateY(-100%)"/>
+        <img src="/team/ben.webp" alt="Ben" class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="transform: translateY(-100%)"/>
+        <img src="/team/btissam.webp" alt="Btissam" class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="transform: translateY(-100%)"/>
+        <img src="/team/guy.webp" alt="Guy" class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="transform: translateY(-100%)"/>
       </div>
 
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2 mx-10">
         <h2 class="mb-4 text-2.5vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white"
             v-html="$t('Home.teams.title')"/>
         <p class="text-1.5vw leading-normal font-regular md:text-xl text-white" v-html="$t('Home.teams.text')"/>
-        <NuxtLink class="defaultButton mt-5 mx-auto hoverAnimation md:text-13px text-1.2vw leading-normal"
-                  :to="localePath({name: 'services'})">{{ $t('Home.teams.button') }}
-        </NuxtLink>
+        <UiButton class="mt-5 mx-auto" :link="localePath({name: 'services'})">{{ $t('Home.teams.button') }}</UiButton>
       </div>
 
       <div class="pr-10 w-1/4 h-full overflow-hidden">
-        <div class="to-top bg-white flex items-center justify-center" style="height: 206px; transform: translateY(100%)">1</div>
-        <div class="to-top mt-10 bg-white flex items-center justify-center" style="height: 206px; transform: translateY(100%)">2</div>
-        <div class="to-top mt-10 bg-white flex items-center justify-center" style="height: 206px; transform: translateY(100%)">3</div>
-        <div class="to-top mt-10 bg-white flex items-center justify-center" style="height: 206px; transform: translateY(100%)">4</div>
-        <div class="to-top mt-10 bg-white flex items-center justify-center" style="height: 206px; transform: translateY(100%)">5</div>
-        <div class="to-top mt-10 bg-white flex items-center justify-center" style="height: 206px; transform: translateY(100%)">6</div>
+        <img src="/team/charfeddine.webp" alt="Charfeddine" class="to-top bg-white flex items-center justify-center" style="transform: translateY(100%)"/>
+        <img src="/team/kaia.webp" alt="Kaia" class="to-top mt-10 bg-white flex items-center justify-center" style="transform: translateY(100%)"/>
+        <img src="/team/kim.webp" alt="Kim" class="to-top mt-10 bg-white flex items-center justify-center" style="transform: translateY(100%)"/>
+        <img src="/team/mari.webp" alt="Mari" class="to-top mt-10 bg-white flex items-center justify-center" style="transform: translateY(100%)"/>
+        <img src="/team/marie.webp" alt="Marie" class="to-top mt-10 bg-white flex items-center justify-center" style="transform: translateY(100%)"/>
+        <img src="/team/mehdi.webp" alt="Mehdi" class="to-top mt-10 bg-white flex items-center justify-center" style="transform: translateY(100%)"/>
       </div>
     </section>
 
@@ -178,61 +176,83 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
         <p class="font-bold text-center mb-20 mt-auto">SCROLLEZ →</p>
       </div>
 
-      <div class="project absolute flex items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/huetwyanf/image/upload/v1625055102/Passy_Plaza_SUMMER_SOLDES_2021_2aaaa05492.png')">
-        <p style="font-size: 4vw;" class="p text-white font-bold">Titre du projet</p>
+      <div class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/JEUCONCOURS_MINIATURE_la_rentrée_ludique.png')">
+        <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">Passy Plaza</h2>
+        <p class="p text-1.5vw leading-normal font-regular text-white text-center md:text-xl">Description rapide du contexte du projet.</p>
+
+        <div class="absolute left-1/2 bottom-10" style="transform: translateX(-50%)">
+          <div class="flex">
+            <div class="rounded-md border font-medium border-solid border-white p-5 text-white">Influence</div>
+            <div class="rounded-md ml-10 border font-medium border-solid border-white p-5 text-white">Digital</div>
+            <div class="rounded-md ml-10 border font-medium border-solid border-white p-5 text-white">Design</div>
+          </div>
+
+          <p class="text-white text-center font-medium mt-5">1/3</p>
+        </div>
       </div>
 
-      <div class="project absolute flex items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/huetwyanf/image/upload/v1610976535/photo_de_couv_article_1_f84953c392.webp')">
-        <p style="font-size: 4vw;" class="p text-white font-bold">Titre du projet</p>
+      <div class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/Rectangle 569.png')">
+        <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">celio x Visionnaire</h2>
+        <p class="p text-1.5vw leading-normal font-regular text-white text-center md:text-xl">Description rapide du contexte du projet.</p>
+
+        <div class="absolute left-1/2 bottom-10" style="transform: translateX(-50%)">
+          <div class="flex">
+            <div class="rounded-md border font-medium border-solid border-white p-5 text-white">Influence</div>
+            <div class="rounded-md ml-10 border font-medium border-solid border-white p-5 text-white">Design</div>
+          </div>
+
+          <p class="text-white text-center font-medium mt-5">2/3</p>
+        </div>
       </div>
 
-      <div class="project absolute flex items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/huetwyanf/image/upload/v1610970169/article_clickandcollect_final_1_3141ff6480.webp')">
-        <p style="font-size: 4vw;" class="p text-white font-bold">Titre du projet</p>
-      </div>
+      <div class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/ESIEE-JOURNÉE29-06-32.2.png')">
+        <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">ESIEE</h2>
+        <p class="p text-1.5vw leading-normal font-regular text-white text-center md:text-xl">Description rapide du contexte du projet.</p>
 
-      <div class="project absolute flex items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/huetwyanf/image/upload/v1624884841/passy_plaza_respecte_ta_mer_1024x480px_218b2bad24.jpg')">
-        <p style="font-size: 4vw;" class="p text-white font-bold">Titre du projet</p>
+        <div class="absolute left-1/2 bottom-10" style="transform: translateX(-50%)">
+          <div class="flex">
+            <div class="rounded-md border font-medium border-solid border-white p-5 text-white">Éditorial</div>
+            <div class="rounded-md ml-10 border font-medium border-solid border-white p-5 text-white">Design</div>
+          </div>
+
+          <p class="text-white text-center font-medium mt-5">3/3</p>
+        </div>
       </div>
     </section>
 
     <section class="z-10 w-full max-w-screen h-screen bg-lightGray flex flex-col items-center justify-center p-10">
       <p class="p font-bold text-black mb-10" style="font-size: 4vw;">Ils nous ont fait confiance</p>
 
-      <div class="grid grid-cols-5 gap-10">
-        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
-        <img class="img" src="https://a.c-dn.net/c/content/dam/publicsites/igcom/fr/images/marketanalysis/Logo%20LVMH.jpg" alt="LVMH">
-        <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kenzo.svg/800px-Kenzo.svg.png" alt="KENZO">
+      <div class="grid grid-cols-5 gap-10 items-center">
+        <img class="img w-2/5 mx-auto" src="/clients/LVMH_logo_logotype_Moët_Hennessy_Louis_Vuitton.png" alt="LVMH">
+        <img class="img w-2/5 mx-auto" src="/clients/kenzo-logo-def.png" alt="KENZO">
+        <img class="img w-2/5 mx-auto" src="/clients/logo-grandrex.png" alt="Le Grand Rex">
+        <img class="img w-2/5 mx-auto" src="/clients/Westfield-Les-4-Temps-Logo.ashx.png" alt="Westfield Les 4 Temps">
+        <img class="img w-2/5 mx-auto" src="/clients/cultura.png" alt="Cultura">
+        <img class="img w-2/5 mx-auto" src="/clients/Niantic_Logo.png" alt="Niantic">
+        <img class="img w-2/5 mx-auto" src="/clients/1280px-Viz_Media_2017_logo.svg.png" alt="Viz Media">
+        <img class="img w-2/5 mx-auto" src="/clients/Peugeot_2021_Logo.svg.png" alt="Peugeot">
+        <img class="img w-2/5 mx-auto" src="/clients/ffsa.png" alt="FFSA">
+        <img class="img w-2/5 mx-auto" src="/clients/Icade_logo_2017.png" alt="Icade">
+        <img class="img w-2/5 mx-auto" src="/clients/logo-passy-plaza-fd-transparent.png" alt="Passy Plaza">
+        <img class="img w-2/5 mx-auto" src="/clients/Logo_ESIEE_Paris.svg.png" alt="ESIEE">
+        <img class="img w-2/5 mx-auto" src="/clients/arianelab-97202.png" alt="ArianeLab">
+        <img class="img w-2/5 mx-auto" src="/clients/logo.png" alt="Ville de Chatillon">
+        <img class="img w-2/5 mx-auto" src="/clients/1200px-Logo_celio_2016.svg.png" alt="Celio">
       </div>
     </section>
 
     <section id="challenge" class="z-10 w-full max-w-screen h-screen bg-blue flex items-center justify-between">
       <div class="relative overflow-hidden w-1/4 h-full">
-        <div class="sidebar-challenge w-full h-full bg-white" style="transform: translateX(-100%)"></div>
+        <div class="sidebar-challenge opacity-50 w-full h-full bg-white" style="transform: translateX(-100%)"></div>
       </div>
       <div class="w-2/4 flex flex-col items-center px-10 text-center">
         <p style="font-size: 4vw;" class="p leading-normal text-white font-bold mb-10">Challengez-nous !</p>
         <p style="font-size: 2vw;" class="p leading-normal text-white mb-10">Petit plus de la maison : nous adorons les besoins compliqués et les réponses sur-mesure.</p>
-        <a id="buttonCall" href="https://calendly.com/sylphe/reunion" target="_blank" rel="noreferrer noopener" class="defaultButton mt-10 hoverAnimation md:text-13px text-1.2vw leading-normal">Nous contacter</a>
+        <UiButton class="mt-5 mx-auto" :link="'https://calendly.com/sylphe/reunion'" :target="true">{{ $t('nav.call') }}</UiButton>
       </div>
       <div class="relative overflow-hidden w-1/4 h-full">
-        <div class="sidebar-challenge w-full h-full bg-white" style="transform: translateX(100%)"></div>
+        <div class="sidebar-challenge opacity-50 w-full h-full bg-white" style="transform: translateX(100%)"></div>
       </div>
     </section>
   </div>
@@ -256,19 +276,19 @@ export default {
         trigger: '#teams',
         pin: true,
         start: 'top top',
-        end: '+=1500',
+        end: '+=3000',
         scrub: true
       }
     })
       .to(toTop, {
         y: '-100%',
-        yPercent: -100,
-        duration: 4
+        yPercent: -toBottom[0].height,
+        duration: 2
       })
       .to(toBottom, {
         y: '100%',
-        yPercent: 100,
-        duration: 4
+        yPercent: toBottom[0].height,
+        duration: 2
       }, 0)
 
     const tl = this.$gsap.timeline({
@@ -309,9 +329,11 @@ export default {
       })
 
     for (let i = 0; i < projects.length; i++) {
-      const p = projects[i].childNodes[0];
-      const img = projects[i].childNodes[2];
-      const a = projects[i].childNodes[4];
+      const h2 = projects[i].childNodes[0];
+      const p = projects[i].childNodes[2];
+      const div = projects[i].childNodes[4];
+      const img = projects[i].childNodes[6];
+      const a = projects[i].childNodes[8];
 
       ptl.to({}, {scrub: 2, duration: 10})
         .to(projects[i], {
@@ -324,7 +346,7 @@ export default {
           height: '100vh',
           duration: 15
         })
-        .to([p, img, a], {
+        .to([h2, p, div, img, a], {
           autoAlpha: 1,
           duration: 15
         }, '<')
@@ -387,7 +409,7 @@ export default {
   left: 100%;
   transform: translate(0, -50%);
 
-  p, a, div {
+  & > h2, & > p, & > a, & > div {
     opacity: 0;
     visibility: hidden;
   }

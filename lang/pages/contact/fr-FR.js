@@ -26,7 +26,7 @@ export default {
   },
   joinUs: {
     title: 'Envie de nous rejoindre\u00a0?',
-    subtitle: 'Une phrase pour inciter les gens à nous rejoindre. C\'est fun, on mange bien, et on s\'amuse beaucoup. Bon, on n\'a plus de chauffage pour le moment.',
+    subtitle: 'Une phrase pour inciter les gens à nous rejoindre.<br>C\'est fun, on mange bien, et on s\'amuse beaucoup.',
     otherIdea: 'Une autre idée\u00a0?',
     sendApplication: 'Envoyer une candidature spontannée'
   }

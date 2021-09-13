@@ -1,50 +1,50 @@
-/*
+
 export default {
     transition(to, from) {
       return {
         appear: true,
         enter(el, done) {
-          const tl = this.$gsap
-            .timeline({ onComplete: done })
-            .call(() => {
-              this.refs.sylphe_container
-            })
-          this.$viewportObserverState.active = true
+          if (sessionStorage.getItem('anim')) {
+            this.$gsap
+              .timeline()
+              .call(() => {
+                this.$refs.sylphe.play()
+                this.$refs.sylphe.onended = () => {
+                  this.$gsap.timeline()
+                    .to(document.querySelector('.sylphe_container'), {
+                      autoAlpha: 0
+                    })
+                    .call(() => {
+                      sessionStorage.setItem('anim', false)
+                      this.$viewportObserverState.active = true
+                    }, null, 0.3)
+                }
+              })
+          }
+          else {
+            if (document.querySelector('.sylphe_container'))
+              document.querySelector('.sylphe_container').remove()
 
-          /!*const tl = this.$gsap
-            .timeline({ onComplete: done })
+            this.$gsap
+              .timeline({ onComplete: done })
+              .call(() => {
+                window.scrollTo(0, 0)
+              })
             .call(() => {
-              window.scrollTo(0, 0)
-            })
-            if (from) {
-              tl
-                .fromTo('.loader', {
-                  y: '0%'
-                },
-                {
-                  y: '-100%',
-                  duration: 0.6,
-                  ease: 'power2.in'
-                })
-            }
-            tl.call(() => {
               this.$viewportObserverState.active = true
-            }, null, 0.3)*!/
+            }, null, '<')
+          }
         },
         leave(el, done) {
-          /!*this.$gsap
+          this.$gsap
             .timeline({ onComplete: done })
-            .fromTo('.loader', {
-                y: '120%'
-              },
-              {
-                y: '0%',
+            .to('.top-text', {
+                y: '-40px',
                 duration: 0.6,
                 ease: 'power2.out'
-              })*!/
+              })
           this.$viewportObserverState.active = false
         }
       }
     }
 }
-*/

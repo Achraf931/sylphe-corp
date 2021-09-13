@@ -2,12 +2,12 @@ export default {
   topPageTitle: 'Une agence humaine indépendante, <br>une passion commune',
   description: 'Nous sommes heureux de voir que vous prenez le temps de nous connaître.',
   goodVibes: {
-    firstLittle: 'De l\'amour et de la bonne humeur',
-    title: 'Chez Sylphe, nous souhaitons retransmettre la passion de la pop culture qui nous anime depuis que nous sommes enfants et grâce à laquelle nous existons aujourd\'hui.'
+    title: 'De l\'amour et de la bonne humeur',
+    text: 'Unie par des passions communes, des ambitions partagées et une motivation sans faille, l’équipe de Sylphe profite de sa diversité de parcours pour élargir ses horizons en permanence.'
   },
-  team: {
-    title: 'Un mot doux',
-    text: 'Des mots gentils sur l\'équipe qui permet à Sylphe d\'être Sylphe. Voyez ce jeu exquis wallon, de graphie en kit mais bref. Portez ce vieux whisky au juge blond qui fume sur son île intérieure, à côté de l"alcôve ovoïde, où les bûches se consument dans l"âtre, ce qui lui permet de penser à la cænogenèse de l"être dont il est question dans la.'
+  ourTeam: {
+    title: 'Notre équipe',
+    text: 'Depuis sa création, Sylphe continue d’élargir son équipe afin de répondre à des besoins bien précis. Aujourd’hui, tous ses membres contribuent à lier le bien-être à l’efficacité au sein de l’agence. Notre secret\u00a0? On s’aime tous\u00a0!'
   },
   methods: {
     firstLittle: 'Une méthode carrée',
