@@ -3,17 +3,17 @@
   <div ref="containerBurger" id="burger">
     <div id="menu" class="bg-white max-w-screen w-full fixed top-0 left-0" style="z-index: -1;">
       <ul class="flex flex-col justify-center w-full h-full items-center">
-        <li class="cursor-pointer mb-6 item-burger z-10">
-          <p class="md:text-24px text-3vw font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" @click="navigate('index')">{{ $t('nav.home') }}</p>
+        <li class="cursor-pointer item-burger z-10">
+          <p class="md:text-24px leading-normal text-3vw font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" @click="navigate('index')">{{ $t('nav.home') }}</p>
         </li>
         <!--          <li class="mb-6" @click="closeSidebarPanel">
                     <NuxtLink class="text-24px font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" :to="localePath({name: 'services'})">{{ $t('nav.services') }}</NuxtLink>
                   </li>-->
-        <li class="cursor-pointer mb-6 item-burger">
-          <p class="md:text-24px text-3vw font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" @click="navigate('culture')">{{ $t('nav.culture') }}</p>
+        <li class="cursor-pointer item-burger">
+          <p class="md:text-24px leading-normal text-3vw font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" @click="navigate('culture')">{{ $t('nav.culture') }}</p>
         </li>
         <li class="cursor-pointer mb-6 item-burger">
-          <p class="md:text-24px text-3vw font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" @click="navigate('contact')">{{ $t('nav.contact') }}</p>
+          <p class="md:text-24px leading-normal text-3vw font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" @click="navigate('contact')">{{ $t('nav.contact') }}</p>
         </li>
         <a href="https://calendly.com/sylphe/reunion" target="_blank" rel="noreferrer noopener" class="item-burger defaultButton hoverAnimation">{{ $t('nav.call') }}</a>
       </ul>
