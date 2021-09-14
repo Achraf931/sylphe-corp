@@ -250,17 +250,6 @@ export default {
   }
 }
 
-#joinUs h2::before {
-  @apply block absolute bg-no-repeat top-1/2;
-  width: 150px;
-  left: -75px;
-  background-image: url('/items/deco-3.svg');
-  height: 160px;
-  content: '';
-  background-size: 100%;
-  transform: translateY(-50%);
-}
-
 .error {
   @apply text-error mt-5 font-bold;
 }

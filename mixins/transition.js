@@ -38,12 +38,9 @@ export default {
         leave(el, done) {
           this.$gsap
             .timeline({ onComplete: done })
-            .to('.top-text', {
-                y: '-40px',
-                duration: 0.6,
-                ease: 'power2.out'
-              })
-          this.$viewportObserverState.active = false
+            .call(() => {
+              this.$viewportObserverState.active = false
+            })
         }
       }
     }

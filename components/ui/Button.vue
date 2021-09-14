@@ -5,7 +5,7 @@
   <NuxtLink v-else-if="link !== '' && !target" :to="link" class="defaultButton hoverAnimation">
     <slot></slot>
   </NuxtLink>
-  <button v-else-if="link === '' && target === ''" type="submit" class="defaultButton hoverAnimation">
+  <button v-else-if="link === '' && !target" type="submit" class="defaultButton hoverAnimation">
     <slot/>
   </button>
 </template>
@@ -18,7 +18,7 @@
         required: false
       },
       target: {
-        type: String,
+        type: Boolean,
         required: false
       }
     }
