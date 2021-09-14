@@ -34,31 +34,31 @@
            @mouseover="currentService = 'events'"
            @mouseenter="enterService('events')"
            @mouseleave="leaveService('events')"
-           class="capitalize cursor-pointer text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal">
+           class="cursor-pointer text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
           {{ $t('tmp.home.events') }}</p>
         <p :class="{'service-selected': currentService === 'digital'}" @click="currentService = 'digital'"
            @mouseover="currentService = 'digital'"
            @mouseenter="enterService('digital')"
            @mouseleave="leaveService('digital')"
-           class="cursor-pointer text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal">
+           class="cursor-pointer text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
           {{ $t('tmp.home.digital') }}</p>
         <p :class="{'service-selected': currentService === 'influence'}" @click="currentService = 'influence'"
            @mouseover="currentService = 'influence'"
            @mouseenter="enterService('influence')"
            @mouseleave="leaveService('influence')"
-           class="cursor-pointer text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal">
+           class="cursor-pointer text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
           {{ $t('tmp.home.influence') }}</p>
         <p :class="{'service-selected': currentService === 'products'}" @click="currentService = 'products'"
            @mouseover="currentService = 'products'"
            @mouseenter="enterService('products')"
            @mouseleave="leaveService('products')"
-           class="cursor-pointer text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal">
+           class="cursor-pointer text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
           {{ $t('tmp.home.production') }}</p>
         <p :class="{'service-selected': currentService === 'design'}" @click="currentService = 'design'"
            @mouseover="currentService = 'design'"
            @mouseenter="enterService('design')"
            @mouseleave="leaveService('design')"
-           class="cursor-pointer text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal">
+           class="cursor-pointer text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
           {{ $t('tmp.home.design') }}</p>
       </div>
 

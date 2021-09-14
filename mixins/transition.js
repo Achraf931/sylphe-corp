@@ -61,11 +61,6 @@ export default {
                     duration: 0.6,
                     ease: 'power3.inOut'
                   })
-                .to(document.getElementById('nuxtMain'), {
-                  y: 0,
-                  duration: 0.6,
-                  ease: 'power3.inOut'
-                })
             }
               tl.call(() => {
                 this.$viewportObserverState.active = true

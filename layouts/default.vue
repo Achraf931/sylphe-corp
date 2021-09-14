@@ -40,9 +40,6 @@
 </script>
 
 <style lang="scss">
-#nuxtMain {
-  transform: translate(0, 0);
-}
 .is-visible, .top-text {
   opacity: 0;
   transform: translateY(30px);
