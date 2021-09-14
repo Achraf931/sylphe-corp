@@ -2,8 +2,8 @@
   <div>
     <section id="topPage" class="relative w-full h-screen bg-yellow flex items-center justify-center flex-col text-white">
       <div class="box-content py-0 px-7.5 text-center">
-        <h1 v-observe="{ onEnter: visibility, threshold: 1 }" class="is-visible leave-anim mb-13 md:mb-5 lg:text-32px text-3vw leading-normal" v-html="$t('Contact.topPage.topPageTitle')"/>
-        <h2 v-observe="{ onEnter: visibility, threshold: 1 }" class="is-visible leave-anim 2xl:text-24px text-1.5vw font-regular m-auto xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Contact.topPage.description') }}</h2>
+        <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim mb-13 md:mb-5 lg:text-32px text-3vw leading-normal" v-html="$t('Contact.topPage.topPageTitle')"/>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim 2xl:text-24px text-1.5vw font-regular m-auto xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Contact.topPage.description') }}</h2>
       </div>
     </section>
 

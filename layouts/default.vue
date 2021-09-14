@@ -1,7 +1,8 @@
 <template>
   <div>
+    <Loader/>
     <div ref="sylphe_container" class="sylphe_container h-screen w-screen max-w-screen max-h-screen transition-all duration-700 ease-in-out fixed top-0 left-0" style="z-index: 999999999;">
-      <video ref="sylphe" muted playsinline preload="metadata" class="object-cover video-first h-full w-full max-w-screen max-h-screen">
+      <video id="sylphe" ref="sylphe" muted playsinline preload="metadata" class="object-cover video-first h-full w-full max-w-screen max-h-screen">
         <source src="/sylphe.mp4" type="video/mp4">
       </video>
     </div>
@@ -22,7 +23,7 @@
       </template>
     </CookieControl>-->
     <IncludesHeader/>
-    <Nuxt class="min-h-screen"/>
+    <Nuxt id="nuxtMain" class="min-h-screen"/>
     <IncludesFooter/>
   </div>
 </template>
@@ -39,6 +40,9 @@
 </script>
 
 <style lang="scss">
+#nuxtMain {
+  transform: translate(0, 0);
+}
 .is-visible, .top-text {
   opacity: 0;
   transform: translateY(30px);

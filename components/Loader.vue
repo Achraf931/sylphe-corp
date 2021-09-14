@@ -1,16 +1,28 @@
 <template>
-  <div class="fixed loader" style="background-color: #581DEE; z-index: 99999">
-
+  <div class="fixed containerLoader" style="z-index: 999999999;">
+    <div class="relative w-full h-full">
+      <div class="fixed loader bg-black"></div>
+      <div class="fixed loader bg-pink"></div>
+      <div class="fixed loader bg-yellow"></div>
+      <div class="fixed loader bg-purple"></div>
+      <div class="fixed loader bg-blue"></div>
+    </div>
   </div>
 </template>
 
 <style>
-  .loader {
-    top: 0;
-    left: 0;
+  .containerLoader {
     width: 100%;
     max-width: 100vw;
     height: 100vh;
-    transform: translate(0px, 120%);
+    transform: translate(0, 100%);
+  }
+
+  .loader {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100vw;
+    height: 0;
   }
 </style>

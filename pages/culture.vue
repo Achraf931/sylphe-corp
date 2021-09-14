@@ -2,8 +2,8 @@
   <div>
     <section id="topPage" class="z-10 relative w-full max-w-full h-screen  bg-pink flex items-center justify-center flex-col text-white">
       <div class="box-content py-0 px-7.5 text-center">
-        <h1 v-observe="{ onEnter: visibility, threshold: 1 }" class="is-visible leave-anim mb-13 md:mb-5 lg:text-32px text-3vw leading-normal" v-html="$t('Culture.topPageTitle')"/>
-        <h2 v-observe="{ onEnter: visibility, threshold: 1 }" class="is-visible leave-anim 2xl:text-24px text-1.5vw font-regular m-auto 2xl:max-w-600 2xl:w-full w-1/2 xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Culture.description') }}</h2>
+        <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim mb-13 md:mb-5 lg:text-32px text-3vw leading-normal" v-html="$t('Culture.topPageTitle')"/>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim 2xl:text-24px text-1.5vw font-regular m-auto 2xl:max-w-600 2xl:w-full w-1/2 xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Culture.description') }}</h2>
       </div>
     </section>
 
