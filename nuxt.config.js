@@ -39,6 +39,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     {src: '~/plugins/vuelidate.js', mode: 'client'},
+    {src: '~/plugins/locomotive.js', mode: 'client'},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -94,40 +95,10 @@ export default {
           en: '/',
           ja: '/'
         },
-        'services/index': {
-          fr: '/services',
-          en: '/services',
-          ja: '/services',
-        },
-        'services/digital': {
-          fr: '/services/digital',
-          en: '/services/digital',
-          ja: '/services/digital',
-        },
-        'services/design': {
-          fr: '/services/design',
-          en: '/services/design',
-          ja: '/services/design',
-        },
-        'services/production-of-products': {
-          fr: '/services/production-de-produits',
-          en: '/services/production-of-products',
-          ja: '/services/production-of-products',
-        },
-        'services/events': {
-          fr: '/services/evenements',
-          en: '/services/events',
-          ja: '/services/events',
-        },
         culture: {
           fr: '/culture',
           en: '/culture',
           ja: '/culture'
-        },
-        'works/index': {
-          fr: '/travaux',
-          en: '/works',
-          ja: '/works',
         },
         'works/_slug': {
           fr: '/travaux/:slug',

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="js-scroll">
     <Loader/>
     <div ref="sylphe_container" class="sylphe_container h-screen w-screen max-w-screen max-h-screen transition-all duration-700 ease-in-out fixed top-0 left-0" style="z-index: 999999999;">
       <video id="sylphe" ref="sylphe" muted playsinline preload="metadata" class="object-cover video-first h-full w-full max-w-screen max-h-screen">
@@ -23,7 +23,7 @@
       </template>
     </CookieControl>-->
     <IncludesHeader/>
-    <Nuxt id="nuxtMain" class="min-h-screen"/>
+    <Nuxt id="nuxtMain" data-scroll-container data-scroll-delay="3" class="min-h-screen"/>
     <IncludesFooter/>
   </div>
 </template>
@@ -31,15 +31,71 @@
   import Vue from 'vue'
   import global from "~/mixins/global";
   import transition from "~/mixins/transition";
+  import locomotive from "~/mixins/locomotive";
 
   Vue.mixin(global)
   Vue.mixin(transition)
+  Vue.mixin(locomotive)
 
   export default {
+    mounted() {
+      const sections = this.$gsap.utils.toArray('section')
+      const navDivided = document.querySelector('nav').offsetHeight / 2
+
+      sections.forEach((section, index) => {
+        this.$ScrollTrigger.create({
+          trigger: section,
+          start: 'top top+=' + navDivided + 'px',
+          onUpdate: () => {
+            this.changeHeader(section)
+          }
+        })
+      })
+    },
+    methods: {
+      changeHeader(section) {
+        if (section.id === 'empty') {
+          document.getElementById("showreel").style.zIndex = '0'
+        }
+        else {
+          document.getElementById("showreel").style.zIndex = '-1'
+        }
+
+        const tl = this.$gsap.timeline({delay: 0, duration: 0.05})
+        if (section.id === 'topPage' || section.id === 'empty' || section.id === 'showreel' || section.id === 'teams' || section.id === 'challenge') {
+          tl.to(this.$gsap.utils.toArray('.lang'), {
+            color: 'white'
+          })
+          .to(this.$gsap.utils.toArray('.burger-bar'), {
+            background: 'white'
+          }, 0)
+          .call(() => {
+            document.getElementById('logo').removeAttribute('style')
+          }, null, 0)
+        }
+        else {
+          tl.to(this.$gsap.utils.toArray('.lang'), {
+            color: 'black'
+          })
+          .to(this.$gsap.utils.toArray('.burger-bar'), {
+            background: 'black'
+          }, 0)
+            .call(() => {
+              document.getElementById('logo').style.filter = 'invert(100%) sepia(100%) saturate(100%) hue-rotate(87deg) brightness(100%) contrast(100%)'
+            }, null, 0)
+        }
+      }
+    }
   }
 </script>
 
 <style lang="scss">
+#js-scroll {
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+}
+
 .is-visible, .top-text {
   opacity: 0;
   transform: translateY(30px);

@@ -18,6 +18,8 @@
     "core-js": "^3.15.1",
     "defu": "^5.0.0",
     "express": "^4.17.1",
+    "locomotive-scroll": "^4.1.2",
+    "lodash": "^4.17.21",
     "nodemailer": "^6.6.3",
     "nuxt": "^2.15.7",
     "vuelidate": "^0.7.6"

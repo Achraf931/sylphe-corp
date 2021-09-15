@@ -41,10 +41,10 @@
       </div>
     </div>
     <slot>
-      <button v-observe="{ onEnter: visibility, once: true }" type="button" ref="burger" class="is-visible-top burger-button" title="Menu">
-        <span :class="{bgBlack: burgerColor == 'black' ? 'black!important' : ''}" class="burger-bar burger-bar--1"></span>
-        <span :class="{bgBlack: burgerColor == 'black' ? 'black!important' : ''}" class="burger-bar burger-bar--2"></span>
-        <span :class="{bgBlack: burgerColor == 'black' ? 'black!important' : ''}" class="burger-bar burger-bar--3"></span>
+      <button v-observe="{ onEnter: visibility, once: true }" type="button" ref="burger" class="is-visible-top burger-button">
+        <span class="burger-bar burger-bar--1"></span>
+        <span class="burger-bar burger-bar--2"></span>
+        <span class="burger-bar burger-bar--3"></span>
       </button>
     </slot>
   </div>
@@ -64,6 +64,9 @@
           .call(() => {
             this.isBurgerActive = true
             this.$refs.containerBurger.classList.add('active')
+            this.$gsap.utils.toArray('.lang').forEach(item => {
+              item.style.color = 'black'
+            })
             document.querySelector('body').style.overflowY = 'hidden'
           })
           .to('#menu', {
@@ -112,6 +115,9 @@
           .call(() => {
             this.isBurgerActive = false
             this.$refs.containerBurger.classList.remove('active')
+            this.$gsap.utils.toArray('.lang').forEach(item => {
+              item.removeAttribute('style')
+            })
             document.querySelector('body').style.overflowY = 'scroll'
           }, null, '-=0.10')
       },
@@ -193,7 +199,7 @@
   }
 
   .burger-bar {
-    background-color: black;
+    background-color: white;
     position: absolute;
     top: 50%;
     right: 6px;
@@ -228,7 +234,7 @@
 
   #burger.active {
     .burger-bar {
-      background-color: black;
+      background-color: black!important;
     }
 
     .burger-bar--1 {

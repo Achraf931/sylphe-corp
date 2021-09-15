@@ -1,7 +1,7 @@
 export default {
   topPageTitlePart1: 'Your Next Gen',
   topPageTitlePart2: 'Licensing and Gaming Agency in Paris',
-  description: 'We create tactical and tailored experiences to connect your brand to its fans<br>- And we love it.',
+  description: 'We create tactical and tailored experiences to connect your brand to its fans - And we love it.',
   body: {
     speciality: 'Our specialties',
     title: 'Our secret weapon?',

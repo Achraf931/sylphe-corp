@@ -1,7 +1,7 @@
 export default {
   topPageTitlePart1: 'お客様のサービス ネクストジェネ',
   topPageTitlePart2: 'パリのライセンスとゲーミング',
-  description: 'あなたのブランドとファンを結びつけるために、戦術的でカスタマイズされた体験を作ります。<br>- 惚れ惚れする',
+  description: 'あなたのブランドとファンを結びつけるために、戦術的でカスタマイズされた体験を作ります。- 惚れ惚れする',
   body: {
     speciality: 'シルフェの特技',
     title: '私たちの秘密兵器？',
