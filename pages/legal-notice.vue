@@ -5,6 +5,7 @@
         <h1 v-observe="{ onEnter: visibility, threshold: 1 }" class="is-visible lg:text-32px text-3vw leading-normal font-bold mb-13 md:mb-5" v-html="$t('Legal.topPage.topPageTitle')"/>
         <h2 v-observe="{ onEnter: visibility, threshold: 1 }" class="is-visible leave-anim 2xl:text-24px text-1.5vw font-regular m-auto 2xl:max-w-600 2xl:w-full w-1/2 xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Legal.topPage.description') }}</h2>
       </div>
+      <ArrowScroll/>
     </section>
 
     <section id="content" class="mt-23 pb-36 px-34 lg:px-8.5">

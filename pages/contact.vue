@@ -5,6 +5,7 @@
         <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim mb-13 md:mb-5 lg:text-32px text-3vw leading-normal" v-html="$t('Contact.topPage.topPageTitle')"/>
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim 2xl:text-24px text-1.5vw font-regular m-auto xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Contact.topPage.description') }}</h2>
       </div>
+      <ArrowScroll/>
     </section>
 
     <section id="containerForm" data-aos="fade-up" class="flex relative items-center flex-col pb-15 mx-auto pt-14 mb-0 px-7.5">
