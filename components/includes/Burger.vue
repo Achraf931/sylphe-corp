@@ -64,6 +64,7 @@
           .call(() => {
             this.isBurgerActive = true
             this.$refs.containerBurger.classList.add('active')
+            document.getElementById('logo').style.filter = 'invert(100%) sepia(100%) saturate(100%) hue-rotate(87deg) brightness(100%) contrast(100%)'
             this.$gsap.utils.toArray('.lang').forEach(item => {
               item.style.color = 'black'
             })
@@ -115,6 +116,7 @@
           .call(() => {
             this.isBurgerActive = false
             this.$refs.containerBurger.classList.remove('active')
+            document.getElementById('logo').removeAttribute('style')
             this.$gsap.utils.toArray('.lang').forEach(item => {
               item.removeAttribute('style')
             })

@@ -8,7 +8,7 @@
       <ArrowScroll/>
     </section>
 
-    <section id="containerForm" data-aos="fade-up" class="flex relative items-center flex-col pb-15 mx-auto pt-14 mb-0 px-7.5">
+    <section id="containerForm" data-aos="fade-up" class="flex relative items-center justify-center w-full max-w-screen min-h-screen flex-col pb-15 mx-auto pt-14 mb-0 px-7.5">
       <!--      <h2 class="sm:text-24px">{{ $t('Contact.form.title') }}</h2>-->
       <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">
         <client-only>

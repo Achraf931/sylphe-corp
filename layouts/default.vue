@@ -67,7 +67,7 @@
         }*/
 
         const tl = this.$gsap.timeline({delay: 0, duration: 0.05})
-        if (section.id === 'topPage' || section.id === 'empty' || section.id === 'showreel' || section.id === 'teams' || section.id === 'challenge') {
+        if (section.id === 'topPage' || section.id === 'empty' || section.id === 'showreel' || section.id === 'teams' || section.id === 'challenge' || section.id === 'projectImage' || section.id === 'slider' || section.id === 'levelTwo' || section.id === 'projectImageTwo' || section.id === 'cards' || section.id === 'contact') {
           tl.to(this.$gsap.utils.toArray('.lang'), {
             color: 'white'
           })
@@ -99,6 +99,18 @@
   overflow: hidden;
   box-sizing: border-box;
   position: relative;
+}
+
+.text-stroke {
+  transition: all .1s ease;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #171716;
+}
+
+.text-stroke-white {
+  transition: all .1s ease;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
 }
 
 .is-visible, .top-text {
