@@ -18,10 +18,14 @@
     "core-js": "^3.15.1",
     "defu": "^5.0.0",
     "express": "^4.17.1",
+    "intersection-observer": "^0.12.0",
     "locomotive-scroll": "^4.1.2",
     "lodash": "^4.17.21",
     "nodemailer": "^6.6.3",
     "nuxt": "^2.15.7",
+    "nuxt-polyfill": "^1.0.3",
+    "smoothscroll-polyfill": "^0.4.4",
+    "url-polyfill": "^1.1.12",
     "vuelidate": "^0.7.6"
   },
   "devDependencies": {
