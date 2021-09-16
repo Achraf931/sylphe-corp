@@ -2,9 +2,9 @@
   <div>
     <section id="topPage" class="z-10 relative w-full max-w-full h-screen bg-blue flex items-center justify-center flex-col text-white">
       <div class="box-content py-0 px-7.5 text-center">
-        <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible lg:text-32px text-3vw leading-normal">{{ $t('Home.topPageTitlePart1') }}</h1>
-        <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible lg:text-32px text-3vw leading-normal font-bold mb-13 md:mb-5">{{ $t('Home.topPageTitlePart2') }}</h1>
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" v-html="$t('Home.description')"
+        <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible lg:text-32px text-3vw leading-normal">{{ $t('Home.topPageTitlePart1') }}</h1>
+        <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible lg:text-32px text-3vw leading-normal font-bold mb-13 md:mb-5">{{ $t('Home.topPageTitlePart2') }}</h1>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" v-html="$t('Home.description')"
             class="is-visible 2xl:text-24px text-1.5vw font-regular m-auto 2xl:w-full w-1/2 2xl:max-w-640 xs:text-base xs:leading-5 md:text-xl md:leading-6"/>
       </div>
       <ArrowScroll/>
@@ -30,33 +30,33 @@
       </div>
 
       <div class="w-2/4 flex items-center flex-col">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">On vous aide avec</h2>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">On vous aide avec</h2>
 
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" :class="{'service-selected': currentService === 'events'}" @click="currentService = 'events'"
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" :class="{'service-selected': currentService === 'events'}" @click="currentService = 'events'"
            @mouseover="currentService = 'events'"
            @mouseenter="enterService('events')"
            @mouseleave="leaveService('events')"
            class="is-visible cursor-default text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
           {{ $t('tmp.home.events') }}</p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" :class="{'service-selected': currentService === 'digital'}" @click="currentService = 'digital'"
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" :class="{'service-selected': currentService === 'digital'}" @click="currentService = 'digital'"
            @mouseover="currentService = 'digital'"
            @mouseenter="enterService('digital')"
            @mouseleave="leaveService('digital')"
            class="is-visible cursor-default text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
           {{ $t('tmp.home.digital') }}</p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" :class="{'service-selected': currentService === 'influence'}" @click="currentService = 'influence'"
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" :class="{'service-selected': currentService === 'influence'}" @click="currentService = 'influence'"
            @mouseover="currentService = 'influence'"
            @mouseenter="enterService('influence')"
            @mouseleave="leaveService('influence')"
            class="is-visible cursor-default text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
           {{ $t('tmp.home.influence') }}</p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" :class="{'service-selected': currentService === 'products'}" @click="currentService = 'products'"
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" :class="{'service-selected': currentService === 'products'}" @click="currentService = 'products'"
            @mouseover="currentService = 'products'"
            @mouseenter="enterService('products')"
            @mouseleave="leaveService('products')"
            class="is-visible cursor-default text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
           {{ $t('tmp.home.production') }}</p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" :class="{'service-selected': currentService === 'design'}" @click="currentService = 'design'"
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" :class="{'service-selected': currentService === 'design'}" @click="currentService = 'design'"
            @mouseover="currentService = 'design'"
            @mouseenter="enterService('design')"
            @mouseleave="leaveService('design')"
@@ -98,36 +98,36 @@
       </svg>
 
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Home.body.title') }}</h2>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Home.body.title') }}</h2>
 
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl" v-html="$t('Home.body.text')"/>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl" v-html="$t('Home.body.text')"/>
       </div>
     </section>
 
     <section id="teams" class="z-10 relative w-full max-w-full h-screen overflow-hidden flex items-center justify-between bg-blue">
-      <div id="containerToBottom" class="pl-10 w-1/4 h-full overflow-hidden flex flex-col-reverse">
-        <img src="/team/samy.webp" alt="Samy" class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="transform: translateY(-100%)"/>
-        <img src="/team/pierre.webp" alt="Pierre" class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="transform: translateY(-100%)"/>
-        <img src="/team/allison.webp" alt="Allison" class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="transform: translateY(-100%)"/>
-        <img src="/team/ben.webp" alt="Ben" class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="transform: translateY(-100%)"/>
-        <img src="/team/btissam.webp" alt="Btissam" class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="transform: translateY(-100%)"/>
-        <img src="/team/guy.webp" alt="Guy" class="w-full to-bottom mb-10 bg-white flex items-center justify-center" style="transform: translateY(-100%)"/>
+      <div id="containerToBottom" class="pl-10 w-1/4 overflow-hidden flex flex-col-reverse">
+        <img src="/team/samy.webp" alt="Samy" class="w-full to-bottom mb-10 bg-white flex items-center justify-center"/>
+        <img src="/team/pierre.webp" alt="Pierre" class="w-full to-bottom mb-10 bg-white flex items-center justify-center"/>
+        <img src="/team/allison.webp" alt="Allison" class="w-full to-bottom mb-10 bg-white flex items-center justify-center"/>
+        <img src="/team/ben.webp" alt="Ben" class="w-full to-bottom mb-10 bg-white flex items-center justify-center"/>
+        <img src="/team/btissam.webp" alt="Btissam" class="w-full to-bottom mb-10 bg-white flex items-center justify-center"/>
+        <img src="/team/guy.webp" alt="Guy" class="w-full to-bottom mb-10 bg-white flex items-center justify-center"/>
       </div>
 
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2 mx-10">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white"
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white"
             v-html="$t('Home.teams.title')"/>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl text-white" v-html="$t('Home.teams.text')"/>
-        <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible mt-10 md:mt-5 mx-auto" :link="localePath({name: 'services'})">{{ $t('Home.teams.button') }}</UiButton>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl text-white" v-html="$t('Home.teams.text')"/>
+        <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :link="localePath({name: 'services'})">{{ $t('Home.teams.button') }}</UiButton>
       </div>
 
-      <div id="containerToTop" class="pr-10 w-1/4 h-full overflow-hidden">
-        <img src="/team/charfeddine.webp" alt="Charfeddine" class="to-top bg-white flex items-center justify-center" style="transform: translateY(100%)"/>
-        <img src="/team/kaia.webp" alt="Kaia" class="to-top mt-10 bg-white flex items-center justify-center" style="transform: translateY(100%)"/>
-        <img src="/team/kim.webp" alt="Kim" class="to-top mt-10 bg-white flex items-center justify-center" style="transform: translateY(100%)"/>
-        <img src="/team/mari.webp" alt="Mari" class="to-top mt-10 bg-white flex items-center justify-center" style="transform: translateY(100%)"/>
-        <img src="/team/marie.webp" alt="Marie" class="to-top mt-10 bg-white flex items-center justify-center" style="transform: translateY(100%)"/>
-        <img src="/team/mehdi.webp" alt="Mehdi" class="to-top mt-10 bg-white flex items-center justify-center" style="transform: translateY(100%)"/>
+      <div id="containerToTop" class="pr-10 w-1/4 overflow-hidden">
+        <img src="/team/charfeddine.webp" alt="Charfeddine" class="to-top bg-white flex items-center justify-center"/>
+        <img src="/team/kaia.webp" alt="Kaia" class="to-top mt-10 bg-white flex items-center justify-center"/>
+        <img src="/team/kim.webp" alt="Kim" class="to-top mt-10 bg-white flex items-center justify-center"/>
+        <img src="/team/mari.webp" alt="Mari" class="to-top mt-10 bg-white flex items-center justify-center"/>
+        <img src="/team/marie.webp" alt="Marie" class="to-top mt-10 bg-white flex items-center justify-center"/>
+        <img src="/team/mehdi.webp" alt="Mehdi" class="to-top mt-10 bg-white flex items-center justify-center"/>
       </div>
     </section>
 
@@ -204,8 +204,8 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
 
     <section id="projects" class="z-10 relative overflow-hidden w-full max-w-screen h-screen">
       <div class="flex flex-col bg-white items-center justify-center w-full h-full">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Vous voulez connaître<br>notre niveau de jeu ?</h2>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-1.5vw leading-normal font-regular text-center md:text-xl max-w-640">On n’a pas le droit de montrer tous nos projets, mais<br>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Vous voulez connaître<br>notre niveau de jeu ?</h2>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal font-regular text-center md:text-xl max-w-640">On n’a pas le droit de montrer tous nos projets, mais<br>
           on a quand même fait une belle petite sélection pour que vous puissiez avoir une idée de ce qu’on sait faire. </p>
         <p class="absolute left-1/2 bottom-10 text-center font-medium mt-5" style="transform: translateX(-50%)">SCROLLEZ →</p>
       </div>
@@ -252,24 +252,24 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
     </section>
 
     <section class="z-10 w-full max-w-screen h-screen bg-lightGray flex flex-col items-center justify-center p-10">
-      <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="p is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Ils nous ont fait confiance</p>
+      <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="p is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Ils nous ont fait confiance</p>
 
       <div class="grid grid-cols-5 gap-10 items-center">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible img w-2/5 mx-auto" src="/clients/LVMH_logo_logotype_Moët_Hennessy_Louis_Vuitton.png" alt="LVMH">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible img w-2/5 mx-auto" src="/clients/kenzo-logo-def.png" alt="KENZO">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible img w-2/5 mx-auto" src="/clients/logo-grandrex.png" alt="Le Grand Rex">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible img w-2/5 mx-auto" src="/clients/Westfield-Les-4-Temps-Logo.ashx.png" alt="Westfield Les 4 Temps">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible img w-2/5 mx-auto" src="/clients/cultura.png" alt="Cultura">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible img w-2/5 mx-auto" src="/clients/Niantic_Logo.png" alt="Niantic">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible img w-2/5 mx-auto" src="/clients/1280px-Viz_Media_2017_logo.svg.png" alt="Viz Media">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible img w-2/5 mx-auto" src="/clients/Peugeot_2021_Logo.svg.png" alt="Peugeot">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible img w-2/5 mx-auto" src="/clients/ffsa.png" alt="FFSA">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible img w-2/5 mx-auto" src="/clients/Icade_logo_2017.png" alt="Icade">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible img w-2/5 mx-auto" src="/clients/logo-passy-plaza-fd-transparent.png" alt="Passy Plaza">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible img w-2/5 mx-auto" src="/clients/Logo_ESIEE_Paris.svg.png" alt="ESIEE">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible img w-2/5 mx-auto" src="/clients/arianelab-97202.png" alt="ArianeLab">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible img w-2/5 mx-auto" src="/clients/logo.png" alt="Ville de Chatillon">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible img w-2/5 mx-auto" src="/clients/1200px-Logo_celio_2016.svg.png" alt="Celio">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/LVMH_logo_logotype_Moët_Hennessy_Louis_Vuitton.png" alt="LVMH">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/kenzo-logo-def.png" alt="KENZO">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/logo-grandrex.png" alt="Le Grand Rex">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/Westfield-Les-4-Temps-Logo.ashx.png" alt="Westfield Les 4 Temps">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/cultura.png" alt="Cultura">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/Niantic_Logo.png" alt="Niantic">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/1280px-Viz_Media_2017_logo.svg.png" alt="Viz Media">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/Peugeot_2021_Logo.svg.png" alt="Peugeot">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/ffsa.png" alt="FFSA">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/Icade_logo_2017.png" alt="Icade">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/logo-passy-plaza-fd-transparent.png" alt="Passy Plaza">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/Logo_ESIEE_Paris.svg.png" alt="ESIEE">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/arianelab-97202.png" alt="ArianeLab">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/logo.png" alt="Ville de Chatillon">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/1200px-Logo_celio_2016.svg.png" alt="Celio">
       </div>
     </section>
 
@@ -278,9 +278,9 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
         <div class="sidebar-challenge opacity-50 w-full h-full bg-white" style="transform: translateX(-100%)"></div>
       </div>
       <div class="w-2/4 flex flex-col items-center px-10 text-center">
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="p is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Challengez-nous !</p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="p is-visible text-1.5vw leading-normal font-regular md:text-xl">Petit plus de la maison : nous adorons les besoins compliqués et les réponses sur-mesure.</p>
-        <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible mt-10 md:mt-5 mx-auto" :link="'https://calendly.com/sylphe/reunion'" :target="true">{{ $t('nav.call') }}</UiButton>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="p is-visible mb-10 md:mb-4 text-white text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Challengez-nous !</p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="p is-visible text-1.5vw text-white leading-normal font-regular md:text-xl">Petit plus de la maison : nous adorons les besoins compliqués et les réponses sur-mesure.</p>
+        <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :link="'https://calendly.com/sylphe/reunion'" :target="true">{{ $t('nav.call') }}</UiButton>
       </div>
       <div class="relative overflow-hidden w-1/4 h-full">
         <div class="sidebar-challenge opacity-50 w-full h-full bg-white" style="transform: translateX(100%)"></div>
@@ -327,35 +327,23 @@ export default {
         start: 'top top',
         end: '+=4000',
         scrub: true
-      }
+      },
+      ease: 'power0.none'
     })
-      .to('#containerToTop', {
-        y: 0,
-        duration: 2
+      .fromTo('#containerToTop',
+        {
+          y: '100%'
+        },
+        {
+          y: '-100%'
       })
-      .to('#containerToBottom', {
-        y: 0,
-        duration: 2
+      .fromTo('#containerToBottom',
+        {
+          y: '-100%'
+        },
+        {
+          y: '100%'
       }, '<')
-      .to(toTop, {
-        y: '-100%',
-        yPercent: -toBottom[0].height,
-        duration: 4
-      })
-      .to(toBottom, {
-        y: '100%',
-        yPercent: toBottom[0].height,
-        duration: 4
-      }, '<')
-      .to('#containerToTop', {
-        y: '-100%',
-        duration: 2
-      })
-      .to('#containerToBottom', {
-        y: '100%',
-        duration: 2
-      }, '<')
-      .to({}, {duration: 1})
 
     const tl = this.$gsap.timeline({
       scrollTrigger: {
@@ -465,11 +453,11 @@ export default {
 
 <style scoped lang="scss">
 #containerToTop {
-  transform: translateY(100%);
+  transform: translate(0, 100%);
 }
 
 #containerToBottom {
-  transform: translateY(-100%);
+  transform: translate(0, -100%);
 }
 
 .project {

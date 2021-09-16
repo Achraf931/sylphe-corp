@@ -331,7 +331,7 @@
     border-radius: 5px;
 
     &:hover {
-      transform: translate(-3px, -3px);
+      transform: translate(-3px, -3px)!important;
       box-shadow: 3px 3px 0 0 black;
     }
   }
