@@ -40,6 +40,7 @@ export default {
   plugins: [
     {src: '~/plugins/vuelidate.js', mode: 'client'},
     {src: '~/plugins/locomotive.js', mode: 'client'},
+    {src: '~/plugins/vue-typer.js', mode: 'client'},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

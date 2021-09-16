@@ -9,10 +9,10 @@
 
     <section id="containerForm" data-aos="fade-up" class="flex relative items-center flex-col pb-15 mx-auto pt-14 mb-0 px-7.5">
       <!--      <h2 class="sm:text-24px">{{ $t('Contact.form.title') }}</h2>-->
-      <h2 class="sm:text-24px text-1.5vw">
+      <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">
         <client-only>
           {{ $t('Contact.form.title') }}
-<!--          <vue-typer
+          <vue-typer
             :text='$t("Contact.form.words")'
             :repeat='Infinity'
             :shuffle='false'
@@ -24,10 +24,10 @@
             erase-style='select-all'
             :erase-on-complete='false'
             caret-animation='blink'
-          />-->
+          />
         </client-only>
       </h2>
-      <form class="w-full max-w-390 text-base" method="post" @submit.prevent="sendForm" id="form" novalidate>
+      <form v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible w-full max-w-640 text-base" method="post" @submit.prevent="sendForm" id="form" novalidate>
         <div class="formGroup" :class="{ formGroupError: $v.form.name.$error }">
           <label class="text-1vw md:text-xl" for="name">{{ $t('Contact.form.labelName') }} *</label>
           <input class="text-1vw md:text-xl leading-normal" id="name" type="text" inputmode="text" v-model.trim="form.name" @value="setName"/>
@@ -47,42 +47,50 @@
           <textarea class="text-1vw md:text-xl leading-normal" id="message" v-model.trim="form.message" @value="setMessage"/>
           <span class="error leading-normal text-0.7vw md:text-sm" v-if="$v.form.message.$error">{{ $t('Contact.form.errorMessage') }}</span>
         </div>
-        <div class="flex items-baseline justify-between mt-7">
+        <div class="flex items-baseline mt-7">
           <div style="min-width: 10px; min-height: 10px; width: 0.7vw; height: 0.7vw;" class="cursor-pointer mr-2 rounded-full border-2 border-gray max-w-sm" @click="checkedCgu = !checkedCgu, cguError = !checkedCgu" :class="{cguCheck: checkedCgu}"></div>
-          <p style="max-width: 371px;" class="cursor-pointer text-gray text-1vw xl:text-sm" @click="checkedCgu = !checkedCgu, cguError = !checkedCgu">{{ $t('Contact.form.cgu') }}</p>
+          <p class="cursor-pointer ml-2.5 text-gray text-1vw xl:text-sm" @click="checkedCgu = !checkedCgu, cguError = !checkedCgu">{{ $t('Contact.form.cgu') }}</p>
         </div>
         <span class="error leading-normal text-0.7vw md:text-sm" v-if="cguError">{{ $t('Contact.form.errorCgu') }}</span>
 
-        <UiButton link="" target="" class="mt-8 mb-auto max-auto">{{ $t('send') }}</UiButton>
+        <UiButton link="" :target="false" class="mt-8 mb-auto max-auto">{{ $t('send') }}</UiButton>
       </form>
     </section>
 
     <section id="ourTeam" class="z-10 overflow-hidden relative w-full max-w-full h-screen bg-lightGray flex items-center justify-center">
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible mb-4 text-2.5vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Culture.ourTeam.title') }}</h2>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl" v-html="$t('Culture.ourTeam.text')"/>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Passez à la maison</h2>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl">
+          {{ $t('Contact.contact.schedulesPart1') }}<br>
+          {{ $t('Contact.contact.schedulesPart2') }}
+        </p>
+        <a v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal my-10 md:my-5 font-regular md:text-xl font-bold" href="https://www.google.com/maps/place/85+Rue+Bobillot,+75013+Paris/data=!4m2!3m1!1s0x47e6719a62e7cdb3:0x90c20190b927753?sa=X&ved=2ahUKEwimrOKk46ruAhUnDWMBHUpYAUoQ8gEwAHoECAcQAQ" target="_blank" rel="noreferrer noopener">
+          85 rue Bobillot<br>
+          75013 Paris
+        </a>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl">
+          {{ $t('Contact.contact.metro') }}<br>
+          Ligne 6 Corvisart - Ligne 7 Tolbiac - Ligne 5 Place d'Italie
+        </p>
       </div>
     </section>
 
-    <section id="contact" data-aos="fade-up" class="flex relative items-center flex-col text-center bg-yellow px-7.5 pt-16 pb-23">
-      <h2 class="text-1.5vw leading-normal mt-8.5 xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Contact.contact.contactUs') }}</h2>
-      <a class="mt-5 mb-10 text-5.5xl md:text-4xl" href="tel:0100000000">01 00 00 00 00</a>
-      <h2 class="md:text-24px">{{ $t('Contact.contact.comeHome') }}</h2>
-      <p class="mt-5 mb-10 md:text-base 2xl:text-1.5vw text-1.2vw leading-normal">
-        {{ $t('Contact.contact.schedulesPart1') }}<br>
-        {{ $t('Contact.contact.schedulesPart2') }}
-      </p>
-      <a class="text-5.5xl md:text-4xl" href="https://www.google.com/maps/place/85+Rue+Bobillot,+75013+Paris/data=!4m2!3m1!1s0x47e6719a62e7cdb3:0x90c20190b927753?sa=X&ved=2ahUKEwimrOKk46ruAhUnDWMBHUpYAUoQ8gEwAHoECAcQAQ" target="_blank" rel="noreferrer noopener">
-        85 rue Bobillot<br>
-        75013 Paris
-      </a>
-      <p class="mt-6 mb-0 md:text-base 2xl:text-1.5vw text-1.2vw leading-normal">
-        {{ $t('Contact.contact.metro') }}<br>
-        Ligne 6 Corvisart - Ligne 7 Tolbiac - Ligne 5 Place d'Italie
-      </p>
-    </section>
 
-        <section id="joinUs" class="flex flex-col items-center px-7.5 pt-26 pb-18.5">
+    <section id="contact" class="z-10 overflow-hidden relative w-full max-w-full h-screen bg-yellow flex items-center justify-center">
+      <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2">
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Besoin de nous parler directement ?</h2>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal md:text-xl text-white">
+          On est joignable au<br>
+          01 00 00 00 00
+        </p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw my-10 md:my-5 leading-normal font-bold md:text-xl text-white">
+          Ou par mail<br>
+          hello@sylphe.co
+        </p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal md:text-xl text-white">N'hésitez pas, on adore les mots doux.</p>
+      </div>
+    </section>
+<!--    <section id="joinUs" class="flex flex-col items-center px-7.5 pt-26 pb-18.5">
           <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible mb-4 text-2.5vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6" v-html="$t('Contact.joinUs.title')"/>
           <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl" v-html="$t('Contact.joinUs.subtitle')"/>
           <div class="containerCards flex justify-center w-full max-w-4xl mt-10">
@@ -134,7 +142,7 @@
               </div>
             </div>
           </div>
-        </section>
+        </section>-->
   </div>
 </template>
 
