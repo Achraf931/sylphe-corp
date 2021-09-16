@@ -7,10 +7,16 @@
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" v-html="$t('Home.description')"
             class="is-visible 2xl:text-24px text-1.5vw font-regular m-auto 2xl:w-full w-1/2 2xl:max-w-640 xs:text-base xs:leading-5 md:text-xl md:leading-6"/>
       </div>
+      <ArrowScroll/>
     </section>
 
-    <section id="showreel" class="fixed left-0 top-0 w-full max-w-full h-screen flex items-center justify-center" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/showreel/SHOWREEL.png');  background-repeat: no-repeat; background-position: center center; background-size: cover; z-index: -1;">
-      <div class="py-2.5 border-b-2 border-white border-solid flex items-center justify-between">
+    <section id="showreel" class="fixed left-0 top-0 w-full max-w-full h-screen flex items-center justify-center" style="z-index: -1;">
+      <video width="100%" height="100%" class="w-full h-full absolute left-0 top-0 object-cover" style="filter: brightness(60%);" loop autoplay="autoplay" muted>
+        <source src="/showreel/showreel.webm" type="video/webm">
+        <source src="/showreel/showreel.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="py-2.5 border-b-2 border-white border-solid flex items-center justify-between z-0">
         <h2 class="text-2.5vw font-bold cursor-pointer leading-normal text-white xs:text-base xs:leading-5 md:text-xl md:leading-6">Showreel</h2>
         <p class="ml-2 cursor-pointer text-white text-4xl font-bold">→</p>
       </div>
@@ -18,7 +24,52 @@
 
     <section id="empty" class="w-full max-w-full h-screen"></section>
 
-    <section id="secret" class="z-10 overflow-hidden relative w-full max-w-full h-screen bg-white flex items-center justify-center">
+    <section id="services" class="z-10 bg-white w-full max-w-full h-screen px-0 md:text-24px md:mx-auto md:mt-auto flex justify-between items-center">
+      <div class="relative overflow-hidden w-1/4 h-full">
+        <div class="sidebar-service w-full h-full bg-white" style="transform: translateX(-100%)"></div>
+      </div>
+
+      <div class="w-2/4 flex items-center flex-col">
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">On vous aide avec</h2>
+
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" :class="{'service-selected': currentService === 'events'}" @click="currentService = 'events'"
+           @mouseover="currentService = 'events'"
+           @mouseenter="enterService('events')"
+           @mouseleave="leaveService('events')"
+           class="is-visible cursor-default text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
+          {{ $t('tmp.home.events') }}</p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" :class="{'service-selected': currentService === 'digital'}" @click="currentService = 'digital'"
+           @mouseover="currentService = 'digital'"
+           @mouseenter="enterService('digital')"
+           @mouseleave="leaveService('digital')"
+           class="is-visible cursor-default text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
+          {{ $t('tmp.home.digital') }}</p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" :class="{'service-selected': currentService === 'influence'}" @click="currentService = 'influence'"
+           @mouseover="currentService = 'influence'"
+           @mouseenter="enterService('influence')"
+           @mouseleave="leaveService('influence')"
+           class="is-visible cursor-default text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
+          {{ $t('tmp.home.influence') }}</p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" :class="{'service-selected': currentService === 'products'}" @click="currentService = 'products'"
+           @mouseover="currentService = 'products'"
+           @mouseenter="enterService('products')"
+           @mouseleave="leaveService('products')"
+           class="is-visible cursor-default text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
+          {{ $t('tmp.home.production') }}</p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" :class="{'service-selected': currentService === 'design'}" @click="currentService = 'design'"
+           @mouseover="currentService = 'design'"
+           @mouseenter="enterService('design')"
+           @mouseleave="leaveService('design')"
+           class="is-visible cursor-default text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
+          {{ $t('tmp.home.design') }}</p>
+      </div>
+
+      <div class="relative overflow-hidden w-1/4 h-full">
+        <div class="sidebar-service w-full h-full bg-white" style="transform: translateX(100%)"></div>
+      </div>
+    </section>
+
+    <section id="secret" class="z-10 overflow-hidden relative w-full max-w-full h-screen bg-lightGray flex items-center justify-center">
       <svg class="baloon baloon-1 absolute" style="left: 70%; transform: translate(0, 200%);" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="281" height="567" viewBox="0 0 281 567">
         <defs>
           <pattern id="pattern" preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 1623 3282">
@@ -52,52 +103,6 @@
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl" v-html="$t('Home.body.text')"/>
       </div>
     </section>
-
-    <section id="services" class="z-10 bg-lightGray w-full max-w-full h-screen px-0 md:text-24px md:mx-auto md:mt-auto flex justify-between items-center">
-      <div class="relative overflow-hidden w-1/4 h-full">
-        <div class="sidebar-service w-full h-full bg-white" style="transform: translateX(-100%)"></div>
-      </div>
-
-      <div class="w-2/4 flex items-center flex-col">
-        <p :class="{'service-selected': currentService === 'events'}" @click="currentService = 'events'"
-           @mouseover="currentService = 'events'"
-           @mouseenter="enterService('events')"
-           @mouseleave="leaveService('events')"
-           class="cursor-default text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
-          {{ $t('tmp.home.events') }}</p>
-        <p :class="{'service-selected': currentService === 'digital'}" @click="currentService = 'digital'"
-           @mouseover="currentService = 'digital'"
-           @mouseenter="enterService('digital')"
-           @mouseleave="leaveService('digital')"
-           class="cursor-default text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
-          {{ $t('tmp.home.digital') }}</p>
-        <p :class="{'service-selected': currentService === 'influence'}" @click="currentService = 'influence'"
-           @mouseover="currentService = 'influence'"
-           @mouseenter="enterService('influence')"
-           @mouseleave="leaveService('influence')"
-           class="cursor-default text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
-          {{ $t('tmp.home.influence') }}</p>
-        <p :class="{'service-selected': currentService === 'products'}" @click="currentService = 'products'"
-           @mouseover="currentService = 'products'"
-           @mouseenter="enterService('products')"
-           @mouseleave="leaveService('products')"
-           class="cursor-default text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
-          {{ $t('tmp.home.production') }}</p>
-        <p :class="{'service-selected': currentService === 'design'}" @click="currentService = 'design'"
-           @mouseover="currentService = 'design'"
-           @mouseenter="enterService('design')"
-           @mouseleave="leaveService('design')"
-           class="cursor-default text-stroke font-bold lg:text-24px text-4vw text-transparent leading-normal text-center">
-          {{ $t('tmp.home.design') }}</p>
-      </div>
-
-      <div class="relative overflow-hidden w-1/4 h-full">
-        <div class="sidebar-service w-full h-full bg-white" style="transform: translateX(100%)"></div>
-      </div>
-    </section>
-
-
-
 
     <section id="teams" class="z-10 relative w-full max-w-full h-screen overflow-hidden flex items-center justify-between bg-blue">
       <div id="containerToBottom" class="pl-10 w-1/4 h-full overflow-hidden flex flex-col-reverse">

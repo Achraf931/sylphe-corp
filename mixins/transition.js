@@ -4,7 +4,7 @@ export default {
       return {
         appear: true,
         enter(el, done) {
-          if (sessionStorage.getItem('anim') === null) {
+          if (from === undefined) {
             const sylpheVideo = document.getElementById('sylphe')
             this.$gsap
               .timeline()
@@ -23,9 +23,6 @@ export default {
               })
           }
           else {
-            if (document.querySelector('.sylphe_container'))
-              document.querySelector('.sylphe_container').remove()
-
             const tl = this.$gsap
               .timeline({ onComplete: done })
               .call(() => {

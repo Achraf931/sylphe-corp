@@ -1,5 +1,5 @@
 <template>
-  <div id="js-scroll">
+  <div>
     <Loader/>
     <div ref="sylphe_container" class="sylphe_container h-screen w-screen max-w-screen max-h-screen transition-all duration-700 ease-in-out fixed top-0 left-0" style="z-index: 999999999;">
       <video id="sylphe" ref="sylphe" muted playsinline preload="metadata" class="object-cover video-first h-full w-full max-w-screen max-h-screen">
@@ -23,7 +23,7 @@
       </template>
     </CookieControl>-->
     <IncludesHeader/>
-    <Nuxt id="nuxtMain" data-scroll-container data-scroll-delay="3" class="min-h-screen"/>
+    <Nuxt id="nuxtMain" class="js-scroll min-h-screen"/>
     <IncludesFooter/>
   </div>
 </template>
@@ -31,14 +31,19 @@
   import Vue from 'vue'
   import global from "~/mixins/global";
   import transition from "~/mixins/transition";
-  import locomotive from "~/mixins/locomotive";
 
   Vue.mixin(global)
   Vue.mixin(transition)
-  Vue.mixin(locomotive)
 
   export default {
     mounted() {
+      /*this.lmS = new this.locomotiveScroll({
+        el: document.querySelector(".js-scroll"),
+        lerp: 0.0001,
+        repeat: true
+      });
+      console.log("lmS", this.lmS);*/
+
       const sections = this.$gsap.utils.toArray('section')
       const navDivided = document.querySelector('nav').offsetHeight / 2
 
@@ -54,12 +59,12 @@
     },
     methods: {
       changeHeader(section) {
-        if (section.id === 'empty') {
+      /*  if (section.id === 'empty') {
           document.getElementById("showreel").style.zIndex = '0'
         }
         else {
           document.getElementById("showreel").style.zIndex = '-1'
-        }
+        }*/
 
         const tl = this.$gsap.timeline({delay: 0, duration: 0.05})
         if (section.id === 'topPage' || section.id === 'empty' || section.id === 'showreel' || section.id === 'teams' || section.id === 'challenge') {
