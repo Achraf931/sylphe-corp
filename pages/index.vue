@@ -410,7 +410,7 @@ export default {
 
 
     //  Anim challenge section
-    const chtl = this.$gsap
+    this.$gsap
       .timeline({
         scrollTrigger: {
           trigger: '#challenge',
