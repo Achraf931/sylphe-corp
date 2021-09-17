@@ -1,5 +1,10 @@
 <template>
   <div>
+    <div v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="ball is-visible" style="z-index: 9999999999999;">
+      <p class="text-ball text-center text-base font-black text-white" style="white-space: nowrap;"></p>
+      <div class="cursor"></div>
+    </div>
+
     <Loader/>
 <!--    <div ref="sylphe_container" class="sylphe_container h-screen w-screen max-w-screen max-h-screen transition-all duration-700 ease-in-out fixed top-0 left-0" style="z-index: 999999999;">
       <video id="sylphe" ref="sylphe" muted playsinline preload="metadata" class="object-cover video-first h-full w-full max-w-screen max-h-screen">
@@ -37,6 +42,41 @@
 
   export default {
     mounted() {
+      const elemClickEvents = this.$gsap.utils.toArray('.elem-click-event')
+      const elemDragEvents = this.$gsap.utils.toArray('.elem-drag-event')
+      const elemClickAndDragEvents = this.$gsap.utils.toArray('.elem-click-drag-event')
+      this.$gsap.set(".ball", {xPercent: -50, yPercent: -50});
+
+      const ball = document.querySelector(".ball");
+      const pointer = document.querySelector(".cursor");
+      const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+      const mouse = { x: pos.x, y: pos.y };
+      const speed = 0.35;
+
+      const xSet = this.$gsap.quickSetter(ball, "x", "px");
+      const ySet = this.$gsap.quickSetter(ball, "y", "px");
+      const xSetP = this.$gsap.quickSetter(pointer, "x", "px");
+      const ySetP = this.$gsap.quickSetter(pointer, "y", "px");
+
+      window.addEventListener("mousemove", e => {
+        mouse.x = e.x;
+        mouse.y = e.y;
+      });
+
+      this.$gsap.ticker.add(() => {
+        // adjust speed for higher refresh monitors
+        const dt = 1.0 - Math.pow(1.0 - speed, this.$gsap.ticker.deltaRatio());
+
+        xSetP((mouse.x - pos.x) + 20);
+        ySetP((mouse.y - pos.y) + 20);
+        pos.x += (mouse.x - pos.x) * dt;
+        pos.y += (mouse.y - pos.y) * dt;
+        xSet(pos.x);
+        ySet(pos.y);
+
+
+      });
+
       /*this.lmS = new this.locomotiveScroll({
         el: document.querySelector(".js-scroll"),
         lerp: 0.0001,
@@ -95,6 +135,34 @@
 </script>
 
 <style lang="scss">
+.ball {
+  pointer-events: none;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 1px solid #171716;
+  border-radius: 50%;
+}
+
+.text-ball {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  line-height: 15px;
+}
+
+.cursor {
+  border-radius: 100%;
+  background: #171716;
+  width: 10px;
+  height: 10px;
+}
+
 #js-scroll {
   overflow: hidden;
   box-sizing: border-box;
@@ -270,6 +338,7 @@
 
   html {
     font-size: 100%;
+    cursor: none;
   }
 
   body {
@@ -287,6 +356,7 @@
     text-decoration: none;
     outline: none;
     scrollbar-width: none;
+    cursor: none!important;
   }
 
   body {

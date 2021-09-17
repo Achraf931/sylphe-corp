@@ -16,7 +16,7 @@
       </div>
 
       <div class="relative py-0 px-7.5 text-center w-full h-screen flex flex-col justify-center items-center">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="uppercase is-visible 2xl:text-24px text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">INTRO</h2>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="uppercase is-visible text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">INTRO</h2>
         <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-white mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">La demande</h1>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl max-w-640 2xl:w-full">
           Le centre commercial Passy Plaza, situé à Paris a souhaité événementialiser le mois de septembre 2020 et la fin des vacances.
@@ -38,7 +38,7 @@
 
     <section id="activity" class="overflow-hidden relative w-full max-w-full h-screen bg-lightGray flex items-center justify-center">
       <div class="text-center flex flex-col justify-between md:py-0">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="uppercase is-visible 2xl:text-24px text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">Niveau 1</h2>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="uppercase is-visible text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">Niveau 1</h2>
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Des activités<br>pour petits et grands</h2>
 
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible max-w-640 text-1.5vw leading-normal font-regular md:text-xl">
@@ -60,7 +60,7 @@
 
     <section id="levelTwo" class="overflow-hidden relative w-full max-w-full h-screen bg-blue flex items-center justify-center">
       <div class="text-center flex flex-col justify-between md:py-0">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="uppercase text-white is-visible 2xl:text-24px text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">Niveau 2</h2>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="uppercase text-white is-visible text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">Niveau 2</h2>
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-white mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Relayés sur les réseaux<br>du centre</h2>
 
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-white max-w-640 text-1.5vw leading-normal font-regular md:text-xl">
@@ -69,12 +69,26 @@
       </div>
     </section>
 
-    <section id="test" class="overflow-hidden relative w-full max-w-full h-screen bg-lightGray flex items-center justify-center">
+    <section id="test" class="overflow-hidden relative w-full max-w-full h-screen bg-white flex items-center justify-center">
       <div class="text-center flex flex-col justify-between md:py-0">
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="uppercase is-visible text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">Niveau 3</h2>
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">C'est l'heure du test !</h2>
 
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible max-w-640 text-1.5vw leading-normal font-regular md:text-xl">
           À plusieurs reprises, nous avons accompagné le centre dans la création d'une plateforme de jeu-concours en ligne. Cette fois-ci, la plateforme de quiz devient un jeu du petit bac pour petits et grands.
+        </p>
+      </div>
+    </section>
+
+    <section id="mac" class="overflow-hidden relative w-full max-w-full h-screen bg-lightGray flex items-center justify-center"></section>
+
+    <section id="levelThree" class="overflow-hidden relative w-full max-w-full h-screen bg-blue flex items-center justify-center">
+      <div class="text-center flex flex-col justify-between md:py-0">
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="uppercase text-white is-visible text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">Résultats</h2>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-white mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">XXXX</h2>
+
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-white max-w-640 text-1.5vw leading-normal font-regular md:text-xl">
+          On peut mettre des datas ça peut être cool. Sinon je vous laisse mettre ce qui vous semble pertinent. Il y a de l'espace, allez-y.
         </p>
       </div>
     </section>

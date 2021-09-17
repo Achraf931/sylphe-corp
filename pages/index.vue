@@ -17,12 +17,12 @@
         Your browser does not support the video tag.
       </video>
       <div class="py-2.5 border-b-2 border-white border-solid flex items-center justify-between z-0">
-        <h2 class="text-2.5vw font-bold cursor-pointer leading-normal text-white xs:text-base xs:leading-5 md:text-xl md:leading-6">Showreel</h2>
-        <p class="ml-2 cursor-pointer text-white text-4xl font-bold">→</p>
+        <h2 class="text-2.5vw font-bold leading-normal text-white xs:text-base xs:leading-5 md:text-xl md:leading-6">Showreel</h2>
+        <p class="ml-2 text-white text-4xl font-bold">→</p>
       </div>
     </section>
 
-    <section id="empty" class="w-full max-w-full h-screen"></section>
+    <section id="empty" class="w-full max-w-full h-screen" @mouseover="enterMouseEvent('Show\u000AVideo', '#ED1A1E')" @mouseleave="leaveMouseEvent"></section>
 
     <section id="services" class="z-10 bg-white w-full max-w-full h-screen px-0 md:text-24px md:mx-auto md:mt-auto flex justify-between items-center">
       <div class="relative overflow-hidden w-1/4 h-full">
@@ -36,31 +36,31 @@
            @mouseover="currentService = 'events'"
            @mouseenter="enterService('events')"
            @mouseleave="leaveService('events')"
-           class="is-visible cursor-default text-stroke font-bold lg:text-24px text-3vw text-transparent leading-normal text-center">
+           class="is-visible text-stroke font-bold lg:text-24px text-3vw text-transparent leading-normal text-center">
           {{ $t('tmp.home.events') }}</p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" :class="{'service-selected': currentService === 'digital'}" @click="currentService = 'digital'"
            @mouseover="currentService = 'digital'"
            @mouseenter="enterService('digital')"
            @mouseleave="leaveService('digital')"
-           class="is-visible cursor-default text-stroke font-bold lg:text-24px text-3vw text-transparent leading-normal text-center">
+           class="is-visible text-stroke font-bold lg:text-24px text-3vw text-transparent leading-normal text-center">
           {{ $t('tmp.home.digital') }}</p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" :class="{'service-selected': currentService === 'influence'}" @click="currentService = 'influence'"
            @mouseover="currentService = 'influence'"
            @mouseenter="enterService('influence')"
            @mouseleave="leaveService('influence')"
-           class="is-visible cursor-default text-stroke font-bold lg:text-24px text-3vw text-transparent leading-normal text-center">
+           class="is-visible text-stroke font-bold lg:text-24px text-3vw text-transparent leading-normal text-center">
           {{ $t('tmp.home.influence') }}</p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" :class="{'service-selected': currentService === 'products'}" @click="currentService = 'products'"
            @mouseover="currentService = 'products'"
            @mouseenter="enterService('products')"
            @mouseleave="leaveService('products')"
-           class="is-visible cursor-default text-stroke font-bold lg:text-24px text-3vw text-transparent leading-normal text-center">
+           class="is-visible text-stroke font-bold lg:text-24px text-3vw text-transparent leading-normal text-center">
           {{ $t('tmp.home.production') }}</p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" :class="{'service-selected': currentService === 'design'}" @click="currentService = 'design'"
            @mouseover="currentService = 'design'"
            @mouseenter="enterService('design')"
            @mouseleave="leaveService('design')"
-           class="is-visible cursor-default text-stroke font-bold lg:text-24px text-3vw text-transparent leading-normal text-center">
+           class="is-visible text-stroke font-bold lg:text-24px text-3vw text-transparent leading-normal text-center">
           {{ $t('tmp.home.design') }}</p>
       </div>
 
@@ -210,7 +210,7 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
         <p class="absolute left-1/2 bottom-10 text-center font-medium mt-5" style="transform: translateX(-50%)">SCROLLEZ →</p>
       </div>
 
-      <NuxtLink :to="localePath({name: 'slug', params: {slug: 'test'}})" class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/JEUCONCOURS_MINIATURE_la_rentrée_ludique.png'); background-size: cover; background-repeat: no-repeat;">
+      <NuxtLink :to="localePath({name: 'slug', params: {slug: 'test'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/JEUCONCOURS_MINIATURE_la_rentrée_ludique.png'); background-size: cover; background-repeat: no-repeat;">
         <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">Passy Plaza</h2>
         <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Description rapide du contexte du projet.</p>
 
@@ -224,7 +224,7 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
         <p class="absolute left-1/2 bottom-10 text-white text-center font-medium mt-5" style="transform: translateX(-50%)">1/3</p>
       </NuxtLink>
 
-      <div class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/Rectangle 569.png'); background-size: cover; background-repeat: no-repeat;">
+      <NuxtLink :to="localePath({name: 'slug', params: {slug: 'test'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/Rectangle 569.png'); background-size: cover; background-repeat: no-repeat;">
         <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">celio x Visionnaire</h2>
         <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Description rapide du contexte du projet.</p>
 
@@ -235,9 +235,9 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
           </div>
         </div>
         <p class="absolute left-1/2 bottom-10 text-white text-center font-medium mt-5" style="transform: translateX(-50%)">2/3</p>
-      </div>
+      </NuxtLink>
 
-      <div class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/ESIEE-JOURNÉE29-06-32.2.png'); background-size: cover; background-repeat: no-repeat;">
+      <NuxtLink :to="localePath({name: 'slug', params: {slug: 'test'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/ESIEE-JOURNÉE29-06-32.2.png'); background-size: cover; background-repeat: no-repeat;">
         <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">ESIEE</h2>
         <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Description rapide du contexte du projet.</p>
 
@@ -248,7 +248,7 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
           </div>
         </div>
         <p class="absolute left-1/2 bottom-10 text-white text-center font-medium mt-5" style="transform: translateX(-50%)">3/3</p>
-      </div>
+      </NuxtLink>
     </section>
 
     <section class="z-10 w-full max-w-screen h-screen bg-lightGray flex flex-col items-center justify-center p-10">
@@ -331,17 +331,17 @@ export default {
     })
       .fromTo(toTop,
         {
-          y: '70%'
+          y: '75%'
         },
         {
-          y: '-70%'
+          y: '-75%'
         })
       .fromTo(toBottom,
         {
-          y: '-70%'
+          y: '-75%'
         },
         {
-          y: '70%'
+          y: '75%'
         }, '<')
 
     const tl = this.$gsap.timeline({
@@ -452,11 +452,11 @@ export default {
 
 <style scoped lang="scss">
 #containerToTop {
-  transform: translate(0, 70%);
+  transform: translate(0, 75%);
 }
 
 #containerToBottom {
-  transform: translate(0, -70%);
+  transform: translate(0, -75%);
 }
 
 .project {

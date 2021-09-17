@@ -49,8 +49,8 @@
           <span class="error leading-normal text-0.7vw md:text-sm" v-if="$v.form.message.$error">{{ $t('Contact.form.errorMessage') }}</span>
         </div>
         <div class="flex items-baseline mt-7">
-          <div style="min-width: 10px; min-height: 10px; width: 0.7vw; height: 0.7vw;" class="cursor-pointer mr-2 rounded-full border-2 border-gray max-w-sm" @click="checkedCgu = !checkedCgu, cguError = !checkedCgu" :class="{cguCheck: checkedCgu}"></div>
-          <p class="cursor-pointer ml-2.5 text-gray text-1vw xl:text-sm" @click="checkedCgu = !checkedCgu, cguError = !checkedCgu">{{ $t('Contact.form.cgu') }}</p>
+          <div style="min-width: 10px; min-height: 10px; width: 0.7vw; height: 0.7vw;" class="mr-2 rounded-full border-2 border-gray max-w-sm" @click="checkedCgu = !checkedCgu, cguError = !checkedCgu" :class="{cguCheck: checkedCgu}"></div>
+          <p class="ml-2.5 text-gray text-1vw xl:text-sm" @click="checkedCgu = !checkedCgu, cguError = !checkedCgu">{{ $t('Contact.form.cgu') }}</p>
         </div>
         <span class="error leading-normal text-0.7vw md:text-sm" v-if="cguError">{{ $t('Contact.form.errorCgu') }}</span>
 
