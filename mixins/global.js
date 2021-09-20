@@ -17,8 +17,7 @@ export default {
             .to(document.querySelector('.ball'), {
               width: '60px',
               height: '60px',
-              backgroundColor: backgroundColor,
-              borderColor: 'white'
+              backgroundColor: backgroundColor
             }, '<')
     },
     leaveMouseEvent() {
@@ -27,8 +26,7 @@ export default {
       mtl.to(document.querySelector('.ball'), {
           width: '50px',
           height: '50px',
-          backgroundColor: 'transparent',
-          borderColor: '#171716'
+          backgroundColor: 'transparent'
         })
           .to('.text-ball', {
             autoAlpha: 0,
