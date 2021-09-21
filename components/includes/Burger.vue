@@ -53,7 +53,8 @@
   export default {
     props: ['burgerColor'],
     data: () => ({
-      isBurgerActive: false
+      isBurgerActive: false,
+      fullyOpen: false
     }),
     methods: {
       openBurger() {
@@ -75,8 +76,7 @@
             duration: 1,
             ease: 'power4.out'
           })
-
-        tl.to(items, {
+          .to(items, {
           y: 0,
           autoAlpha: 1,
           display: 'flex',
@@ -88,7 +88,10 @@
             autoAlpha: 1,
             duration: 1,
             ease: 'power3.out'
-          }, '-=0.5');
+          }, '-=0.5')
+          .call(() => {
+            this.fullyOpen = true
+          });
       },
       closeBurger() {
         const tlb = this.$gsap.timeline()
@@ -121,6 +124,8 @@
               item.removeAttribute('style')
             })
             document.querySelector('body').style.overflowY = 'scroll'
+
+            this.fullyOpen = false
           }, null, '-=0.10')
       },
       navigate(to) {
@@ -138,7 +143,7 @@
       })
 
       this.$refs.burger.addEventListener('click', () => {
-        if (this.isBurgerActive) {
+        if (this.isBurgerActive && this.fullyOpen) {
           this.closeBurger()
         }
         else {

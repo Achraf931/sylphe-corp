@@ -93,15 +93,19 @@
           start: 'top top+=' + navDivided + 'px',
           onUpdate: () => {
             this.changeHeader(section)
+          },
+          onEnterBack: () => {
+            this.changeHeader(section)
           }
         })
       })
     },
     methods: {
       changeHeader(section) {
-        const tl = this.$gsap.timeline({delay: 0, duration: 0.05})
-        if (section.id === 'topPage' || section.id === 'empty' || section.id === 'showreel' || section.id === 'teams' || section.id === 'challenge' || section.id === 'projectImage' || section.id === 'slider' || section.id === 'levelTwo' || section.id === 'projectImageTwo' || section.id === 'cards' || section.id === 'contact') {
+        const tl = this.$gsap.timeline({delay: 0, duration: 0.05, paused: true})
+        if (section.id === 'topPage' || section.id === 'empty' || section.id === 'showreel' || section.id === 'teams' || section.id === 'challenge' || section.id === 'projectImage' || section.id === 'slider' || section.id === 'levelTwo' || section.id === 'projectImageTwo' || section.id === 'cards' || section.id === 'contact' || section.id === 'results' || section.id === 'carousel') {
           tl.to(this.$gsap.utils.toArray('.lang'), {
+            paused: false,
             color: 'white'
           })
           .to(this.$gsap.utils.toArray('.burger-bar'), {
@@ -116,7 +120,8 @@
             color: 'black'
           })
           .to(this.$gsap.utils.toArray('.burger-bar'), {
-            background: 'black'
+            background: 'black',
+            paused: false,
           }, 0)
             .call(() => {
               document.getElementById('logo').style.filter = 'invert(100%) sepia(100%) saturate(100%) hue-rotate(87deg) brightness(100%) contrast(100%)'
@@ -358,6 +363,8 @@
     outline: none;
     scrollbar-width: none;
     cursor: none!important;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch; /* Touch scroll by default */
   }
 
   body {

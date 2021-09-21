@@ -45,7 +45,7 @@
         </svg>
 
       </NuxtLink>
-      <div v-observe="{ onEnter: visibility, once: true }" @mouseenter="enterAnim()" @mouseleave="leaveAnim()" class="is-visible-top flex ml-auto">
+      <div v-observe="{ onEnter: visibility, once: true }" @mouseover="enterAnim()" @mouseleave="leaveAnim()" class="is-visible-top flex ml-auto">
         <p @click="switchLanguage(locale.code)" class="lang is-visible-lang uppercase mr-5 opacity-50 cursor-pointer hover:opacity-100 transition-all duration-150 ease-in-out" v-for="locale in $i18n.locales" :key="locale.code" v-if="locale.code !== $i18n.locale">{{ locale.code }}</p>
         <p ref="lang" id="lang" class="lang uppercase font-bold mr-5 cursor-default">{{ $i18n.locales.find(elem => elem.code === $i18n.locale).code }}</p>
       </div>

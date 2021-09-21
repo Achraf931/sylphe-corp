@@ -324,7 +324,7 @@ export default {
         trigger: '#teams',
         pin: true,
         start: 'top top',
-        end: `+=${toTop.offsetHeight + document.getElementById('teams').offsetHeight - 50}px`,
+        end: `+=${toTop.offsetHeight + document.getElementById('teams').offsetHeight - 50}px bottom`,
         scrub: true
       },
       ease: 'power0.none'
