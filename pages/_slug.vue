@@ -47,15 +47,15 @@
       </div>
     </section>
 
-    <section id="slider" class="overflow-y-hidden flex overflow-x-scroll relative w-full max-w-full h-screen bg-blue">
-      <img class="w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle 569.png"/>
-      <img class="w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle 569.png"/>
-      <img class="w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle 569.png"/>
-      <img class="w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle 569.png"/>
-      <img class="w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle 569.png"/>
-      <img class="w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle 569.png"/>
-      <img class="w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle 569.png"/>
-      <img class="w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle 569.png"/>
+    <section id="slider" @mouseover="enterMouseEvent('Scroll\u000ALeft', 'white')" @mouseleave="leaveMouseEvent" class="overflow-y-hidden flex overflow-x-scroll relative w-full max-w-full h-screen bg-blue">
+      <img class="w-full min-w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle 569.png"/>
+      <img class="w-full min-w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle 569.png"/>
+      <img class="w-full min-w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle 569.png"/>
+      <img class="w-full min-w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle 569.png"/>
+      <img class="w-full min-w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle 569.png"/>
+      <img class="w-full min-w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle 569.png"/>
+      <img class="w-full min-w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle 569.png"/>
+      <img class="w-full min-w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle 569.png"/>
     </section>
 
     <section id="levelTwo" class="overflow-hidden relative w-full max-w-full h-screen bg-blue flex items-center justify-center">
@@ -69,7 +69,7 @@
       </div>
     </section>
 
-    <section id="test" class="overflow-hidden relative w-full max-w-full h-screen bg-white flex items-center justify-center">
+    <section id="levelThree" class="overflow-hidden relative w-full max-w-full h-screen bg-white flex items-center justify-center">
       <div class="text-center flex flex-col justify-between md:py-0">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="uppercase is-visible text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">Niveau 3</h2>
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">C'est l'heure du test !</h2>
@@ -82,7 +82,7 @@
 
     <section id="mac" class="overflow-hidden relative w-full max-w-full h-screen bg-lightGray flex items-center justify-center"></section>
 
-    <section id="levelThree" class="overflow-hidden relative w-full max-w-full h-screen bg-blue flex items-center justify-center">
+    <section id="results" class="overflow-hidden relative w-full max-w-full h-screen bg-blue flex items-center justify-center">
       <div class="text-center flex flex-col justify-between md:py-0">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="uppercase text-white is-visible text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">Résultats</h2>
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-white mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">XXXX</h2>
@@ -93,6 +93,43 @@
       </div>
     </section>
 
-    <section id="projectImageTwo" class="w-full max-w-screen h-screen" style="background: url('/projects/Rectangle 569.png') center center no-repeat; background-size: cover;"></section>
+    <section id="carousel" class="overflow-scroll relative w-full max-w-full h-screen bg-blue flex items-left">
+      <p id="left" @click="toLeft" class="absolute z-10 left-10 inset-y-1/2 font-bold text-2xl text-white">left</p>
+      <p id="right" @click="toRight" class="absolute z-10 right-10 inset-y-1/2 font-bold text-2xl text-white">right</p>
+      <img class="carousel-item h-screen object-cover" style="min-width: 50vw; max-width: 50vw; transform: translate(0, 0)" alt="Image" src="/projects/Rectangle 569.png"/>
+      <img class="carousel-item h-screen object-cover" style="min-width: 50vw; max-width: 50vw; transform: translate(0, 0)" alt="Image" src="/projects/Rectangle 569.png"/>
+      <img class="carousel-item h-screen object-cover" style="min-width: 50vw; max-width: 50vw; transform: translate(0, 0)" alt="Image" src="/projects/Rectangle 569.png"/>
+      <img class="carousel-item h-screen object-cover" style="min-width: 50vw; max-width: 50vw; transform: translate(0, 0)" alt="Image" src="/projects/Rectangle 569.png"/>
+      <img class="carousel-item h-screen object-cover" style="min-width: 50vw; max-width: 50vw; transform: translate(0, 0)" alt="Image" src="/projects/Rectangle 569.png"/>
+      <img class="carousel-item h-screen object-cover" style="min-width: 50vw; max-width: 50vw; transform: translate(0, 0)" alt="Image" src="/projects/Rectangle 569.png"/>
+      <img class="carousel-item h-screen object-cover" style="min-width: 50vw; max-width: 50vw; transform: translate(0, 0)" alt="Image" src="/projects/Rectangle 569.png"/>
+      <img class="carousel-item h-screen object-cover" style="min-width: 50vw; max-width: 50vw; transform: translate(0, 0)" alt="Image" src="/projects/Rectangle 569.png"/>
+    </section>
   </div>
 </template>
+
+<script>
+  export default {
+    methods: {
+      toLeft() {
+        const items = this.$gsap.utils.toArray('.carousel-item')
+
+        console.log(items[0].getTranslateValues())
+        if (items[0].style.transform !== 'translate(0vw)' || items[0].style.transform !== 'translate(0px)') {
+          this.$gsap.timeline({duration: 0.2, ease: 'power2.inOut'}).to(items, {
+            x: '+=50vw'
+          })
+        }
+      },
+      toRight() {
+        const items = this.$gsap.utils.toArray('.carousel-item')
+
+        if (items[0].style.transform !== 'translate(-' + (items.length - 2) * 50 + 'vw)') {
+          this.$gsap.timeline({duration: 0.6, ease: 'power2.in'}).to(items, {
+            x: '-=50vw'
+          })
+        }
+      }
+    }
+  }
+</script>
