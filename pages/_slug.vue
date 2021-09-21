@@ -93,17 +93,71 @@
       </div>
     </section>
 
-    <section id="carousel" class="overflow-scroll relative w-full max-w-full h-screen bg-blue flex items-left">
-      <p id="left" @click="toLeft" class="absolute z-10 left-10 inset-y-1/2 font-bold text-2xl text-white">left</p>
-      <p id="right" @click="toRight" class="absolute z-10 right-10 inset-y-1/2 font-bold text-2xl text-white">right</p>
-      <img class="carousel-item h-screen object-cover" style="min-width: 50vw; max-width: 50vw; transform: translate(0, 0)" alt="Image" src="/projects/Rectangle 569.png"/>
-      <img class="carousel-item h-screen object-cover" style="min-width: 50vw; max-width: 50vw; transform: translate(0, 0)" alt="Image" src="/projects/Rectangle 569.png"/>
-      <img class="carousel-item h-screen object-cover" style="min-width: 50vw; max-width: 50vw; transform: translate(0, 0)" alt="Image" src="/projects/Rectangle 569.png"/>
-      <img class="carousel-item h-screen object-cover" style="min-width: 50vw; max-width: 50vw; transform: translate(0, 0)" alt="Image" src="/projects/Rectangle 569.png"/>
-      <img class="carousel-item h-screen object-cover" style="min-width: 50vw; max-width: 50vw; transform: translate(0, 0)" alt="Image" src="/projects/Rectangle 569.png"/>
-      <img class="carousel-item h-screen object-cover" style="min-width: 50vw; max-width: 50vw; transform: translate(0, 0)" alt="Image" src="/projects/Rectangle 569.png"/>
-      <img class="carousel-item h-screen object-cover" style="min-width: 50vw; max-width: 50vw; transform: translate(0, 0)" alt="Image" src="/projects/Rectangle 569.png"/>
-      <img class="carousel-item h-screen object-cover" style="min-width: 50vw; max-width: 50vw; transform: translate(0, 0)" alt="Image" src="/projects/Rectangle 569.png"/>
+    <section id="carousel" class="overflow-hidden relative w-full max-w-full h-screen bg-blue flex items-left">
+      <p id="left" @click="moveCarousel" class="absolute z-10 left-5 inset-y-1/2 font-bold text-2xl text-white" style="font-size: 60px; transform: scale(-1, 1);">→</p>
+      <p id="right" @click="moveCarousel" class="absolute z-10 right-5 inset-y-1/2 font-bold text-2xl text-white" style="font-size: 60px;">→</p>
+      <NuxtLink :to="localePath({name: 'slug', params: {slug: 'test'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="carousel-item h-screen flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/JEUCONCOURS_MINIATURE_la_rentrée_ludique.png'); background-size: cover; background-repeat: no-repeat; min-width: 50vw; max-width: 50vw; transform: translate(0, 0);">
+        <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">Passy Plaza</h2>
+        <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Description rapide du contexte du projet.</p>
+
+        <div class="absolute left-1/2 bottom-20" style="transform: translateX(-50%)">
+          <div class="flex">
+            <div class="rounded-md border font-medium border-solid border-white p-5 text-white">Influence</div>
+            <div class="rounded-md ml-10 border font-medium border-solid border-white p-5 text-white">Digital</div>
+            <div class="rounded-md ml-10 border font-medium border-solid border-white p-5 text-white">Design</div>
+          </div>
+        </div>
+        <p class="absolute left-1/2 bottom-10 text-white text-center font-medium mt-5" style="transform: translateX(-50%)">1/5</p>
+      </NuxtLink>
+      <NuxtLink :to="localePath({name: 'slug', params: {slug: 'test'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="carousel-item h-screen flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/Rectangle 569.png'); background-size: cover; background-repeat: no-repeat; min-width: 50vw; max-width: 50vw; transform: translate(0, 0);">
+        <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">celio x Visionnaire</h2>
+        <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Description rapide du contexte du projet.</p>
+
+        <div class="absolute left-1/2 bottom-20" style="transform: translateX(-50%)">
+          <div class="flex">
+            <div class="rounded-md border font-medium border-solid border-white p-5 text-white">Influence</div>
+            <div class="rounded-md ml-10 border font-medium border-solid border-white p-5 text-white">Design</div>
+          </div>
+        </div>
+        <p class="absolute left-1/2 bottom-10 text-white text-center font-medium mt-5" style="transform: translateX(-50%)">2/5</p>
+      </NuxtLink>
+      <NuxtLink :to="localePath({name: 'slug', params: {slug: 'test'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="carousel-item h-screen flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/ESIEE-JOURNÉE29-06-32.2.png'); background-size: cover; background-repeat: no-repeat; min-width: 50vw; max-width: 50vw; transform: translate(0, 0);">
+        <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">ESIEE</h2>
+        <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Description rapide du contexte du projet.</p>
+
+        <div class="absolute left-1/2 bottom-20" style="transform: translateX(-50%)">
+          <div class="flex">
+            <div class="rounded-md border font-medium border-solid border-white p-5 text-white">Éditorial</div>
+            <div class="rounded-md ml-10 border font-medium border-solid border-white p-5 text-white">Design</div>
+          </div>
+        </div>
+        <p class="absolute left-1/2 bottom-10 text-white text-center font-medium mt-5" style="transform: translateX(-50%)">3/5</p>
+      </NuxtLink>
+      <NuxtLink :to="localePath({name: 'slug', params: {slug: 'test'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="carousel-item h-screen flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/JEUCONCOURS_MINIATURE_la_rentrée_ludique.png'); background-size: cover; background-repeat: no-repeat; min-width: 50vw; max-width: 50vw; transform: translate(0, 0);">
+        <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">Passy Plaza</h2>
+        <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Description rapide du contexte du projet.</p>
+
+        <div class="absolute left-1/2 bottom-20" style="transform: translateX(-50%)">
+          <div class="flex">
+            <div class="rounded-md border font-medium border-solid border-white p-5 text-white">Influence</div>
+            <div class="rounded-md ml-10 border font-medium border-solid border-white p-5 text-white">Digital</div>
+            <div class="rounded-md ml-10 border font-medium border-solid border-white p-5 text-white">Design</div>
+          </div>
+        </div>
+        <p class="absolute left-1/2 bottom-10 text-white text-center font-medium mt-5" style="transform: translateX(-50%)">4/5</p>
+      </NuxtLink>
+      <NuxtLink :to="localePath({name: 'slug', params: {slug: 'test'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="carousel-item h-screen flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/Rectangle 569.png'); background-size: cover; background-repeat: no-repeat; min-width: 50vw; max-width: 50vw; transform: translate(0, 0);">
+        <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">celio x Visionnaire</h2>
+        <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Description rapide du contexte du projet.</p>
+
+        <div class="absolute left-1/2 bottom-20" style="transform: translateX(-50%)">
+          <div class="flex">
+            <div class="rounded-md border font-medium border-solid border-white p-5 text-white">Influence</div>
+            <div class="rounded-md ml-10 border font-medium border-solid border-white p-5 text-white">Design</div>
+          </div>
+        </div>
+        <p class="absolute left-1/2 bottom-10 text-white text-center font-medium mt-5" style="transform: translateX(-50%)">5/5</p>
+      </NuxtLink>
     </section>
   </div>
 </template>
@@ -111,24 +165,22 @@
 <script>
   export default {
     methods: {
-      toLeft() {
+      moveCarousel(e) {
         const items = this.$gsap.utils.toArray('.carousel-item')
+        const matrix = window.getComputedStyle(items[0]).getPropertyValue('transform')
+        const matrixValues = matrix.match(/matrix.*\((.+)\)/)[1].split(', ')
+        let x;
 
-        console.log(items[0].getTranslateValues())
-        if (items[0].style.transform !== 'translate(0vw)' || items[0].style.transform !== 'translate(0px)') {
-          this.$gsap.timeline({duration: 0.2, ease: 'power2.inOut'}).to(items, {
-            x: '+=50vw'
-          })
+        if (e.target.id === 'left' && matrixValues[4] < 0) {
+          x = '+=50vw'
         }
-      },
-      toRight() {
-        const items = this.$gsap.utils.toArray('.carousel-item')
+        else if (e.target.id === 'right' && items[0].style.transform !== 'translate(-' + (items.length - 2) * 50 + 'vw)') {
+          x = '-=50vw'
+        }
 
-        if (items[0].style.transform !== 'translate(-' + (items.length - 2) * 50 + 'vw)') {
-          this.$gsap.timeline({duration: 0.6, ease: 'power2.in'}).to(items, {
-            x: '-=50vw'
-          })
-        }
+        this.$gsap.timeline({duration: 0.1, ease: 'power4.inOut', delay: 0}).to(items, {
+          x: x
+        })
       }
     }
   }
