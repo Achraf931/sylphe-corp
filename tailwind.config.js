@@ -112,6 +112,7 @@ module.exports = {
         current: '#171716',
         gray: '#888888',
         grayFooter: '#818181',
+        cyan: '#6BCABB',
         error: '#D7241C',
       },
       borderWidth: {
@@ -120,6 +121,7 @@ module.exports = {
       borderColor: ({
         gray: '#888888',
         grayFooterBar: '#4B4B4B',
+        cyan: '#6BCABB',
         error: '#D7241C',
       }),
       backgroundColor: {
@@ -131,6 +133,7 @@ module.exports = {
         yellow: '#F7AF00',
         pink: '#EB7D91',
         green: '#49A461',
+        cyan: '#6BCABB',
         purple: '#9489C1'
       },
       lineHeight: {

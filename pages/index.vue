@@ -3,7 +3,7 @@
     <section id="topPage" class="z-10 relative w-full max-w-full h-screen bg-blue flex items-center justify-center flex-col text-white">
       <div class="box-content py-0 px-7.5 text-center">
         <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible lg:text-32px text-3vw leading-normal">{{ $t('Home.topPageTitlePart1') }}</h1>
-        <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible lg:text-32px text-3vw leading-normal font-bold mb-13 md:mb-5">{{ $t('Home.topPageTitlePart2') }}</h1>
+        <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible lg:text-32px text-3vw leading-normal font-bold mb-5">{{ $t('Home.topPageTitlePart2') }}</h1>
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" v-html="$t('Home.description')"
             class="is-visible 2xl:text-24px text-1.5vw font-regular m-auto 2xl:w-full w-1/2 2xl:max-w-640 xs:text-base xs:leading-5 md:text-xl md:leading-6"/>
       </div>
@@ -118,7 +118,7 @@
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white"
             v-html="$t('Home.teams.title')"/>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl text-white" v-html="$t('Home.teams.text')"/>
-        <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :link="localePath({name: 'services'})">{{ $t('Home.teams.button') }}</UiButton>
+        <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :link="localePath({name: 'index'})">{{ $t('Home.teams.button') }}</UiButton>
       </div>
 
       <div id="containerToTop" class="pr-10 w-1/4 overflow-hidden">
@@ -210,7 +210,7 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
         <p class="absolute left-1/2 bottom-10 text-center font-medium mt-5" style="transform: translateX(-50%)">SCROLLEZ →</p>
       </div>
 
-      <NuxtLink :to="localePath({name: 'slug', params: {slug: 'test'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/JEUCONCOURS_MINIATURE_la_rentrée_ludique.png'); background-size: cover; background-repeat: no-repeat;">
+      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'test'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/JEUCONCOURS_MINIATURE_la_rentrée_ludique.png'); background-size: cover; background-repeat: no-repeat;">
         <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">Passy Plaza</h2>
         <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Description rapide du contexte du projet.</p>
 
@@ -224,7 +224,7 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
         <p class="absolute left-1/2 bottom-10 text-white text-center font-medium mt-5" style="transform: translateX(-50%)">1/3</p>
       </NuxtLink>
 
-      <NuxtLink :to="localePath({name: 'slug', params: {slug: 'test'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/Rectangle 569.png'); background-size: cover; background-repeat: no-repeat;">
+      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'test'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/Rectangle 569.png'); background-size: cover; background-repeat: no-repeat;">
         <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">celio x Visionnaire</h2>
         <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Description rapide du contexte du projet.</p>
 
@@ -237,7 +237,7 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
         <p class="absolute left-1/2 bottom-10 text-white text-center font-medium mt-5" style="transform: translateX(-50%)">2/3</p>
       </NuxtLink>
 
-      <NuxtLink :to="localePath({name: 'slug', params: {slug: 'test'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/ESIEE-JOURNÉE29-06-32.2.png'); background-size: cover; background-repeat: no-repeat;">
+      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'test'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/ESIEE-JOURNÉE29-06-32.2.png'); background-size: cover; background-repeat: no-repeat;">
         <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">ESIEE</h2>
         <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Description rapide du contexte du projet.</p>
 
@@ -251,41 +251,24 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
       </NuxtLink>
     </section>
 
-    <section class="z-10 w-full max-w-screen h-screen bg-lightGray flex flex-col items-center justify-center p-10">
-      <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="p is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Ils nous ont fait confiance</p>
+    <section id="activity" class="overflow-hidden relative w-full max-w-full h-screen bg-lightGray flex items-center justify-center">
+      <div class="text-center flex flex-col justify-between md:py-0">
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Pour plus<br>de choix</h2>
 
-      <div class="grid grid-cols-5 gap-10 items-center">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/LVMH_logo_logotype_Moët_Hennessy_Louis_Vuitton.png" alt="LVMH">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/kenzo-logo-def.png" alt="KENZO">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/logo-grandrex.png" alt="Le Grand Rex">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/Westfield-Les-4-Temps-Logo.ashx.png" alt="Westfield Les 4 Temps">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/cultura.png" alt="Cultura">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/Niantic_Logo.png" alt="Niantic">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/1280px-Viz_Media_2017_logo.svg.png" alt="Viz Media">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/Peugeot_2021_Logo.svg.png" alt="Peugeot">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/ffsa.png" alt="FFSA">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/Icade_logo_2017.png" alt="Icade">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/logo-passy-plaza-fd-transparent.png" alt="Passy Plaza">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/Logo_ESIEE_Paris.svg.png" alt="ESIEE">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/arianelab-97202.png" alt="ArianeLab">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/logo.png" alt="Ville de Chatillon">
-        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/1200px-Logo_celio_2016.svg.png" alt="Celio">
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible max-w-640 text-1.5vw leading-normal font-regular md:text-xl">
+          Blablabla
+        </p>
+        <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" link="" :target="false">J'en veux plus !</UiButton>
       </div>
     </section>
 
-    <section id="challenge" class="z-10 w-full max-w-screen h-screen bg-blue flex items-center justify-between">
-      <div class="relative overflow-hidden w-1/4 h-full">
-        <div class="sidebar-challenge opacity-50 w-full h-full bg-white" style="transform: translateX(-100%)"></div>
-      </div>
-      <div class="w-2/4 flex flex-col items-center px-10 text-center">
+    <UiSectionSides gsapTarget="challenge" class="bg-blue">
+      <div class="w-2/4 md:w-full flex flex-col items-center px-10 text-center">
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="p is-visible mb-10 md:mb-4 text-white text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Challengez-nous !</p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="p is-visible text-1.5vw text-white leading-normal font-regular md:text-xl">Petit plus de la maison : nous adorons les besoins compliqués et les réponses sur-mesure.</p>
-        <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :link="'https://calendly.com/sylphe/reunion'" :target="true">{{ $t('nav.call') }}</UiButton>
+        <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :link="'https://calendly.com/sylphe/reunion'" :target="false">{{ $t('nav.call') }}</UiButton>
       </div>
-      <div class="relative overflow-hidden w-1/4 h-full">
-        <div class="sidebar-challenge opacity-50 w-full h-full bg-white" style="transform: translateX(100%)"></div>
-      </div>
-    </section>
+    </UiSectionSides>
   </div>
 </template>
 
@@ -319,12 +302,13 @@ export default {
     let toBottom = document.getElementById('containerToBottom');
     let cards = this.$gsap.utils.toArray(".card");
     let projects = this.$gsap.utils.toArray(".project");
+
     this.$gsap.timeline({
       scrollTrigger: {
         trigger: '#teams',
         pin: true,
         start: 'top top',
-        end: `+=${toTop.offsetHeight + document.getElementById('teams').offsetHeight - 50}px bottom`,
+        end: `+=${toTop.offsetHeight + document.getElementById('teams').offsetHeight - 50}px`,
         scrub: true
       },
       ease: 'power0.none'
@@ -388,7 +372,7 @@ export default {
       const img = projects[i].childNodes[6];
       const a = projects[i].childNodes[8];
 
-      ptl.to({}, {scrub: 2, duration: 10})
+      ptl.to({}, {duration: 10})
         .to(projects[i], {
           x: '-50%',
           left: '50%',
@@ -407,23 +391,6 @@ export default {
     }
 
     ptl.to({}, { duration: 4 })
-
-
-    //  Anim challenge section
-    this.$gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: '#challenge',
-          start: 'top bottom',
-          end: '+=100%',
-          scrub: 0.1
-        },
-        ease: 'power2.inOut'
-      })
-      .to('.sidebar-challenge', {
-        x: 0,
-        duration: 4
-      })
   },
   methods: {
     enterService(service) {

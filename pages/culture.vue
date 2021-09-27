@@ -2,7 +2,7 @@
   <div>
     <section id="topPage" class="z-10 relative w-full max-w-full h-screen  bg-pink flex items-center justify-center flex-col text-white">
       <div class="box-content py-0 px-7.5 text-center">
-        <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim mb-13 md:mb-5 lg:text-32px text-3vw leading-normal" v-html="$t('Culture.topPageTitle')"/>
+        <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim mb-5 lg:text-32px text-3vw leading-normal" v-html="$t('Culture.topPageTitle')"/>
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim 2xl:text-24px text-1.5vw font-regular m-auto 2xl:max-w-600 2xl:w-full w-1/2 xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Culture.description') }}</h2>
       </div>
       <ArrowScroll/>
@@ -157,6 +157,28 @@
         </div>
       </div>
     </section>
+
+    <section class="z-10 w-full max-w-screen h-screen bg-lightGray flex flex-col items-center justify-center p-10">
+      <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="p is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Ils nous ont fait confiance</p>
+
+      <div class="grid grid-cols-5 gap-10 items-center">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/LVMH_logo_logotype_Moët_Hennessy_Louis_Vuitton.png" alt="LVMH">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/kenzo-logo-def.png" alt="KENZO">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/logo-grandrex.png" alt="Le Grand Rex">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/Westfield-Les-4-Temps-Logo.ashx.png" alt="Westfield Les 4 Temps">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/cultura.png" alt="Cultura">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/Niantic_Logo.png" alt="Niantic">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/1280px-Viz_Media_2017_logo.svg.png" alt="Viz Media">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/Peugeot_2021_Logo.svg.png" alt="Peugeot">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/ffsa.png" alt="FFSA">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/Icade_logo_2017.png" alt="Icade">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/logo-passy-plaza-fd-transparent.png" alt="Passy Plaza">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/Logo_ESIEE_Paris.svg.png" alt="ESIEE">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/arianelab-97202.png" alt="ArianeLab">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/logo.png" alt="Ville de Chatillon">
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/1200px-Logo_celio_2016.svg.png" alt="Celio">
+      </div>
+    </section>
   </div>
 </template>
 
@@ -166,6 +188,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.img {
+  transition: filter .2s ease-in-out;
+  filter: grayscale(1);
+
+  &:hover {
+    filter: none;
+  }
+}
 #cards .containerCards {
   .card {
     scroll-snap-align: center;

@@ -1,5 +1,5 @@
 <template>
-  <footer class="w-full max-w-screen bg-black py-4 px-5 flex justify-between flex-wrap">
+  <footer class="w-full max-w-screen bg-black py-4 px-5 z-10 flex justify-between flex-wrap">
     <div class="flex items-center text-grayFooter md:w-full justify-between xs:flex-col">
       <NuxtLink class="2xl:text-11px text-1vw leading-normal hover:text-white transition-all duration-150 ease-in-out" :to="localePath('legal-notice')">Charte d'utilisation des cookies</NuxtLink>
       <NuxtLink class="2xl:text-11px text-1vw leading-normal hover:text-white transition-all duration-150 ease-in-out sm:ml-2.5 xs:ml-0 lg:ml-10 ml-20" :to="localePath('legal-notice')">Mentions légales</NuxtLink>

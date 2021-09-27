@@ -43,7 +43,7 @@ export default {
           x: 0,
           delay: .4,
           autoAlpha: 1,
-          duration: 1,
+          duration: 0.6,
           ease: 'power4.inOut'
         })
       }
@@ -54,7 +54,7 @@ export default {
           y: 0,
           x: 0,
           autoAlpha: 1,
-          duration: 1,
+          duration: 0.6,
           ease: 'power4.inOut'
         })
       }

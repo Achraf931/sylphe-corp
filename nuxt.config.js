@@ -102,10 +102,15 @@ export default {
           en: '/culture',
           ja: '/culture'
         },
-        'works/_slug': {
+        'projects/_slug': {
           fr: '/travaux/:slug',
-          en: '/works/:slug',
-          ja: '/works/:slug',
+          en: '/projects/:slug',
+          ja: '/projects/:slug',
+        },
+        projects: {
+          fr: '/travaux',
+          en: '/projects',
+          ja: '/projects',
         },
         contact: {
           fr: '/contact',

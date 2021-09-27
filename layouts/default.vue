@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="ball is-visible" style="z-index: 9999999999999;">
-      <p class="text-ball text-center text-base font-black" style="white-space: nowrap;"></p>
-      <div class="cursor"></div>
+    <div v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="ball mix-diff is-visible" style="z-index: 9999999999999;">
+      <p class="text-ball text-center text-base font-black mix-diff" style="white-space: nowrap;"></p>
+      <div class="cursor mix-diff"></div>
     </div>
 
     <Loader/>
@@ -73,8 +73,6 @@
         pos.y += (mouse.y - pos.y) * dt;
         xSet(pos.x);
         ySet(pos.y);
-
-
       });
 
       this.lmS = new this.locomotiveScroll({
@@ -103,7 +101,7 @@
     methods: {
       changeHeader(section) {
         const tl = this.$gsap.timeline({delay: 0, duration: 0.05, paused: true})
-        if (section.id === 'topPage' || section.id === 'empty' || section.id === 'showreel' || section.id === 'teams' || section.id === 'challenge' || section.id === 'projectImage' || section.id === 'slider' || section.id === 'levelTwo' || section.id === 'projectImageTwo' || section.id === 'cards' || section.id === 'contact' || section.id === 'results' || section.id === 'carousel') {
+        if (section.id === 'error' || section.id === 'topPage' || section.id === 'empty' || section.id === 'showreel' || section.id === 'teams' || section.id === 'challenge' || section.id === 'projectImage' || section.id === 'slider' || section.id === 'levelTwo' || section.id === 'projectImageTwo' || section.id === 'cards' || section.id === 'contact' || section.id === 'results' || section.id === 'carousel') {
           tl.to(this.$gsap.utils.toArray('.lang'), {
             paused: false,
             color: 'white'
@@ -146,7 +144,6 @@
   left: 0;
   border: 1px solid white;
   border-radius: 50%;
-  mix-blend-mode: difference;
 }
 
 .text-ball {
@@ -157,7 +154,6 @@
   opacity: 0;
   visibility: hidden;
   line-height: 15px;
-  mix-blend-mode: difference;
   color: white;
 }
 
@@ -166,7 +162,6 @@
   background: white;
   width: 10px;
   height: 10px;
-  mix-blend-mode: difference;
 }
 
 #js-scroll {
