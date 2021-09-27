@@ -1,11 +1,11 @@
 <template>
   <section :id="gsapTarget" class="z-10 w-full max-w-screen h-screen flex items-center justify-between">
     <div class="relative overflow-hidden w-1/4 h-full">
-      <div class="sidebar opacity-50 w-full h-full bg-white mix-diff" style="transform: translateX(-100%);"></div>
+      <div :class="'sidebar-' + gsapTarget" class="opacity-50 w-full h-full bg-white mix-diff" style="transform: translateX(-100%);"></div>
     </div>
     <slot/>
     <div class="relative overflow-hidden w-1/4 h-full">
-      <div class="sidebar opacity-50 w-full h-full bg-white mix-diff" style="transform: translateX(100%);"></div>
+      <div :class="'sidebar-' + gsapTarget" class="opacity-50 w-full h-full bg-white mix-diff" style="transform: translateX(100%);"></div>
     </div>
   </section>
 </template>
@@ -29,7 +29,7 @@ export default {
         },
         ease: 'power2.inOut'
       })
-      .to('.sidebar', {
+      .to('.sidebar-' + this.gsapTarget, {
         x: 0,
         duration: 4
       })
