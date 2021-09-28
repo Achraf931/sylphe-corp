@@ -10,7 +10,7 @@ export default {
     labelEmail: 'Your email',
     labelMessage: 'Your message',
     cgu: 'By submitting this form, i accept many things without reading them.',
-    errorName: 'Oops, one piece of information seems to be wrong.',
+    errorName: 'Please complete the field.',
     errorEmail: 'Please complete the field.',
     errorEmailValid: 'Your email is not valid.',
     errorEmailLength: 'Your email must not exceed 320 characters.',

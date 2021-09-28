@@ -10,7 +10,7 @@ export default {
     labelEmail: '貴殿のメール',
     labelMessage: 'きげん',
     cgu: 'このフォームを送信することで、私はそれを読まずに多くのことを受け入れます。',
-    errorName: 'おっと、情報の一部が間違っているようです。',
+    errorName: '記入をお願いします。',
     errorEmail: '記入をお願いします。',
     errorEmailValid: 'あなたの電子メールは有効ではありません。',
     errorEmailLength: 'メールは320文字以内でお願いします。',

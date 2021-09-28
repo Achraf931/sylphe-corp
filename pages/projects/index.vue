@@ -1,6 +1,6 @@
 <template>
-  <div class="overflow-x-hidden bg-black">
-    <section id="topPage" class="relative w-full h-screen bg-cyan flex items-center z-10 justify-center flex-col text-white">
+  <div class="overflow-x-hidden bg-black" style="mix-blend-mode: color;">
+    <section id="topPage" class="relative w-full h-screen bg-cyan flex items-center justify-center flex-col text-white">
       <div class="box-content py-0 px-7.5 text-center">
         <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim mb-5 lg:text-32px text-3vw leading-normal" v-html="'Découvrez nos réalisations'"/>
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim 2xl:text-24px text-1.5vw font-regular m-auto xs:text-base xs:leading-5 md:text-xl md:leading-6">Elles sont toutes faites avec amour</h2>
@@ -8,7 +8,7 @@
       <ArrowScroll/>
     </section>
 
-    <section id="projects" class="fixed top-0 left-0 h-screen w-full grid grid-rows-2 grid-flow-col">
+    <section id="projects" class="fixed top-0 left-0 h-screen w-full grid grid-rows-2 grid-flow-col" style="z-index: -1;">
       <div v-for="index in 20" :key="index" class="text-white text-center relative flex items-center justify-center bg-pink w-full h-full p-5" style="background-color: #171716;">
         <p class="w-full lg:text-32px text-3vw leading-normal font-bold">Projet</p>
         <p class="absolute bottom-10 w-full inset-x-1/2" style="transform: translateX(-50%);">
@@ -19,7 +19,7 @@
       </div>
     </section>
 
-    <section id="empty" class="w-full max-w-full h-screen pointer-events-none" style="z-index: -1;"></section>
+    <section id="empty" class="w-full max-w-full h-screen pointer-events-none"></section>
 
     <UiSectionSides gsapTarget="activity" class="bg-lightGray">
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2">

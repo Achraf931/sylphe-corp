@@ -19,20 +19,22 @@ export default {
     }
   },
   mounted() {
-    this.$gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: `#${this.gsapTarget}`,
-          start: 'top bottom',
-          end: '+=100%',
-          scrub: 0.1
-        },
-        ease: 'power2.inOut'
-      })
-      .to('.sidebar-' + this.gsapTarget, {
-        x: 0,
-        duration: 4
-      })
+    this.$nextTick(() => {
+      this.$gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: `#${this.gsapTarget}`,
+            start: 'top bottom',
+            end: '+=100%',
+            scrub: 0.1
+          },
+          ease: 'power2.inOut'
+        })
+        .to('.sidebar-' + this.gsapTarget, {
+          x: 0,
+          duration: 4
+        })
+    })
   }
 }
 </script>

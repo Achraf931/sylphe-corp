@@ -57,7 +57,8 @@ export default {
           easel: true,
           scrollTo: true,
           scrollTrigger: true,
-          toggleActions: true
+          toggleActions: true,
+          text: true
         },
         extraEases: {
           expoScaleEase: true
@@ -102,15 +103,15 @@ export default {
           en: '/culture',
           ja: '/culture'
         },
-        'projects/_slug': {
-          fr: '/travaux/:slug',
-          en: '/projects/:slug',
-          ja: '/projects/:slug',
-        },
         projects: {
           fr: '/travaux',
           en: '/projects',
           ja: '/projects',
+        },
+        'projects/_slug': {
+          fr: '/travaux/:slug',
+          en: '/projects/:slug',
+          ja: '/projects/:slug',
         },
         contact: {
           fr: '/contact',
@@ -145,7 +146,7 @@ export default {
       ],
       silentTranslationWarn: true,
       fallbackLocale: ['fr', 'en'],
-      strategy: 'prefix_and_default',
+      strategy: 'prefix_except_default',
       lazy: true,
       langDir: 'lang/',
       defaultLocale: 'fr',

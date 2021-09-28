@@ -40,7 +40,7 @@
       </div>
     </div>
     <slot>
-      <button v-observe="{ onEnter: visibility, once: true }" type="button" ref="burger" class="is-visible-top burger-button" @mouseover="enterMouseEvent('Click', '#ED1A1E')" @mouseleave="leaveMouseEvent">
+      <button v-observe="{ onEnter: visibility, once: true }" type="button" ref="burger" class="is-visible-top burger-button mouse-hover click-hover">
         <span class="burger-bar burger-bar--1"></span>
         <span class="burger-bar burger-bar--2"></span>
         <span class="burger-bar burger-bar--3"></span>

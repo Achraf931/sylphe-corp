@@ -158,7 +158,7 @@
       </div>
     </section>
 
-    <section class="z-10 w-full max-w-screen h-screen bg-lightGray flex flex-col items-center justify-center p-10">
+    <section id="clients" class="z-10 w-full max-w-screen h-screen bg-lightGray flex flex-col items-center justify-center p-10">
       <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="p is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Ils nous ont fait confiance</p>
 
       <div class="grid grid-cols-5 gap-10 items-center">

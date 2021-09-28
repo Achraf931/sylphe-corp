@@ -4,15 +4,11 @@
       <img class="fixed left-0 top-0 w-full max-w-screen h-screen" style="z-index: -1;" src="/projects/JEUCONCOURS_MINIATURE_la_rentrée_ludique.png" alt="Background image">
       <div class="relative py-0 px-7.5 text-center w-full h-screen flex flex-col justify-center items-center">
         <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-stroke-white text-transparent text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 font-bold">La rentrée ludique</h1>
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible 2xl:text-24px text-1.5vw font-regular max-w-424 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">Célébrons la rentrée des classes
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible 2xl:text-24px text-1.5vw font-regular max-w-424 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 mb-5">Célébrons la rentrée des classes
           dans le centre commercial Passy Plaza</h2>
-
-        <div class="absolute left-1/2 bottom-20" style="transform: translateX(-50%)">
-          <div v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible flex">
-            <div class="rounded-md border font-medium border-solid border-white p-5 text-white">Éditorial</div>
-            <div class="rounded-md ml-10 border font-medium border-solid border-white p-5 text-white">Design</div>
-          </div>
-        </div>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Client : <span class="font-bold">celio x Visionnaire</span></p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Spécialités : <span class="font-bold">Direction artistique, Influence, Produit</span></p>
+        <ArrowScroll/>
       </div>
 
       <div class="relative py-0 px-7.5 text-center w-full h-screen flex flex-col justify-center items-center">
@@ -47,7 +43,7 @@
       </div>
     </UiSectionSides>
 
-    <section id="slider" @mouseover="enterMouseEvent('Scroll\u000ALeft', 'white')" @mouseleave="leaveMouseEvent" class="overflow-y-hidden flex overflow-x-scroll relative w-full max-w-full h-screen bg-blue">
+    <section id="slider" class="mouse-hover sccroll-hover overflow-y-hidden flex overflow-x-scroll relative w-full max-w-full h-screen bg-blue">
       <img class="w-full min-w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle%20569.png"/>
       <img class="w-full min-w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle%20569.png"/>
       <img class="w-full min-w-full h-screen object-cover" style="max-width: 100vh;" alt="Image" src="/projects/Rectangle%20569.png"/>
@@ -94,17 +90,19 @@
     </section>
 
     <section id="carousel" class="overflow-hidden relative w-full max-w-full h-screen bg-blue flex items-left">
-      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'celio-x-visionnaire'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="carousel-item h-screen flex flex-col items-center justify-center md:p-5 p-10" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/Rectangle 569.png'); background-size: cover; background-repeat: no-repeat; min-width: 50vw; max-width: 50vw; transform: translate(0, 0);">
+      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'celio-x-visionnaire'}})" class="carousel-item h-screen flex flex-col items-center justify-center md:p-5 p-10" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/Rectangle 569.png'); background-size: cover; background-repeat: no-repeat; min-width: 50vw; max-width: 50vw; transform: translate(0, 0);">
         <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">celio x Visionnaire</h2>
         <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5">Description rapide du contexte du projet.</p>
         <p class="p text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Client : <span class="font-bold">celio x Visionnaire</span></p>
         <p class="p text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Spécialités : <span class="font-bold">Direction artistique, Influence, Produit</span></p>
+        <UiArrow/>
       </NuxtLink>
-      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'guide'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="carousel-item h-screen flex flex-col items-center justify-center md:p-5 p-10" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/ESIEE-JOURNÉE29-06-32.2.png'); background-size: cover; background-repeat: no-repeat; min-width: 50vw; max-width: 50vw; transform: translate(0, 0);">
+      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'guide'}})" class="carousel-item h-screen flex flex-col items-center justify-center md:p-5 p-10" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/ESIEE-JOURNÉE29-06-32.2.png'); background-size: cover; background-repeat: no-repeat; min-width: 50vw; max-width: 50vw; transform: translate(0, 0);">
         <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">Le guide de l’étudiant</h2>
         <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5">Description rapide du contexte du projet.</p>
         <p class="p text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Client : <span class="font-bold">Le guide de l’étudiant</span></p>
         <p class="p text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Spécialités : <span class="font-bold">Direction artistique, Éditorial, Édition</span></p>
+        <UiArrow/>
       </NuxtLink>
     </section>
   </div>

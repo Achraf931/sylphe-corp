@@ -42,7 +42,7 @@ export default {
           }
           tl.call(() => {
             this.$viewportObserverState.active = true
-          }, null, '<')
+          })
 
           /*if (from === undefined) {
             const sylpheVideo = document.getElementById('sylphe')

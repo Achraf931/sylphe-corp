@@ -8,7 +8,7 @@
       <ArrowScroll/>
     </section>
 
-    <section id="containerForm" data-aos="fade-up" class="flex relative items-center justify-center w-full max-w-screen min-h-screen flex-col pb-15 mx-auto pt-14 mb-0 px-7.5">
+    <section id="containerForm" data-aos="fade-up" class="flex relative items-center justify-center w-full max-w-screen min-h-screen flex-col pb-15 mx-auto pt-14 mb-0 xl:px-7.5 px-96">
       <!--      <h2 class="sm:text-24px">{{ $t('Contact.form.title') }}</h2>-->
       <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">
         <client-only>
@@ -28,33 +28,33 @@
           />
         </client-only>
       </h2>
-      <form v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible w-full max-w-640 text-base" method="post" @submit.prevent="sendForm" id="form" novalidate>
+      <form v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible w-full xl:max-w-640 text-base" method="post" @submit.prevent="sendForm" id="form" novalidate>
         <div class="formGroup" :class="{ formGroupError: $v.form.name.$error }">
           <label class="text-1vw md:text-xl" for="name">{{ $t('Contact.form.labelName') }} *</label>
           <input class="text-1vw md:text-xl leading-normal" id="name" type="text" inputmode="text" v-model.trim="form.name" @value="setName"/>
-          <span class="error text-0.7vw md:text-sm leading-normal" v-if="$v.form.name.$error">{{ $t('Contact.form.errorName') }}</span>
+          <span class="error text-1vw md:text-sm leading-normal" v-if="$v.form.name.$error">{{ $t('Contact.form.errorName') }}</span>
         </div>
         <div class="formGroup" :class="{ formGroupError: $v.form.email.$error }">
           <label class="text-1vw md:text-xl" for="email">{{ $t('Contact.form.labelEmail') }} *</label>
           <input class="text-1vw md:text-xl leading-normal" id="email" type="email" inputmode="email" v-model.trim="form.email" @value="setEmail"/>
           <template v-if="$v.form.email.$error">
-            <span class="error leading-normal text-0.7vw md:text-sm" v-if="!$v.form.email.required">{{ $t('Contact.form.errorEmail') }}</span>
-            <span class="error leading-normal text-0.7vw md:text-sm" v-if="!$v.form.email.maxLength">{{ $t('Contact.form.errorEmailLength') }}</span>
-            <span class="error leading-normal text-0.7vw md:text-sm" v-if="!$v.form.email.email">{{ $t('Contact.form.errorEmailValid') }}</span>
+            <span class="error leading-normal text-1vw md:text-sm" v-if="!$v.form.email.required">{{ $t('Contact.form.errorEmail') }}</span>
+            <span class="error leading-normal text-1vw md:text-sm" v-if="!$v.form.email.maxLength">{{ $t('Contact.form.errorEmailLength') }}</span>
+            <span class="error leading-normal text-1vw md:text-sm" v-if="!$v.form.email.email">{{ $t('Contact.form.errorEmailValid') }}</span>
           </template>
         </div>
         <div class="formGroup" :class="{ formGroupError: $v.form.message.$error }">
           <label class="text-1vw md:text-xl" for="message">{{ $t('Contact.form.labelMessage') }} *</label>
           <textarea class="text-1vw md:text-xl leading-normal" id="message" v-model.trim="form.message" @value="setMessage"/>
-          <span class="error leading-normal text-0.7vw md:text-sm" v-if="$v.form.message.$error">{{ $t('Contact.form.errorMessage') }}</span>
+          <span class="error leading-normal text-1vw md:text-sm" v-if="$v.form.message.$error">{{ $t('Contact.form.errorMessage') }}</span>
         </div>
         <div class="flex items-baseline mt-7">
           <div style="min-width: 10px; min-height: 10px; width: 0.7vw; height: 0.7vw;" class="mr-2 rounded-full border-2 border-gray max-w-sm" @click="checkedCgu = !checkedCgu, cguError = !checkedCgu" :class="{cguCheck: checkedCgu}"></div>
           <p class="ml-2.5 text-gray text-1vw xl:text-sm" @click="checkedCgu = !checkedCgu, cguError = !checkedCgu">{{ $t('Contact.form.cgu') }}</p>
         </div>
-        <span class="error leading-normal text-0.7vw md:text-sm" v-if="cguError">{{ $t('Contact.form.errorCgu') }}</span>
+        <span class="error leading-normal text-1vw md:text-sm" v-if="cguError">{{ $t('Contact.form.errorCgu') }}</span>
 
-        <UiButton link="" :target="false" class="mt-8 mb-auto max-auto">{{ $t('send') }}</UiButton>
+        <UiButton link="" :target="false" style="margin: 32px auto 0;">{{ $t('send') }}</UiButton>
       </form>
     </section>
 
@@ -194,8 +194,8 @@ export default {
     },
     sendForm() {
       this.$v.form.$touch()
-      if (this.$v.form.$invalid || !this.checkedCgu) {
-        console.log(this.$v)
+      if (!this.checkedCgu) {
+        this.cguError = true
       }
       else {
         this.$store.dispatch('sendEmail', this.form)
@@ -220,20 +220,9 @@ export default {
   @apply bg-gray;
 }
 
-#containerForm {
-  & > img {
-    width: 110px;
-    bottom: -41.655px;
-    right: 15%;
-  }
-
   #form {
-    .defaultButton {
-      max-width: 210px;
-    }
-
     .formGroup {
-      @apply mt-11 flex flex-col w-full;
+      @apply flex flex-col w-full mb-5;
 
       * {
         @apply font-bold;
@@ -248,18 +237,13 @@ export default {
         @apply mt-1.5 font-regular border-b-2 border-solid border-black;
       }
 
-      &:first-child {
-        @apply mt-17;
-      }
-
       &.formGroupError input, &.formGroupError textarea {
         @apply border-solid border-error;
       }
     }
   }
-}
 
 .error {
-  @apply text-error mt-5 font-bold;
+  @apply text-error mt-2.5 font-bold;
 }
 </style>

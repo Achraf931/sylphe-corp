@@ -22,7 +22,7 @@
       </div>
     </section>
 
-    <section id="empty" class="w-full max-w-full h-screen" @mouseover="enterMouseEvent('Show\u000AVideo', '#ED1A1E')" @mouseleave="leaveMouseEvent"></section>
+    <section id="empty" class="w-full max-w-full h-screen mouse-hover show-hover"></section>
 
     <section id="services" class="z-10 bg-white w-full max-w-full h-screen px-0 md:text-24px md:mx-auto md:mt-auto flex justify-between items-center">
       <div class="relative overflow-hidden w-1/4 h-full">
@@ -210,45 +210,34 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
         <p class="absolute left-1/2 bottom-10 text-center font-medium mt-5" style="transform: translateX(-50%)">SCROLLEZ →</p>
       </div>
 
-      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'test'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/JEUCONCOURS_MINIATURE_la_rentrée_ludique.png'); background-size: cover; background-repeat: no-repeat;">
-        <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">Passy Plaza</h2>
-        <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Description rapide du contexte du projet.</p>
-
-        <div class="absolute left-1/2 bottom-20" style="transform: translateX(-50%)">
-          <div class="flex">
-            <div class="rounded-md border font-medium border-solid border-white p-5 text-white">Influence</div>
-            <div class="rounded-md ml-10 border font-medium border-solid border-white p-5 text-white">Digital</div>
-            <div class="rounded-md ml-10 border font-medium border-solid border-white p-5 text-white">Design</div>
-          </div>
-        </div>
-        <p class="absolute left-1/2 bottom-10 text-white text-center font-medium mt-5" style="transform: translateX(-50%)">1/3</p>
+      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'test'}})" class="project absolute flex flex-col items-center justify-center mouse-hover click-hover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/JEUCONCOURS_MINIATURE_la_rentrée_ludique.png'); background-size: cover; background-repeat: no-repeat;">
+        <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">La rentrée ludique</h2>
+        <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5">Description rapide du contexte du projet.</p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Client : <span class="font-bold">Passy Plaza</span></p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Spécialités : <span class="font-bold">Direction artistique, Événementiel, Communication, Web</span>
+        </p>
+        <UiArrow/>
       </NuxtLink>
 
-      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'test'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/Rectangle 569.png'); background-size: cover; background-repeat: no-repeat;">
+      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'test'}})" class="project absolute flex flex-col items-center justify-center mouse-hover click-hover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/Rectangle 569.png'); background-size: cover; background-repeat: no-repeat;">
         <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">celio x Visionnaire</h2>
-        <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Description rapide du contexte du projet.</p>
-
-        <div class="absolute left-1/2 bottom-20" style="transform: translateX(-50%)">
-          <div class="flex">
-            <div class="rounded-md border font-medium border-solid border-white p-5 text-white">Influence</div>
-            <div class="rounded-md ml-10 border font-medium border-solid border-white p-5 text-white">Design</div>
-          </div>
-        </div>
-        <p class="absolute left-1/2 bottom-10 text-white text-center font-medium mt-5" style="transform: translateX(-50%)">2/3</p>
+        <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5">Description rapide du contexte du projet.</p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Client : <span class="font-bold">celio</span></p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Spécialités : <span class="font-bold">Direction artistique, Influence, Produit</span>
+        </p>
+        <UiArrow/>
       </NuxtLink>
 
-      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'test'}})" @mouseover="enterMouseEvent('Click', 'pink')" @mouseleave="leaveMouseEvent" class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/ESIEE-JOURNÉE29-06-32.2.png'); background-size: cover; background-repeat: no-repeat;">
-        <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">ESIEE</h2>
-        <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Description rapide du contexte du projet.</p>
-
-        <div class="absolute left-1/2 bottom-20" style="transform: translateX(-50%)">
-          <div class="flex">
-            <div class="rounded-md border font-medium border-solid border-white p-5 text-white">Éditorial</div>
-            <div class="rounded-md ml-10 border font-medium border-solid border-white p-5 text-white">Design</div>
-          </div>
-        </div>
-        <p class="absolute left-1/2 bottom-10 text-white text-center font-medium mt-5" style="transform: translateX(-50%)">3/3</p>
+      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'test'}})" class="project absolute flex flex-col items-center justify-center mouse-hover click-hover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/ESIEE-JOURNÉE29-06-32.2.png'); background-size: cover; background-repeat: no-repeat;">
+        <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">Le guide de l'étudiant</h2>
+        <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5">Description rapide du contexte du projet.</p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Client : <span class="font-bold">ESIEE</span></p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Spécialités : <span class="font-bold">Direction artistique, Éditorial, Édition</span>
+        </p>
+        <UiArrow/>
       </NuxtLink>
+
+      <div class="absolute left-0 bottom-0 w-full h-4 z-10" style="background: rgba(255, 255, 255, 0.3);"><div id="projects-line" class="h-full bg-white w-0"></div></div>
     </section>
 
     <section id="activity" class="overflow-hidden relative w-full max-w-full h-screen bg-lightGray flex items-center justify-center">
@@ -360,7 +349,13 @@ export default {
           pin: true,
           start: 'top top',
           end: '+=3000',
-          scrub: true
+          scrub: true,
+          onUpdate: self => {
+            this.$gsap
+              .to('#projects-line', {
+                width: `${self.progress.toFixed(2) * 100}%`
+              })
+          }
         },
         ease: 'power2.inOut'
       })
@@ -381,7 +376,7 @@ export default {
         .to(projects[i], {
           maxWidth: '100vw',
           height: '100vh',
-          duration: 15
+          duration: 15,
         })
         .to([h2, p, div, img, a], {
           autoAlpha: 1,
@@ -389,8 +384,7 @@ export default {
         }, '<')
         .to({}, { duration: 4} )
     }
-
-    ptl.to({}, { duration: 4 })
+      ptl.to({}, { duration: 4 })
   },
   methods: {
     enterService(service) {

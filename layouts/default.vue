@@ -1,9 +1,10 @@
 <template>
   <div>
-    <div v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="ball mix-diff is-visible" style="z-index: 9999999999999;">
+<!--    <div v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="ball mix-diff is-visible" style="z-index: 9999999999999;">
       <p class="text-ball text-center text-base font-black mix-diff" style="white-space: nowrap;"></p>
       <div class="cursor mix-diff"></div>
-    </div>
+    </div>-->
+    <CustomMouse/>
 
     <Loader/>
 <!--    <div ref="sylphe_container" class="sylphe_container h-screen w-screen max-w-screen max-h-screen transition-all duration-700 ease-in-out fixed top-0 left-0" style="z-index: 999999999;">
@@ -42,7 +43,7 @@
 
   export default {
     mounted() {
-      const elemClickEvents = this.$gsap.utils.toArray('.elem-click-event')
+      /*const elemClickEvents = this.$gsap.utils.toArray('.elem-click-event')
       const elemDragEvents = this.$gsap.utils.toArray('.elem-drag-event')
       const elemClickAndDragEvents = this.$gsap.utils.toArray('.elem-click-drag-event')
       this.$gsap.set(".ball", {xPercent: -50, yPercent: -50});
@@ -73,7 +74,7 @@
         pos.y += (mouse.y - pos.y) * dt;
         xSet(pos.x);
         ySet(pos.y);
-      });
+      });*/
 
       this.lmS = new this.locomotiveScroll({
         el: document.querySelector(".js-scroll"),
@@ -100,29 +101,29 @@
     },
     methods: {
       changeHeader(section) {
-        const tl = this.$gsap.timeline({delay: 0, duration: 0.05, paused: true})
-        if (section.id === 'error' || section.id === 'topPage' || section.id === 'empty' || section.id === 'showreel' || section.id === 'teams' || section.id === 'challenge' || section.id === 'projectImage' || section.id === 'slider' || section.id === 'levelTwo' || section.id === 'projectImageTwo' || section.id === 'cards' || section.id === 'contact' || section.id === 'results' || section.id === 'carousel') {
+        const tl = this.$gsap.timeline({delay: 0, duration: 0.05})
+        if (section.id === 'services' || section.id === 'secret' || section.id === 'projects' || section.id === 'activity' || section.id === 'love' || section.id === 'ourTeam' || section.id === 'clients' || section.id === 'content') {
+          tl.to(this.$gsap.utils.toArray('.lang'), {
+            color: 'black'
+          })
+            .to(this.$gsap.utils.toArray('.burger-bar'), {
+              background: 'black',
+              paused: false,
+            }, 0)
+            .call(() => {
+              document.getElementById('logo').style.filter = 'invert(100%) sepia(100%) saturate(100%) hue-rotate(87deg) brightness(100%) contrast(100%)'
+            }, null, 0)
+        }
+        else {
           tl.to(this.$gsap.utils.toArray('.lang'), {
             paused: false,
             color: 'white'
           })
-          .to(this.$gsap.utils.toArray('.burger-bar'), {
-            background: 'white'
-          }, 0)
-          .call(() => {
-            document.getElementById('logo').removeAttribute('style')
-          }, null, 0)
-        }
-        else {
-          tl.to(this.$gsap.utils.toArray('.lang'), {
-            color: 'black'
-          })
-          .to(this.$gsap.utils.toArray('.burger-bar'), {
-            background: 'black',
-            paused: false,
-          }, 0)
+            .to(this.$gsap.utils.toArray('.burger-bar'), {
+              background: 'white'
+            }, 0)
             .call(() => {
-              document.getElementById('logo').style.filter = 'invert(100%) sepia(100%) saturate(100%) hue-rotate(87deg) brightness(100%) contrast(100%)'
+              document.getElementById('logo').removeAttribute('style')
             }, null, 0)
         }
       }
@@ -135,7 +136,7 @@
   mix-blend-mode: difference;
 }
 
-.ball {
+/*.ball {
   pointer-events: none;
   width: 50px;
   height: 50px;
@@ -162,7 +163,7 @@
   background: white;
   width: 10px;
   height: 10px;
-}
+}*/
 
 #js-scroll {
   overflow: hidden;
@@ -347,7 +348,7 @@
   }
 
   /*   MAIN   */
-  *, *::before, *::after  {
+  *, *::before, *::after, *:focus  {
     padding: 0;
     line-height: 100%;
     line-break: normal;

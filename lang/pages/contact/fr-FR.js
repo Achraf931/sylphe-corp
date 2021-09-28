@@ -10,7 +10,7 @@ export default {
     labelEmail: 'Votre email',
     labelMessage: 'Votre message',
     cgu: 'En soumettant ce formulaire, j\'accepte plein de choses sans les lire.',
-    errorName: 'Oups, une information semble erronée.',
+    errorName: 'Merci de compléter le champ.',
     errorEmail: 'Merci de compléter le champ.',
     errorEmailValid: 'Votre email n\'est pas valide.',
     errorEmailLength: 'Votre email ne doit pas dépasser 320 charactères.',
