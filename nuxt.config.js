@@ -90,6 +90,15 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    ['nuxt-mq', {
+      // Default breakpoint for SSR
+      defaultBreakpoint: 'sm',
+      breakpoints: {
+        sm: 450,
+        md: 1250,
+        lg: Infinity
+      }
+    }],
     ['@nuxtjs/i18n', {
       parsePages: false,
       pages: {

@@ -43,6 +43,7 @@
 
   export default {
     mounted() {
+      console.log(this.$mq)
       /*const elemClickEvents = this.$gsap.utils.toArray('.elem-click-event')
       const elemDragEvents = this.$gsap.utils.toArray('.elem-drag-event')
       const elemClickAndDragEvents = this.$gsap.utils.toArray('.elem-click-drag-event')
@@ -82,56 +83,28 @@
         repeat: true
       });
       //  console.log("lmS", this.lmS);
-
-      const sections = this.$gsap.utils.toArray('section')
-      const navDivided = document.querySelector('nav').offsetHeight / 2
-
-      sections.forEach((section, index) => {
-        this.$ScrollTrigger.create({
-          trigger: section,
-          start: 'top top+=' + navDivided + 'px',
-          onUpdate: () => {
-            this.changeHeader(section)
-          },
-          onEnterBack: () => {
-            this.changeHeader(section)
-          }
-        })
-      })
-    },
-    methods: {
-      changeHeader(section) {
-        const tl = this.$gsap.timeline({delay: 0, duration: 0.05})
-        if (section.id === 'services' || section.id === 'secret' || section.id === 'projects' || section.id === 'activity' || section.id === 'love' || section.id === 'ourTeam' || section.id === 'clients' || section.id === 'content') {
-          tl.to(this.$gsap.utils.toArray('.lang'), {
-            color: 'black'
-          })
-            .to(this.$gsap.utils.toArray('.burger-bar'), {
-              background: 'black',
-              paused: false,
-            }, 0)
-            .call(() => {
-              document.getElementById('logo').style.filter = 'invert(100%) sepia(100%) saturate(100%) hue-rotate(87deg) brightness(100%) contrast(100%)'
-            }, null, 0)
-        }
-        else {
-          tl.to(this.$gsap.utils.toArray('.lang'), {
-            paused: false,
-            color: 'white'
-          })
-            .to(this.$gsap.utils.toArray('.burger-bar'), {
-              background: 'white'
-            }, 0)
-            .call(() => {
-              document.getElementById('logo').removeAttribute('style')
-            }, null, 0)
-        }
-      }
     }
   }
 </script>
 
 <style lang="scss">
+
+.black-nav {
+  color: black!important;
+
+  #logo {
+    filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(87deg) brightness(100%) contrast(100%)!important;
+  }
+
+  .burger-bar {
+    background-color: black!important;
+  }
+
+  .lang {
+    color: black!important;
+  }
+}
+
 .mix-diff {
   mix-blend-mode: difference;
 }
@@ -411,10 +384,7 @@
   }
 
   .hoverAnimation {
-    background-color: white;
-    border: 1px solid black;
     transition: all .1s ease;
-    border-radius: 5px;
 
     &:hover {
       transform: translate(-3px, -3px)!important;

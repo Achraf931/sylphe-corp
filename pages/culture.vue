@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section id="topPage" class="z-10 relative w-full max-w-full h-screen  bg-pink flex items-center justify-center flex-col text-white">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="topPage" class="z-10 relative w-full max-w-full h-screen  bg-pink flex items-center justify-center flex-col text-white">
       <div class="box-content py-0 px-7.5 text-center">
         <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim mb-5 lg:text-32px text-3vw leading-normal" v-html="$t('Culture.topPageTitle')"/>
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim 2xl:text-24px text-1.5vw font-regular m-auto 2xl:max-w-600 2xl:w-full w-1/2 xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Culture.description') }}</h2>
@@ -8,21 +8,21 @@
       <ArrowScroll/>
     </section>
 
-    <section id="love" class="z-10 overflow-hidden relative w-full max-w-full h-screen bg-white flex items-center justify-center">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="love" class="z-10 px-7.5 overflow-hidden relative w-full max-w-full h-screen bg-white flex items-center justify-center">
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible mb-4 text-2.5vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Culture.goodVibes.title') }}</h2>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible mb-4 lg:text-32px text-3vw leading-normal font-bold">{{ $t('Culture.goodVibes.title') }}</h2>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl" v-html="$t('Culture.goodVibes.text')"/>
       </div>
     </section>
 
-    <section id="ourTeam" class="z-10 overflow-hidden relative w-full max-w-full h-screen bg-lightGray flex items-center justify-center">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="ourTeam" class="z-10 px-7.5 overflow-hidden relative w-full max-w-full h-screen bg-lightGray flex items-center justify-center">
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible mb-4 text-2.5vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Culture.ourTeam.title') }}</h2>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible mb-4 lg:text-32px text-3vw leading-normal font-bold">{{ $t('Culture.ourTeam.title') }}</h2>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl" v-html="$t('Culture.ourTeam.text')"/>
       </div>
     </section>
 
-    <section id="cards" class="bg-pink relative flex px-34 lg:px-8.5 pt-0 pb-20">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="cards" class="bg-pink relative flex px-34 lg:px-8.5 pt-0 pb-20">
       <div ref="containerCard" class="z-10 max-w-80% containerCards overflow-y-hidden overflow-x-scroll overscroll-x-contain justify-center mx-auto mb-auto -mt-44 md:max-w-screen w-full grid gap-4 grid-cols-3 justify-center">
         <div v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="card is-visible">
           <div>
@@ -158,8 +158,8 @@
       </div>
     </section>
 
-    <section id="clients" class="z-10 w-full max-w-screen h-screen bg-lightGray flex flex-col items-center justify-center p-10">
-      <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="p is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Ils nous ont fait confiance</p>
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="clients" class="z-10 w-full max-w-screen h-screen bg-lightGray flex flex-col items-center justify-center p-10">
+      <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="p is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">Ils nous ont fait confiance</p>
 
       <div class="grid grid-cols-5 gap-10 items-center">
         <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible img w-2/5 mx-auto" src="/clients/LVMH_logo_logotype_Moët_Hennessy_Louis_Vuitton.png" alt="LVMH">
@@ -183,7 +183,10 @@
 </template>
 
 <script>
+import header from "~/mixins/header";
+
 export default {
+  mixins: [header]
 }
 </script>
 

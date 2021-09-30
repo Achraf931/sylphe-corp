@@ -8,7 +8,7 @@
       <ArrowScroll/>
     </section>
 
-    <section id="content" class="pt-23 pb-36 px-34 lg:px-8.5">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="content" class="pt-23 pb-36 px-34 lg:px-8.5">
       <div class="w-full mx-auto mb-auto">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-center mb-9 text-2.5vw lg:text-24px lg:leading-none leading-normal">Éditeur</h2>
         <div v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible flex justify-between gap-12 md:gap-10 sm:gap-8 xs:gap-6 xs:flex-col w-full">
@@ -89,3 +89,11 @@
     </section>
   </div>
 </template>
+
+<script>
+import header from "~/mixins/header";
+
+export default {
+  mixins: [header]
+}
+</script>

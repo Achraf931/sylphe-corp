@@ -4,19 +4,19 @@
     <div id="menu" class="bg-white max-w-screen w-full fixed top-0 left-0" style="z-index: -1;">
       <ul class="flex flex-col justify-center w-full h-full items-center">
         <li class="cursor-pointer item-burger z-10">
-          <p class="md:text-24px leading-normal text-3vw font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" @click="navigate('index')">{{ $t('nav.home') }}</p>
+          <p class="md:text-24px leading-normal text-3vw font-semibold transition-all duration-200 ease-in border-2 hover:text-blue border-solid border-transparent" @click="navigate('index')">{{ $t('nav.home') }}</p>
         </li>
         <!--          <li class="mb-6" @click="closeSidebarPanel">
                     <NuxtLink class="text-24px font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" :to="localePath({name: 'services'})">{{ $t('nav.services') }}</NuxtLink>
                   </li>-->
         <li class="cursor-pointer item-burger">
-          <p class="md:text-24px leading-normal text-3vw font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" @click="navigate('culture')">{{ $t('nav.culture') }}</p>
+          <p class="md:text-24px leading-normal text-3vw font-semibold transition-all duration-200 ease-in border-2 hover:text-pink border-solid border-transparent" @click="navigate('culture')">{{ $t('nav.culture') }}</p>
         </li>
         <li class="cursor-pointer item-burger">
-          <p class="md:text-24px leading-normal text-3vw font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" @click="navigate('projects')">{{ $t('nav.works') }}</p>
+          <p class="md:text-24px leading-normal text-3vw font-semibold transition-all duration-200 ease-in border-2 hover:text-cyan border-solid border-transparent" @click="navigate('projects')">{{ $t('nav.works') }}</p>
         </li>
         <li class="cursor-pointer mb-6 item-burger">
-          <p class="md:text-24px leading-normal text-3vw font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" @click="navigate('contact')">{{ $t('nav.contact') }}</p>
+          <p class="md:text-24px leading-normal text-3vw font-semibold transition-all duration-200 ease-in border-2 hover:text-yellow border-solid border-transparent" @click="navigate('contact')">{{ $t('nav.contact') }}</p>
         </li>
         <a href="https://calendly.com/sylphe/reunion" target="_blank" rel="noreferrer noopener" class="item-burger defaultButton hoverAnimation">{{ $t('nav.call') }}</a>
       </ul>
@@ -26,11 +26,11 @@
           <svg xmlns="http://www.w3.org/2000/svg" fill="#1E1F1D" width="25" height="25" viewBox="0 0 25 25"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/></svg>
         </a>
 
-        <a class="ml-4" id="sylpheTwitter" href="https://twitter.com/sylphecompany" rel="noreferrer noopener" target="_blank">
+        <a class="mx-4" id="sylpheTwitter" href="https://twitter.com/sylphecompany" rel="noreferrer noopener" target="_blank">
           <svg xmlns="http://www.w3.org/2000/svg" fill="#1E1F1D" width="25" height="25" viewBox="0 0 25 25"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/></svg>
         </a>
 
-        <a class="ml-4" id="sylpheLinkedin" href="https://www.linkedin.com/company/sylphe/?originalSubdomain=fr" rel="noreferrer noopener" target="_blank">
+        <a id="sylpheLinkedin" href="https://www.linkedin.com/company/sylphe/?originalSubdomain=fr" rel="noreferrer noopener" target="_blank">
           <svg xmlns="http://www.w3.org/2000/svg" fill="#1E1F1D" width="25" height="25" viewBox="0 0 25 25"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/></svg>
         </a>
 
@@ -40,7 +40,7 @@
       </div>
     </div>
     <slot>
-      <button v-observe="{ onEnter: visibility, once: true }" type="button" ref="burger" class="is-visible-top burger-button mouse-hover click-hover">
+      <button v-observe="{ onEnter: visibility, once: true }" type="button" ref="burger" class="is-visible-top burger-button">
         <span class="burger-bar burger-bar--1"></span>
         <span class="burger-bar burger-bar--2"></span>
         <span class="burger-bar burger-bar--3"></span>
@@ -49,7 +49,10 @@
   </div>
 </template>
 <script>
+import header from "@/mixins/header";
+
   export default {
+    mixins: [header],
     props: ['burgerColor'],
     data: () => ({
       isBurgerActive: false,
@@ -63,11 +66,12 @@
         tl
           .call(() => {
             this.isBurgerActive = true
-            this.$refs.containerBurger.classList.add('active')
+            this.addOrRemoveClass(document.querySelector('nav'), 'black-nav', true);
+            /*this.$refs.containerBurger.classList.add('active')
             document.getElementById('logo').style.filter = 'invert(100%) sepia(100%) saturate(100%) hue-rotate(87deg) brightness(100%) contrast(100%)'
             this.$gsap.utils.toArray('.lang').forEach(item => {
               item.style.color = 'black'
-            })
+            })*/
             document.querySelector('body').style.overflowY = 'hidden'
           })
           .to('#menu', {
@@ -117,11 +121,12 @@
           }, '-=0.25')
           .call(() => {
             this.isBurgerActive = false
-            this.$refs.containerBurger.classList.remove('active')
+            this.addOrRemoveClass(document.querySelector('nav'), 'black-nav');
+            /*this.$refs.containerBurger.classList.remove('active')
             document.getElementById('logo').removeAttribute('style')
             this.$gsap.utils.toArray('.lang').forEach(item => {
               item.removeAttribute('style')
-            })
+            })*/
             document.querySelector('body').style.overflowY = 'scroll'
 
             this.fullyOpen = false

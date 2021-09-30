@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section id="topPage" class="relative w-full h-screen bg-yellow flex items-center justify-center flex-col text-white">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="topPage" class="relative w-full h-screen bg-yellow flex items-center justify-center flex-col text-white">
       <div class="box-content py-0 px-7.5 text-center">
         <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim mb-5 lg:text-32px text-3vw leading-normal" v-html="$t('Contact.topPage.topPageTitle')"/>
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim 2xl:text-24px text-1.5vw font-regular m-auto xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Contact.topPage.description') }}</h2>
@@ -8,7 +8,7 @@
       <ArrowScroll/>
     </section>
 
-    <section id="containerForm" data-aos="fade-up" class="flex relative items-center justify-center w-full max-w-screen min-h-screen flex-col pb-15 mx-auto pt-14 mb-0 xl:px-7.5 px-96">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="containerForm" data-aos="fade-up" class="flex relative items-center justify-center w-full max-w-screen min-h-screen flex-col pb-15 mx-auto pt-14 mb-0 xl:px-7.5 px-96">
       <!--      <h2 class="sm:text-24px">{{ $t('Contact.form.title') }}</h2>-->
       <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">
         <client-only>
@@ -58,7 +58,7 @@
       </form>
     </section>
 
-    <UiSectionSides gsapTarget="ourTeam" class="bg-lightGray">
+    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="ourTeam" class="bg-lightGray">
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-2/4">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Passez à la maison</h2>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl">
@@ -76,7 +76,7 @@
       </div>
     </UiSectionSides>
 
-    <UiSectionSides gsapTarget="contact" class="bg-yellow">
+    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="contact" class="bg-yellow">
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Besoin de nous parler directement ?</h2>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal md:text-xl text-white">
@@ -150,6 +150,7 @@
 <script>
 import { validationMixin } from 'vuelidate'
 import { required, email, maxLength } from 'vuelidate/lib/validators'
+import header from "~/mixins/header";
 
 export default {
   data() {
@@ -163,7 +164,7 @@ export default {
       }
     }
   },
-  mixins: [validationMixin],
+  mixins: [validationMixin, header],
   validations: {
     form: {
       name: {

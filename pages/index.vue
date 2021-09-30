@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section id="topPage" class="z-10 relative w-full max-w-full h-screen bg-blue flex items-center justify-center flex-col text-white">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="topPage" class="z-10 relative w-full max-w-full h-screen bg-blue flex items-center justify-center flex-col text-white">
       <div class="box-content py-0 px-7.5 text-center">
         <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible lg:text-32px text-3vw leading-normal">{{ $t('Home.topPageTitlePart1') }}</h1>
         <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible lg:text-32px text-3vw leading-normal font-bold mb-5">{{ $t('Home.topPageTitlePart2') }}</h1>
@@ -10,27 +10,27 @@
       <ArrowScroll/>
     </section>
 
-    <section id="showreel" class="fixed left-0 top-0 w-full max-w-full h-screen flex items-center justify-center" style="z-index: -1;">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="showreel" class="fixed top-0 left-0 w-full max-w-full h-screen flex items-center justify-center z-0">
       <video width="100%" height="100%" class="w-full h-full absolute left-0 top-0 object-cover" style="filter: brightness(60%);" loop autoplay="autoplay" muted>
         <source src="/showreel/showreel.webm" type="video/webm">
         <source src="/showreel/showreel.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <div class="py-2.5 border-b-2 border-white border-solid flex items-center justify-between z-0">
-        <h2 class="text-2.5vw font-bold leading-normal text-white xs:text-base xs:leading-5 md:text-xl md:leading-6">Showreel</h2>
-        <p class="ml-2 text-white text-4xl font-bold">→</p>
+      <div class="py-2.5 hoverShowreel flex items-center justify-between z-0">
+        <h2 class="transition-all duration-100 ease-in-out lg:text-32px text-3vw leading-normal text-white">Showreel</h2>
+        <p class="transition-all duration-100 ease-in-out ml-2 text-white text-4xl font-bold">→</p>
       </div>
     </section>
 
-    <section id="empty" class="w-full max-w-full h-screen mouse-hover show-hover"></section>
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="empty" class="w-full max-w-full h-screen mouse-hover show-hover"></section>
 
-    <section id="services" class="z-10 bg-white w-full max-w-full h-screen px-0 md:text-24px md:mx-auto md:mt-auto flex justify-between items-center">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="services" class="relative z-10 bg-white w-full max-w-full h-screen px-7.5 md:text-24px md:mx-auto md:mt-auto flex justify-between items-center">
       <div class="relative overflow-hidden w-1/4 h-full">
         <div class="sidebar-service w-full h-full bg-white" style="transform: translateX(-100%)"></div>
       </div>
 
       <div class="w-2/4 flex items-center flex-col">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">On vous aide avec</h2>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw font-bold leading-normal text-center">On vous aide avec</h2>
 
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" :class="{'service-selected': currentService === 'events'}" @click="currentService = 'events'"
            @mouseover="currentService = 'events'"
@@ -69,7 +69,7 @@
       </div>
     </section>
 
-    <section id="secret" class="z-10 overflow-hidden relative w-full max-w-full h-screen bg-lightGray flex items-center justify-center">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="secret" class="z-10 overflow-hidden relative w-full max-w-full px-7.5 h-screen bg-lightGray flex items-center justify-center">
       <svg class="baloon baloon-1 absolute" style="left: 70%; transform: translate(0, 200%);" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="281" height="567" viewBox="0 0 281 567">
         <defs>
           <pattern id="pattern" preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 1623 3282">
@@ -98,13 +98,13 @@
       </svg>
 
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Home.body.title') }}</h2>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw font-bold leading-normal">{{ $t('Home.body.title') }}</h2>
 
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl" v-html="$t('Home.body.text')"/>
       </div>
     </section>
 
-    <section id="teams" class="z-10 relative w-full max-w-full h-screen overflow-hidden flex items-center justify-between bg-blue">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="teams" class="z-10 relative w-full max-w-full h-screen overflow-hidden flex items-center justify-between bg-blue">
       <div id="containerToBottom" class="pl-10 w-1/4 overflow-hidden flex flex-col-reverse">
         <img src="/team/samy.webp" alt="Samy" class="w-full to-bottom mb-10 bg-white flex items-center justify-center"/>
         <img src="/team/pierre.webp" alt="Pierre" class="w-full to-bottom mb-10 bg-white flex items-center justify-center"/>
@@ -115,8 +115,7 @@
       </div>
 
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2 mx-10">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white"
-            v-html="$t('Home.teams.title')"/>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold text-white" v-html="$t('Home.teams.title')"/>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl text-white" v-html="$t('Home.teams.text')"/>
         <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :link="localePath({name: 'index'})">{{ $t('Home.teams.button') }}</UiButton>
       </div>
@@ -202,47 +201,46 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
           <img class="absolute bottom-2.5 w-24 -right-12 md:hidden" src="/items/deco-2@2x.png.webp" alt="Wave">
         </section>-->
 
-    <section id="projects" class="z-10 relative overflow-hidden w-full max-w-screen h-screen">
-      <div class="flex flex-col bg-white items-center justify-center w-full h-full">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Vous voulez connaître<br>notre niveau de jeu ?</h2>
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="projects" class="z-10 relative overflow-hidden w-full max-w-screen h-screen">
+      <div class="flex flex-col bg-white items-center justify-center px-7.5 w-full h-full text-center">
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">Vous voulez connaître<br>notre niveau de jeu ?</h2>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal font-regular text-center md:text-xl max-w-640">On n’a pas le droit de montrer tous nos projets, mais<br>
           on a quand même fait une belle petite sélection pour que vous puissiez avoir une idée de ce qu’on sait faire. </p>
-        <p class="absolute left-1/2 bottom-10 text-center font-medium mt-5" style="transform: translateX(-50%)">SCROLLEZ →</p>
       </div>
 
-      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'test'}})" class="project absolute flex flex-col items-center justify-center mouse-hover click-hover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/JEUCONCOURS_MINIATURE_la_rentrée_ludique.png'); background-size: cover; background-repeat: no-repeat;">
+      <div class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/JEUCONCOURS_MINIATURE_la_rentrée_ludique.png'); background-size: cover; background-repeat: no-repeat;">
         <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">La rentrée ludique</h2>
         <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5">Description rapide du contexte du projet.</p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Client : <span class="font-bold">Passy Plaza</span></p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Spécialités : <span class="font-bold">Direction artistique, Événementiel, Communication, Web</span>
         </p>
-        <UiArrow/>
-      </NuxtLink>
+        <UiArrow :to="localePath({name: 'projects-slug', params: {slug: 'test'}})"/>
+      </div>
 
-      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'test'}})" class="project absolute flex flex-col items-center justify-center mouse-hover click-hover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/Rectangle 569.png'); background-size: cover; background-repeat: no-repeat;">
+      <div class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/Rectangle 569.png'); background-size: cover; background-repeat: no-repeat;">
         <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">celio x Visionnaire</h2>
         <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5">Description rapide du contexte du projet.</p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Client : <span class="font-bold">celio</span></p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Spécialités : <span class="font-bold">Direction artistique, Influence, Produit</span>
         </p>
-        <UiArrow/>
-      </NuxtLink>
+        <UiArrow :to="localePath({name: 'projects-slug', params: {slug: 'test'}})"/>
+      </div>
 
-      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'test'}})" class="project absolute flex flex-col items-center justify-center mouse-hover click-hover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/ESIEE-JOURNÉE29-06-32.2.png'); background-size: cover; background-repeat: no-repeat;">
+      <div class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/ESIEE-JOURNÉE29-06-32.2.png'); background-size: cover; background-repeat: no-repeat;">
         <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">Le guide de l'étudiant</h2>
         <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5">Description rapide du contexte du projet.</p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Client : <span class="font-bold">ESIEE</span></p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Spécialités : <span class="font-bold">Direction artistique, Éditorial, Édition</span>
         </p>
-        <UiArrow/>
-      </NuxtLink>
+        <UiArrow :to="localePath({name: 'projects-slug', params: {slug: 'test'}})"/>
+      </div>
 
       <div class="absolute left-0 bottom-0 w-full h-4 z-10" style="background: rgba(255, 255, 255, 0.3);"><div id="projects-line" class="h-full bg-white w-0"></div></div>
     </section>
 
-    <section id="activity" class="overflow-hidden relative w-full max-w-full h-screen bg-lightGray flex items-center justify-center">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="activity" class="overflow-hidden relative w-full max-w-full h-screen bg-lightGray flex items-center justify-center">
       <div class="text-center flex flex-col justify-between md:py-0">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Pour plus<br>de choix</h2>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">Pour plus<br>de choix</h2>
 
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible max-w-640 text-1.5vw leading-normal font-regular md:text-xl">
           Blablabla
@@ -251,9 +249,9 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
       </div>
     </section>
 
-    <UiSectionSides gsapTarget="challenge" class="bg-blue">
+    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="challenge" class="bg-blue">
       <div class="w-2/4 md:w-full flex flex-col items-center px-10 text-center">
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="p is-visible mb-10 md:mb-4 text-white text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Challengez-nous !</p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="p is-visible mb-10 md:mb-4 text-white lg:text-32px text-3vw leading-normal font-bold">Challengez-nous !</p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="p is-visible text-1.5vw text-white leading-normal font-regular md:text-xl">Petit plus de la maison : nous adorons les besoins compliqués et les réponses sur-mesure.</p>
         <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :link="'https://calendly.com/sylphe/reunion'" :target="false">{{ $t('nav.call') }}</UiButton>
       </div>
@@ -262,23 +260,27 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
 </template>
 
 <script>
+import header from "~/mixins/header";
+
 export default {
   data() {
     return {
       currentService: 'events'
     }
   },
+  mixins: [header],
   mounted() {
-    const baloons = this.$gsap.utils.toArray('.baloon')
+    this.$nextTick(() => {
+      const baloons = this.$gsap.utils.toArray('.baloon')
 
-    const btl = this.$gsap.timeline({
-      scrollTrigger: {
-        trigger: '#secret',
-        start: 'top center',
-        end: 'bottom top',
-        scrub: true,
-      }
-    })
+      const btl = this.$gsap.timeline({
+        scrollTrigger: {
+          trigger: '#secret',
+          start: 'top center',
+          end: 'bottom top',
+          scrub: true,
+        }
+      })
       for (let i = 0; i < baloons.length; i++) {
         btl.to(baloons[i], {
           y: '-100%',
@@ -287,104 +289,134 @@ export default {
         }, 0)
       }
 
-    let toTop = document.getElementById('containerToTop');
-    let toBottom = document.getElementById('containerToBottom');
-    let cards = this.$gsap.utils.toArray(".card");
-    let projects = this.$gsap.utils.toArray(".project");
+      let toTop = document.getElementById('containerToTop');
+      let toBottom = document.getElementById('containerToBottom');
+      let cards = this.$gsap.utils.toArray(".card");
+      let projects = this.$gsap.utils.toArray(".project");
+
+      this.$gsap.timeline({
+        scrollTrigger: {
+          trigger: '#teams',
+          pin: true,
+          start: 'top top',
+          end: `+=${toTop.offsetHeight + document.getElementById('teams').offsetHeight - 50}px`,
+          scrub: true
+        },
+        ease: 'power0.none'
+      })
+        .to('#showreel', {
+          top: '-100vh'
+        })
+        .fromTo(toTop,
+          {
+            y: '75%'
+          },
+          {
+            y: '-75%'
+          }, 0)
+        .fromTo(toBottom,
+          {
+            y: '-75%'
+          },
+          {
+            y: '75%'
+          }, '<')
+
+      const tl = this.$gsap.timeline({
+        scrollTrigger: {
+          trigger: '#multicards',
+          pin: true,
+          start: 'top top',
+          end: '+=1500',
+          scrub: 0.1
+        }
+      })
+
+      for (let i = 0; i < cards.length; i++) {
+        tl.to(cards[i], {
+          top: '50%',
+          left: '50%',
+          y: '-50%',
+          x: '-50%',
+          rotate: Math.floor(Math.random() * 10) - 10,
+          duration: 4,
+          ease: 'power2.in'
+        }, null, '<')
+      }
+
+      tl.to({}, { duration: 2 })
+
+      //  Anim projects section
+      const ptl = this.$gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: '#projects',
+            pin: true,
+            start: 'top top',
+            end: '+=3000',
+            scrub: true,
+            onUpdate: self => {
+              if (self.progress.toFixed(2) >= 0.20 || self.progress === 1) {
+                this.addOrRemoveClass(document.querySelector('nav'), 'black-nav', false);
+              }
+
+              this.$gsap
+                .to('#projects-line', {
+                  width: `${self.progress.toFixed(2) * 100}%`
+                })
+            },
+            onEnterBack: self => {
+              if (self.progress.toFixed(2) >= 0.20 || self.progress === 1) {
+                this.addOrRemoveClass(document.querySelector('nav'), 'black-nav', false);
+              }
+            }
+          },
+          ease: 'power2.inOut'
+        })
+
+      for (let i = 0; i < projects.length; i++) {
+        const h2 = projects[i].children[0];
+        const text = projects[i].children[1];
+        const p = projects[i].children[2];
+        const sub_p = projects[i].children[3];
+        const svg = projects[i].children[4];
+
+        ptl.to({}, {duration: 10})
+          .to(projects[i], {
+            x: '-50%',
+            left: '50%',
+            duration: 15
+          })
+          .to(projects[i], {
+            maxWidth: '100vw',
+            height: '100vh',
+            duration: 15,
+          })
+          .to([h2, text, p, sub_p, svg], {
+            autoAlpha: 1,
+            duration: 15
+          }, '<')
+          .to({}, { duration: 4} )
+      }
+      ptl.to({}, { duration: 4 })
+    })
+
+    /*const showreel = document.getElementById('showreel')
 
     this.$gsap.timeline({
       scrollTrigger: {
-        trigger: '#teams',
-        pin: true,
+        trigger: showreel,
         start: 'top top',
-        end: `+=${toTop.offsetHeight + document.getElementById('teams').offsetHeight - 50}px`,
-        scrub: true
+        end: `+=${showreel.offsetHeight}`,
+        scrub: 0.01,
+        markers: true
       },
-      ease: 'power0.none'
     })
-      .fromTo(toTop,
-        {
-          y: '75%'
-        },
-        {
-          y: '-75%'
-        })
-      .fromTo(toBottom,
-        {
-          y: '-75%'
-        },
-        {
-          y: '75%'
-        }, '<')
-
-    const tl = this.$gsap.timeline({
-      scrollTrigger: {
-        trigger: '#multicards',
-        pin: true,
-        start: 'top top',
-        end: '+=1500',
-        scrub: 0.1
-      }
-    })
-
-    for (let i = 0; i < cards.length; i++) {
-      tl.to(cards[i], {
-        top: '50%',
-        left: '50%',
-        y: '-50%',
-        x: '-50%',
-        rotate: Math.floor(Math.random() * 10) - 10,
-        duration: 4,
-        ease: 'power2.in'
-      }, null, '<')
-    }
-
-    tl.to({}, { duration: 2 })
-
-    //  Anim projects section
-    const ptl = this.$gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: '#projects',
-          pin: true,
-          start: 'top top',
-          end: '+=3000',
-          scrub: true,
-          onUpdate: self => {
-            this.$gsap
-              .to('#projects-line', {
-                width: `${self.progress.toFixed(2) * 100}%`
-              })
-          }
-        },
-        ease: 'power2.inOut'
-      })
-
-    for (let i = 0; i < projects.length; i++) {
-      const h2 = projects[i].childNodes[0];
-      const p = projects[i].childNodes[2];
-      const div = projects[i].childNodes[4];
-      const img = projects[i].childNodes[6];
-      const a = projects[i].childNodes[8];
-
-      ptl.to({}, {duration: 10})
-        .to(projects[i], {
-          x: '-50%',
-          left: '50%',
-          duration: 15
-        })
-        .to(projects[i], {
-          maxWidth: '100vw',
-          height: '100vh',
-          duration: 15,
-        })
-        .to([h2, p, div, img, a], {
-          autoAlpha: 1,
-          duration: 15
-        }, '<')
-        .to({}, { duration: 4} )
-    }
-      ptl.to({}, { duration: 4 })
+      .to(showreel, {
+      y: '200vh',
+      yPercent: `${showreel.offsetHeight / 2}vh`,
+      duration: 10
+    })*/
   },
   methods: {
     enterService(service) {
@@ -420,6 +452,11 @@ export default {
   transform: translate(0, -75%);
 }
 
+.hoverShowreel:hover p, .hoverShowreel:hover h2 {
+  transform: translate(-3px, -3px) !important;
+  text-shadow: 3px 3px black;
+}
+
 .project {
   background-repeat: no-repeat;
   background-size: cover;
@@ -431,7 +468,7 @@ export default {
   left: 100%;
   transform: translate(0, -50%);
 
-  & > h2, & > p, & > a, & > div {
+  & > h2, & > p, & > a, & > div, & > svg {
     opacity: 0;
     visibility: hidden;
   }

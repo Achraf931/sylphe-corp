@@ -114,6 +114,9 @@ module.exports = {
         grayFooter: '#818181',
         cyan: '#6BCABB',
         error: '#D7241C',
+        blue: '#2F5AD3',
+        yellow: '#F7AF00',
+        pink: '#EB7D91',
       },
       borderWidth: {
         DEFAULT: '1px'

@@ -1,5 +1,5 @@
 <template>
-  <section :id="gsapTarget" class="z-10 w-full max-w-screen h-screen flex items-center justify-between">
+  <section :id="gsapTarget" class="z-10 relative w-full max-w-screen h-screen flex items-center justify-between">
     <div class="relative overflow-hidden w-1/4 h-full">
       <div :class="'sidebar-' + gsapTarget" class="opacity-50 w-full h-full bg-white mix-diff" style="transform: translateX(-100%);"></div>
     </div>

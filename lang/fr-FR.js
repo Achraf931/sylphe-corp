@@ -39,11 +39,11 @@ export default {
   tmp: {
     home: {
       h2tmp: "Notre petite touche d’enchantement ?",
-      events: 'Évènement,',
-      digital: 'Digital,',
-      influence: 'Influence,',
-      production: 'Production de produits,',
-      design: 'Design',
+      events: 'L\'évènementiel,',
+      digital: 'Le digital,',
+      influence: 'L\'influence,',
+      production: 'La production de produits,',
+      design: 'Le design',
       text: {
         events: 'Vous avez besoin d\'emprunter la lune pour rendre le décor de votre événement " Dans les étoiles " légèrement plus réaliste ? On est là pour vous, et on peut faire ça en un temps record. Nos mots d\'ordre\u00a0: réflexion, adaptation, innovation.',
         digital: 'Grâce à 15 ans d’ingénierie technique, nous savons lier sûreté et efficacité. Sécurité, conformité des données, solutions scalables dans le Cloud, sites à fort trafic… sont notre dada. Nous vous accompagnons alors dans la construction de votre présence sur le web avec serénité et bon goût.',
