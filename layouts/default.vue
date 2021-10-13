@@ -3,11 +3,11 @@
     <CustomMouse v-if="this.$mq !== 'sm'"/>
 
     <Loader/>
-    <div ref="sylphe_container" class="sylphe_container h-screen w-screen max-w-screen max-h-screen transition-all duration-700 ease-in-out fixed top-0 left-0" style="z-index: 999999999;">
+<!--    <div ref="sylphe_container" class="sylphe_container h-screen w-screen max-w-screen max-h-screen transition-all duration-700 ease-in-out fixed top-0 left-0" style="z-index: 999999999;">
       <video id="sylphe" ref="sylphe" muted playsinline preload="metadata" class="object-cover video-first h-full w-full max-w-screen max-h-screen">
         <source src="/sylphe.mp4" type="video/mp4">
       </video>
-    </div>
+    </div>-->
 <!--    <StartAnimation/>-->
 <!--    <CookieControl :locale="this.$i18n.locale">
       <template v-slot:modal>
@@ -34,11 +34,16 @@
   import global from "~/mixins/global";
   import transition from "~/mixins/transition";
   import header from "~/mixins/header";
+
   Vue.mixin(global)
   Vue.mixin(transition)
   Vue.mixin(header)
 
-  export default {}
+  export default {
+    mounted() {
+      window.onscroll = () => this.$ScrollTrigger.update();
+    }
+  }
 </script>
 
 <style lang="scss">

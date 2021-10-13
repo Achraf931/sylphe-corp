@@ -90,8 +90,8 @@
       </div>
     </section>
 
-    <section v-observe="{ onEnter: headerChanged, threshold: 0.1 }" id="teams" :class="{'flex-col py-8.5': this.$mq === 'sm'}" class="z-10 relative w-full max-w-full h-screen overflow-hidden flex items-center justify-between bg-blue">
-      <div v-if="this.$mq !== 'sm'" id="containerToBottom" class="pl-10 w-1/4 overflow-hidden flex flex-col-reverse">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.1 }" id="teams" :class="{'flex-col py-8.5': this.$mq !== 'lg'}" class="z-10 relative w-full max-w-full h-screen overflow-hidden flex items-center justify-between bg-blue">
+      <div v-if="this.$mq === 'lg'" id="containerToBottom" class="pl-10 w-1/4 overflow-hidden flex flex-col-reverse">
         <img src="/team/samy.webp" alt="Samy" class="w-full to-bottom mb-10 bg-white flex items-center justify-center"/>
         <img src="/team/pierre.webp" alt="Pierre" class="w-full to-bottom mb-10 bg-white flex items-center justify-center"/>
         <img src="/team/allison.webp" alt="Allison" class="w-full to-bottom mb-10 bg-white flex items-center justify-center"/>
@@ -100,13 +100,13 @@
         <img src="/team/guy.webp" alt="Guy" class="w-full to-bottom mb-10 bg-white flex items-center justify-center"/>
       </div>
 
-      <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2 mx-10" :class="{'px-8.5': this.$mq === 'sm'}">
+      <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2 mx-10" :class="{'px-8.5': this.$mq !== 'lg'}">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold text-white" v-html="$t('Home.teams.title')"/>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw xs:text-base text-white" v-html="$t('Home.teams.text')"/>
-        <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :class="{'mb-10': this.$mq === 'sm'}" :link="localePath({name: 'index'})">{{ $t('Home.teams.button') }}</UiButton>
+        <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :class="{'mb-10': this.$mq !== 'lg'}" :link="localePath({name: 'index'})">{{ $t('Home.teams.button') }}</UiButton>
       </div>
 
-      <div v-if="this.$mq !== 'sm'" id="containerToTop" class="pr-10 w-1/4 overflow-hidden">
+      <div v-if="this.$mq === 'lg'" id="containerToTop" class="pr-10 w-1/4 overflow-hidden">
         <img src="/team/charfeddine.webp" alt="Charfeddine" class="to-top bg-white flex items-center justify-center"/>
         <img src="/team/kaia.webp" alt="Kaia" class="to-top mt-10 bg-white flex items-center justify-center"/>
         <img src="/team/kim.webp" alt="Kim" class="to-top mt-10 bg-white flex items-center justify-center"/>
@@ -115,92 +115,21 @@
         <img src="/team/mehdi.webp" alt="Mehdi" class="to-top mt-10 bg-white flex items-center justify-center"/>
       </div>
 
-      <div v-else class="flex items-center overflow-y-hidden overflow-x-scroll" style="overscroll-behavior-x: contain; scroll-snap-type: x mandatory;">
-        <img src="/team/samy.webp" alt="Samy" class="w-full bg-white flex items-center justify-center mr-5" style="scroll-snap-align: center; width: 80vw;"/>
-        <img src="/team/pierre.webp" alt="Pierre" class="w-full bg-white flex items-center justify-center mr-5" style="scroll-snap-align: center; width: 80vw;"/>
-        <img src="/team/allison.webp" alt="Allison" class="w-full bg-white flex items-center justify-center mr-5" style="scroll-snap-align: center; width: 80vw;"/>
-        <img src="/team/ben.webp" alt="Ben" class="w-full bg-white flex items-center justify-center mr-5" style="scroll-snap-align: center; width: 80vw;"/>
-        <img src="/team/btissam.webp" alt="Btissam" class="w-full bg-white flex items-center justify-center mr-5" style="scroll-snap-align: center; width: 80vw;"/>
-        <img src="/team/guy.webp" alt="Guy" class="w-full bg-white flex items-center justify-center mr-5" style="scroll-snap-align: center; width: 80vw;"/>
-        <img src="/team/charfeddine.webp" alt="Charfeddine" class="bg-white flex items-center justify-center mr-5" style="scroll-snap-align: center; width: 80vw;"/>
-        <img src="/team/kaia.webp" alt="Kaia" class="bg-white flex items-center justify-center mr-5" style="scroll-snap-align: center; width: 80vw;"/>
-        <img src="/team/kim.webp" alt="Kim" class="bg-white flex items-center justify-center mr-5" style="scroll-snap-align: center; width: 80vw;"/>
-        <img src="/team/mari.webp" alt="Mari" class="bg-white flex items-center justify-center mr-5" style="scroll-snap-align: center; width: 80vw;"/>
-        <img src="/team/marie.webp" alt="Marie" class="bg-white flex items-center justify-center mr-5" style="scroll-snap-align: center; width: 80vw;"/>
-        <img src="/team/mehdi.webp" alt="Mehdi" class="bg-white flex items-center justify-center" style="scroll-snap-align: center; width: 80vw;"/>
+      <div v-else class="flex items-center overflow-x-scroll" style="overscroll-behavior-x: contain; scroll-snap-type: x mandatory;">
+        <img src="/team/samy.webp" alt="Samy" class="w-full bg-white flex items-center justify-center mr-5 xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
+        <img src="/team/pierre.webp" alt="Pierre" class="w-full bg-white flex items-center justify-center mr-5 xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
+        <img src="/team/allison.webp" alt="Allison" class="w-full bg-white flex items-center justify-center mr-5 xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
+        <img src="/team/ben.webp" alt="Ben" class="w-full bg-white flex items-center justify-center mr-5 xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
+        <img src="/team/btissam.webp" alt="Btissam" class="w-full bg-white flex items-center justify-center mr-5 xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
+        <img src="/team/guy.webp" alt="Guy" class="w-full bg-white flex items-center justify-center mr-5 xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
+        <img src="/team/charfeddine.webp" alt="Charfeddine" class="bg-white flex items-center justify-center mr-5 xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
+        <img src="/team/kaia.webp" alt="Kaia" class="bg-white flex items-center justify-center mr-5 xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
+        <img src="/team/kim.webp" alt="Kim" class="bg-white flex items-center justify-center mr-5 xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
+        <img src="/team/mari.webp" alt="Mari" class="bg-white flex items-center justify-center mr-5 xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
+        <img src="/team/marie.webp" alt="Marie" class="bg-white flex items-center justify-center mr-5 xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
+        <img src="/team/mehdi.webp" alt="Mehdi" class="bg-white flex items-center justify-center xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
       </div>
     </section>
-
-<!--
-    <section id="multicards" class="text-center flex flex-col items-center justify-center relative w-full max-w-full h-screen">
-
-
-      <div class="absolute bg-yellow card" style="width: 280px; height: 412px; top: 20px; left: 20px; transform: rotate(190deg)"></div>
-      <div class="absolute bg-purple card" style="width: 280px; height: 412px; top: 200px; left: 20px; transform: rotate(100deg)"></div>
-      <div class="absolute bg-red-900 card" style="width: 280px; height: 412px; bottom: 20px; left: 20px; transform: rotate(42deg)"></div>
-      <div class="absolute bg-blue card" style="width: 280px; height: 412px; bottom: 200px; left: 20px; transform: rotate(200deg)"></div>
-
-      <div class="absolute bg-pink card" style="width: 280px; height: 412px; top: 20px; right: 20px; transform: rotate(87deg)"></div>
-      <div class="absolute bg-green card" style="width: 280px; height: 412px; top: 200px; right: 20px; transform: rotate(110deg)"></div>
-      <div class="absolute bg-umbrella card" style="width: 280px; height: 412px; bottom: 20px; right: 20px; transform: rotate(201deg)"></div>
-      <div class="absolute bg-red-600 card" style="width: 280px; height: 412px; bottom: 200px; right: 20px; transform: rotate(28deg)"></div>
-
-
-
-      <div class="md:w-full w-1/2">
-        <h2 class="mb-4 text-2.5vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6"
-            v-html="'Vous voulez connaître notre niveau de jeu ?'"/>
-        <p class="text-1.5vw leading-normal font-regular md:text-xl" v-html="`On n’a pas le droit de montrer tous nos projets, mais
-on a quand même fait une belle petite sélection pour que vous puissiez avoir une idée de ce qu’on sait faire. Petit plus de la maison : nous adorons les besoins compliqués
-et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"/>
-        <NuxtLink class="defaultButton mt-5 mx-auto hoverAnimation md:text-13px text-1.2vw leading-normal"
-                  :to="localePath({name: 'works'})">Découvrir tous nos projets
-        </NuxtLink>
-      </div>
-    </section>
--->
-
-    <!--    <section id="clients" class="bg-lightGray relative overflow-hidden mt-21 px-8.5 pt-20 pb-40 md:pt-10 md:pb-16">
-          <div>
-            <svg class="mx-auto mt-auto mb-4 block" xmlns="http://www.w3.org/2000/svg" width="33.692" height="30.117"
-                 viewBox="0 0 33.692 30.117">
-              <g id="Groupe_842" data-name="Groupe 842" transform="translate(3111.773 -817)">
-                <g id="Groupe_842-2" data-name="Groupe 842" transform="translate(-3111.773 817)">
-                  <path id="Tracé_2854" data-name="Tracé 2854"
-                        d="M-3082.065,843.133h-7.151l-4.022,5.363-3.965-5.363h-7.208a5.379,5.379,0,0,1-5.363-5.363V824.363A5.378,5.378,0,0,1-3104.41,819h22.345a5.378,5.378,0,0,1,5.363,5.363V837.77A5.379,5.379,0,0,1-3082.065,843.133Z"
-                        transform="translate(3110.083 -818.69)" fill="#da002e"/>
-                  <path id="Tracé_2855" data-name="Tracé 2855"
-                        d="M-3094.927,847.117h0a.311.311,0,0,1-.249-.126l-3.872-5.237h-7.051a5.68,5.68,0,0,1-5.673-5.673V822.673A5.68,5.68,0,0,1-3106.1,817h22.345a5.68,5.68,0,0,1,5.673,5.673v13.407a5.68,5.68,0,0,1-5.673,5.673h-7l-3.929,5.239A.31.31,0,0,1-3094.927,847.117Zm-11.173-29.5a5.058,5.058,0,0,0-5.052,5.052v13.407a5.058,5.058,0,0,0,5.052,5.052h7.208a.311.311,0,0,1,.25.126l3.717,5.028,3.772-5.029a.311.311,0,0,1,.249-.124h7.15a5.058,5.058,0,0,0,5.053-5.052V822.673a5.058,5.058,0,0,0-5.053-5.052Z"
-                        transform="translate(3111.773 -817)" fill="#171716"/>
-                </g>
-                <g id="Groupe_844" data-name="Groupe 844" transform="translate(-3102.741 823.489)">
-                  <g id="Groupe_843" data-name="Groupe 843">
-                    <path id="Tracé_2856" data-name="Tracé 2856"
-                          d="M-3043.963,862.576a3.894,3.894,0,0,1,3.519-1.762,4.234,4.234,0,0,1,3.835,3.833,6.765,6.765,0,0,1-.383,2.761c-.015.046-.031.091-.046.137-.1.311-1.122,3.076-7.052,7.158h0c-5.93-4.083-6.953-6.847-7.052-7.158-.015-.046-.031-.092-.046-.137a6.768,6.768,0,0,1-.383-2.761,4.234,4.234,0,0,1,3.835-3.833,3.9,3.9,0,0,1,3.519,1.762l.119.188Z"
-                          transform="translate(3051.905 -860.489)" fill="#f9f8f7"/>
-                    <path id="Tracé_2857" data-name="Tracé 2857"
-                          d="M-3045.789,873.385l-.167-.114c-6.02-4.145-7.074-7.008-7.174-7.321l-.045-.134a7.127,7.127,0,0,1-.4-2.886,4.524,4.524,0,0,1,4.118-4.115,4.131,4.131,0,0,1,3.674,1.709,4.133,4.133,0,0,1,3.674-1.709,4.524,4.524,0,0,1,4.118,4.115,7.134,7.134,0,0,1-.4,2.887l-.045.134c-.1.313-1.153,3.176-7.172,7.319l-.014.009Zm-3.3-13.965c-.1,0-.2,0-.31.013a3.9,3.9,0,0,0-3.553,3.552,6.519,6.519,0,0,0,.368,2.634l.047.141c.093.29,1.064,2.918,6.759,6.877,5.693-3.956,6.665-6.588,6.758-6.877l.047-.141a6.513,6.513,0,0,0,.369-2.635,3.9,3.9,0,0,0-3.553-3.552,3.6,3.6,0,0,0-3.227,1.613l-.016.024-.407.555-.362-.573A3.58,3.58,0,0,0-3049.091,859.419Z"
-                          transform="translate(3053.594 -858.798)" fill="#171716"/>
-                  </g>
-                </g>
-              </g>
-            </svg>
-
-            <h3 class="uppercase text-center font-bold text-1vw md:text-xs">{{ $t('Home.clients.ourClients') }}</h3>
-            <h2 class="text-center mx-0 mt-13 mb-11 md:text-24px text-2.5vw md:mb-8.5">{{ $t('Home.clients.bigUp') }}</h2>
-          </div>
-
-          <div class="md:w-full w-10/12 flex justify-between mb-auto mx-auto mt-14 md:mt-auto md:flex-col">
-            <p class="md:text-xl text-1.5vw leading-normal w-1/2 md:w-full md:mb-8.5">{{ $t('Home.clients.trustUs') }}</p>
-            <p class="ml-10 text-1.5vw md:text-xl 2xl:leading-10 leading-relaxed w-1/2 md:w-full md:mr-0 md:mb-0 md:ml-0">
-              LVMH - KENZO - GRAND REX - UNIBAIL-ROAM - 4 TEMPS - CULTURA - NIANTIC - VIZ MEDIA - PEUGEOT - EDITIONS JC
-              LATTES - FFSA - ICADE - PASSYPLAZA PARIS 16 - THIAIS VILLAGE - BPI FRANCE - ARIANE LAB - MSN - PROVA -
-              COMMUNICART AGENCY - VILLE DE CHATILLON
-            </p>
-          </div>
-          <img class="absolute top-0 -left-17.5 w-52 md:hidden" src="/items/Tracé2228@2x.png.webp" alt="Déco">
-          <img class="absolute bottom-2.5 w-24 -right-12 md:hidden" src="/items/deco-2@2x.png.webp" alt="Wave">
-        </section>-->
 
     <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="projects" class="z-10 relative overflow-hidden w-full max-w-screen h-screen">
       <div class="flex flex-col bg-white items-center justify-center px-8.5 w-full h-full text-center">
@@ -221,38 +150,11 @@ et les réponses sur-mesure : <span class='font-bold'>challengez-nous !</span>`"
         <UiArrow :to="localePath({name: 'projects-slug', params: {slug: project.slug}})"/>
       </div>
 
-<!--      <div class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/JEUCONCOURS_MINIATURE_la_rentrée_ludique.png'); background-size: cover; background-repeat: no-repeat;">
-        <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">La rentrée ludique</h2>
-        <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5">Description rapide du contexte du projet.</p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base text-white">Client : <span class="font-bold">Passy Plaza</span></p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base text-white">Spécialités : <span class="font-bold">Direction artistique, Événementiel, Communication, Web</span>
-        </p>
-        <UiArrow :to="localePath({name: 'projects-slug', params: {slug: 'test'}})"/>
-      </div>
-
-      <div class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/Rectangle 569.png'); background-size: cover; background-repeat: no-repeat;">
-        <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">celio x Visionnaire</h2>
-        <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5">Description rapide du contexte du projet.</p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base text-white">Client : <span class="font-bold">celio</span></p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base text-white">Spécialités : <span class="font-bold">Direction artistique, Influence, Produit</span>
-        </p>
-        <UiArrow :to="localePath({name: 'projects-slug', params: {slug: 'test'}})"/>
-      </div>
-
-      <div class="project absolute flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/ESIEE-JOURNÉE29-06-32.2.png'); background-size: cover; background-repeat: no-repeat;">
-        <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">Le guide de l'étudiant</h2>
-        <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5">Description rapide du contexte du projet.</p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base text-white">Client : <span class="font-bold">ESIEE</span></p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base text-white">Spécialités : <span class="font-bold">Direction artistique, Éditorial, Édition</span>
-        </p>
-        <UiArrow :to="localePath({name: 'projects-slug', params: {slug: 'test'}})"/>
-      </div>-->
-
       <div class="absolute left-0 bottom-0 w-full h-4 z-10" style="background: rgba(255, 255, 255, 0.3);"><div id="projects-line" class="h-full bg-white w-0"></div></div>
     </section>
 
     <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="activity" class="overflow-hidden relative w-full max-w-full h-screen bg-lightGray flex items-center justify-center">
-      <div class="text-center flex flex-col justify-between md:py-0">
+      <div class="text-center flex flex-col items-center justify-between md:py-0">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">Pour plus<br>de choix</h2>
 
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base">
@@ -288,35 +190,17 @@ export default {
     this.$nextTick(() => {
       requestAnimationFrame(() => {
         this.baloonsAnimation()
-        if (this.$mq !== 'sm') {
+        if (this.$mq === 'lg') {
           this.cardsAnimation()
         }
         this.projectsAnimation()
       })
     })
-
-    /*const showreel = document.getElementById('showreel')
-
-    this.$gsap.timeline({
-      scrollTrigger: {
-        trigger: showreel,
-        start: 'top top',
-        end: `+=${showreel.offsetHeight}`,
-        scrub: 0.01,
-        markers: true
-      },
-    })
-      .to(showreel, {
-      y: '200vh',
-      yPercent: `${showreel.offsetHeight / 2}vh`,
-      duration: 10
-    })*/
   },
   methods: {
     changeIllustration(service) {
       this.currentService = service
 
-      console.log(this.$gsap.utils.toArray('.y-service'))
       this.$gsap
         .timeline({ ease: 'power2.inOut' })
         .to(this.$gsap.utils.toArray('.y-service'), {

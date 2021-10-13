@@ -1,6 +1,6 @@
 <template>
 <!--  <div id="burger" :class="{ 'active' : isBurgerActive }" @click.prevent="toggle">-->
-  <div ref="containerBurger" id="burger">
+  <div ref="containerBurger" id="burger" :class="{'active': isBurgerActive}">
     <div id="menu" class="bg-white max-w-screen w-full fixed top-0 left-0 pointer-events-auto" style="z-index: -1;">
       <ul class="flex flex-col justify-center w-full h-full items-center">
         <li class="cursor-pointer item-burger z-10">

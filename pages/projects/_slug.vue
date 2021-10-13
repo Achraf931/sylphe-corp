@@ -164,21 +164,23 @@ export default {
     }
   },
   mounted() {
-    const images = this.$gsap.utils.toArray('.image-bg')
+    if (this.$mq === 'lg') {
+      const images = this.$gsap.utils.toArray('.image-bg')
 
-    window.onmousemove = e => {
-      this.$gsap.set(images[1], {
-        x: -e.clientX / 80,
-        y: -e.clientY / 80
-      })
-      this.$gsap.set(images[2], {
-        x: e.clientX / 80,
-        y: e.clientY / 80
-      })
-      this.$gsap.set(images[3], {
-        x: -e.clientX / 80,
-        y: -e.clientY / 80
-      })
+      window.onmousemove = e => {
+        this.$gsap.set(images[1], {
+          x: -e.clientX / 80,
+          y: -e.clientY / 80
+        })
+        this.$gsap.set(images[2], {
+          x: e.clientX / 80,
+          y: e.clientY / 80
+        })
+        this.$gsap.set(images[3], {
+          x: -e.clientX / 80,
+          y: -e.clientY / 80
+        })
+      }
     }
 
     /*this.$gsap.timeline({
