@@ -39,10 +39,10 @@ export default {
   tmp: {
     home: {
       h2tmp: "私たちのちょっとした魅力？",
-      events: 'イベント,',
-      digital: 'デジタル,',
-      influence: '影響,',
-      production: '製品の生産,',
+      events: 'イベント',
+      digital: 'デジタル',
+      influence: '影響',
+      production: '製品の生産',
       design: 'デザイン',
       text: {
         events: 'あなたの "In the Stars "イベントの設定をよりリアルにするために、月を借りる必要がありますか？私たちはそれを記録的な速さで実現することができます。私たちの合言葉は、反省、適応、革新です。',

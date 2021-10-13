@@ -1,17 +1,13 @@
 <template>
   <div>
-<!--    <div v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="ball mix-diff is-visible" style="z-index: 9999999999999;">
-      <p class="text-ball text-center text-base font-black mix-diff" style="white-space: nowrap;"></p>
-      <div class="cursor mix-diff"></div>
-    </div>-->
-    <CustomMouse/>
+    <CustomMouse v-if="this.$mq !== 'sm'"/>
 
     <Loader/>
-<!--    <div ref="sylphe_container" class="sylphe_container h-screen w-screen max-w-screen max-h-screen transition-all duration-700 ease-in-out fixed top-0 left-0" style="z-index: 999999999;">
+    <div ref="sylphe_container" class="sylphe_container h-screen w-screen max-w-screen max-h-screen transition-all duration-700 ease-in-out fixed top-0 left-0" style="z-index: 999999999;">
       <video id="sylphe" ref="sylphe" muted playsinline preload="metadata" class="object-cover video-first h-full w-full max-w-screen max-h-screen">
         <source src="/sylphe.mp4" type="video/mp4">
       </video>
-    </div>-->
+    </div>
 <!--    <StartAnimation/>-->
 <!--    <CookieControl :locale="this.$i18n.locale">
       <template v-slot:modal>
@@ -29,7 +25,7 @@
       </template>
     </CookieControl>-->
     <IncludesHeader/>
-    <Nuxt id="nuxtMain" class="js-scroll min-h-screen"/>
+    <Nuxt id="nuxtMain" class="min-h-screen"/>
     <IncludesFooter/>
   </div>
 </template>
@@ -37,57 +33,23 @@
   import Vue from 'vue'
   import global from "~/mixins/global";
   import transition from "~/mixins/transition";
-
+  import header from "~/mixins/header";
   Vue.mixin(global)
   Vue.mixin(transition)
+  Vue.mixin(header)
 
-  export default {
-    mounted() {
-      console.log(this.$mq)
-      /*const elemClickEvents = this.$gsap.utils.toArray('.elem-click-event')
-      const elemDragEvents = this.$gsap.utils.toArray('.elem-drag-event')
-      const elemClickAndDragEvents = this.$gsap.utils.toArray('.elem-click-drag-event')
-      this.$gsap.set(".ball", {xPercent: -50, yPercent: -50});
-
-      const ball = document.querySelector(".ball");
-      const pointer = document.querySelector(".cursor");
-      const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-      const mouse = { x: pos.x, y: pos.y };
-      const speed = 0.35;
-
-      const xSet = this.$gsap.quickSetter(ball, "x", "px");
-      const ySet = this.$gsap.quickSetter(ball, "y", "px");
-      const xSetP = this.$gsap.quickSetter(pointer, "x", "px");
-      const ySetP = this.$gsap.quickSetter(pointer, "y", "px");
-
-      window.addEventListener("mousemove", e => {
-        mouse.x = e.x;
-        mouse.y = e.y;
-      });
-
-      this.$gsap.ticker.add(() => {
-        // adjust speed for higher refresh monitors
-        const dt = 1.0 - Math.pow(1.0 - speed, this.$gsap.ticker.deltaRatio());
-
-        xSetP((mouse.x - pos.x) + 20);
-        ySetP((mouse.y - pos.y) + 20);
-        pos.x += (mouse.x - pos.x) * dt;
-        pos.y += (mouse.y - pos.y) * dt;
-        xSet(pos.x);
-        ySet(pos.y);
-      });*/
-
-      this.lmS = new this.locomotiveScroll({
-        el: document.querySelector(".js-scroll"),
-        lerp: 0.0001,
-        repeat: true
-      });
-      //  console.log("lmS", this.lmS);
-    }
-  }
+  export default {}
 </script>
 
 <style lang="scss">
+#topPage {
+  pointer-events: none;
+  user-select: none;
+
+  .box-content {
+    z-index: 100;
+  }
+}
 
 .black-nav {
   color: black!important;
@@ -107,41 +69,6 @@
 
 .mix-diff {
   mix-blend-mode: difference;
-}
-
-/*.ball {
-  pointer-events: none;
-  width: 50px;
-  height: 50px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  border: 1px solid white;
-  border-radius: 50%;
-}
-
-.text-ball {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  visibility: hidden;
-  line-height: 15px;
-  color: white;
-}
-
-.cursor {
-  border-radius: 100%;
-  background: white;
-  width: 10px;
-  height: 10px;
-}*/
-
-#js-scroll {
-  overflow: hidden;
-  box-sizing: border-box;
-  position: relative;
 }
 
 .text-stroke {
@@ -185,7 +112,6 @@
 .homeloaderblack {
   position: fixed;
   z-index: 5002;
-  display: block;
   width: 100vw;
   height: 100vh;
   background-color: #121212;

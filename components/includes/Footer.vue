@@ -1,8 +1,8 @@
 <template>
   <footer class="relative w-full max-w-screen bg-black py-4 px-5 z-10 flex justify-between flex-wrap">
     <div class="flex items-center text-grayFooter md:w-full justify-between xs:flex-col">
-      <NuxtLink class="2xl:text-11px text-1vw leading-normal hover:text-white transition-all duration-150 ease-in-out" :to="localePath('legal-notice')">Charte d'utilisation des cookies</NuxtLink>
-      <NuxtLink class="2xl:text-11px text-1vw leading-normal hover:text-white transition-all duration-150 ease-in-out sm:ml-2.5 xs:ml-0 lg:ml-10 ml-20" :to="localePath('legal-notice')">Mentions légales</NuxtLink>
+      <NuxtLink class="2xl:text-11px text-1vw leading-normal hover:text-white transition-all duration-150 ease-in-out sm:mr-2.5 xs:mr-0 lg:mr-10 mr-20" :to="localePath('legal-notice')">Charte d'utilisation des cookies</NuxtLink>
+      <NuxtLink class="2xl:text-11px text-1vw leading-normal hover:text-white transition-all duration-150 ease-in-out" :to="localePath('legal-notice')">Mentions légales</NuxtLink>
       <p class="leading-none 2xl:text-11px text-1vw leading-normal sm:ml-2.5 xs:ml-0 lg:ml-10 ml-20">© 2021 Sylphe. Tous droits réservés</p>
     </div>
     <div class="icons flex justify-between md:mx-auto md:mt-5 items-center">

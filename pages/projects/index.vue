@@ -1,28 +1,29 @@
 <template>
-  <div class="overflow-x-hidden bg-black" style="mix-blend-mode: color;">
+  <div class="overflow-x-hidden bg-black">
     <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="topPage" class="z-10 relative w-full h-screen bg-cyan flex items-center justify-center flex-col text-white">
-      <div class="box-content py-0 px-7.5 text-center">
+      <UiDrawSection/>
+      <div class="box-content py-0 px-8.5 text-center">
         <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim mb-5 lg:text-32px text-3vw leading-normal" v-html="'Découvrez nos réalisations'"/>
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim 2xl:text-24px text-1.5vw font-regular m-auto xs:text-base xs:leading-5 md:text-xl md:leading-6">Elles sont toutes faites avec amour</h2>
       </div>
       <ArrowScroll/>
     </section>
 
-    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="projects_list" class="fixed z-0 top-0 left-0 h-screen w-full grid grid-rows-2 grid-flow-col">
-      <div v-for="index in 20" :key="index" class="text-white text-center relative flex items-center justify-center bg-pink w-full h-full p-5" style="background-color: #171716;">
-        <p class="w-full lg:text-32px text-3vw leading-normal font-bold">Projet</p>
-        <p class="absolute bottom-10 w-full inset-x-1/2" style="transform: translateX(-50%);">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="projects_list" class="fixed z-0 top-0 left-0 h-screen w-full flex flex-col flex-wrap">
+      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'test'}})" v-for="index in 20" :key="index" class="project filter grayscale hover:grayscale-0 transition-all duration-100 ease-in-out text-white text-center relative flex flex-col items-center justify-center bg-pink p-5" style="height: 50vh; width: 50vh;">
+        <p class="w-full lg:text-32px text-3vw leading-normal my-auto font-bold">Projet</p>
+        <p>
           Client : <span class="font-bold">Tokyo Verdy</span>
           <br>
           Spécialités : <span class="font-bold">brand identity, typography, and creative direction</span>
         </p>
-      </div>
+      </NuxtLink>
     </section>
 
     <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="empty" class="w-full relative z-10 max-w-full h-screen pointer-events-none"></section>
 
-    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="activity" class="bg-lightGray">
-      <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2 px-7.5">
+    <UiGlobalSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="activity" class="bg-lightGray">
+      <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2 px-8.5">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">Challengez-nous</h2>
 
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible max-w-640 text-1.5vw leading-normal font-regular md:text-xl">
@@ -30,40 +31,42 @@
         </p>
         <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :link="'https://calendly.com/sylphe/reunion'" :target="false">{{ $t('nav.call') }}</UiButton>
       </div>
-    </UiSectionSides>
+    </UiGlobalSectionSides>
   </div>
 </template>
 
 <script>
-import header from "~/mixins/header";
-
 export default {
-  mixins: [header],
   mounted() {
     const projects = document.getElementById('projects_list')
+    const project = this.$gsap.utils.toArray('.project')
 
     this.$gsap.timeline({
       scrollTrigger: {
         trigger: '#empty',
         pin: true,
-        start: 'top bottom',
-        end: `${projects.offsetWidth}`,
-        scrub: true,
+        start: 'top center',
+        end: '+=' + (project[0].offsetWidth * (project.length / 2)),
+        scrub: 0,
         markers: true
-      }
+      },
+      ease: 'linear.in'
     })
-    .to(projects, {
-      x: -projects.offsetWidth,
-      duration: 1,
-      ease: 'power2.inOut'
-    })
+      .to(projects, {
+        x: -((project[0].offsetWidth * (project.length / 2)) - projects.offsetWidth),
+        duration: 20
+      })
+    .to({}, {duration: 1})
   }
 }
 </script>
 
 <style lang="scss" scoped>
 #projects_list {
-  grid-auto-columns: 33.333%;
-  transform: translateX(80vw);
+  transform: translateX(120vw);
+}
+
+.pin-spacer {
+  pointer-events: none;
 }
 </style>

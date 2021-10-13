@@ -1,7 +1,7 @@
 <template>
 <!--  <div id="burger" :class="{ 'active' : isBurgerActive }" @click.prevent="toggle">-->
   <div ref="containerBurger" id="burger">
-    <div id="menu" class="bg-white max-w-screen w-full fixed top-0 left-0" style="z-index: -1;">
+    <div id="menu" class="bg-white max-w-screen w-full fixed top-0 left-0 pointer-events-auto" style="z-index: -1;">
       <ul class="flex flex-col justify-center w-full h-full items-center">
         <li class="cursor-pointer item-burger z-10">
           <p class="md:text-24px leading-normal text-3vw font-semibold transition-all duration-200 ease-in border-2 hover:text-blue border-solid border-transparent" @click="navigate('index')">{{ $t('nav.home') }}</p>
@@ -40,7 +40,7 @@
       </div>
     </div>
     <slot>
-      <button v-observe="{ onEnter: visibility, once: true }" type="button" ref="burger" class="is-visible-top burger-button">
+      <button v-observe="{ onEnter: visibility, once: true }" type="button" ref="burger" class="is-visible-top burger-button pointer-events-auto">
         <span class="burger-bar burger-bar--1"></span>
         <span class="burger-bar burger-bar--2"></span>
         <span class="burger-bar burger-bar--3"></span>

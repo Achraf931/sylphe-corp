@@ -175,7 +175,7 @@ export default class Cursor {
         this.cursorConfigs[key].amt
       );
     }
-    // Setting the cursor x and y to our cursoer html element
+    // Setting the cursor x and y to our cursor html element
     this.Cursor.style.transform = `translateX(${this.cursorConfigs.x.previous}px) translateY(${this.cursorConfigs.y.previous}px)`;
     // RAF
     requestAnimationFrame(() => this.render());

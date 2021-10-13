@@ -39,7 +39,6 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     {src: '~/plugins/vuelidate.js', mode: 'client'},
-    {src: '~/plugins/locomotive.js', mode: 'client'},
     {src: '~/plugins/vue-typer.js', mode: 'client'},
   ],
 
@@ -84,6 +83,8 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/markdownit',
+    '@nuxtjs/strapi',
     'nuxt-polyfill',
     '~/modules/viewport-observer',
     // https://go.nuxtjs.dev/axios
@@ -112,7 +113,7 @@ export default {
           en: '/culture',
           ja: '/culture'
         },
-        projects: {
+        'projects/index': {
           fr: '/travaux',
           en: '/projects',
           ja: '/projects',
@@ -169,6 +170,18 @@ export default {
       }
     }]
   ],
+
+  strapi: {
+    entities: ['projects', 'clients', 'specialities'],
+    url: 'https://sylphe-corp-api.herokuapp.com'
+  },
+
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    injected: true
+  },
 
   sitemap: {
     hostname: "https://sylphe-corp.herokuapp.com", // L'adresse de votre site, que vous pouvez placer comme ici dans une variable d'environnement.

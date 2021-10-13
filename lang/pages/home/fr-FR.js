@@ -1,7 +1,7 @@
 export default {
-  topPageTitlePart1: 'Votre agence Next Gen',
+  topPageTitlePart1: 'Votre agence Next\u00a0Gen',
   topPageTitlePart2: 'Licensing et Gaming à Paris',
-  description: 'Nous créons des expériences tactiques et sur-mesure pour connecter votre marque à ses fans - Et on adore ça.',
+  description: 'Nous créons des expériences tactiques et sur-mesure pour connecter votre marque à ses fans et générer de la loyauté. —\u00a0Et\u00a0on\u00a0adore\u00a0ça.',
   body: {
     speciality: 'nos spécialités',
     title: 'Notre botte secrète\u00a0?',

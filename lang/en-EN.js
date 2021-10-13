@@ -39,10 +39,10 @@ export default {
   tmp: {
     home: {
       h2tmp: "Our little touch of enchantment?",
-      events: 'Events,',
-      digital: 'Digital,',
-      influence: 'influence,',
-      production: 'Production of products,',
+      events: 'Events',
+      digital: 'Digital',
+      influence: 'influence',
+      production: 'Production of products',
       design: 'design',
       text: {
         events: 'Need to borrow the moon to make the setting of your "In the Stars" event a little more realistic? We\'re here for you, and we can do it in record time. Our watchwords: reflection, adaptation, innovation.',

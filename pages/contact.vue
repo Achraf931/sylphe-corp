@@ -1,16 +1,16 @@
 <template>
   <div>
     <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="topPage" class="relative w-full h-screen bg-yellow flex items-center justify-center flex-col text-white">
-      <div class="box-content py-0 px-7.5 text-center">
+      <UiDrawSection/>
+      <div class="box-content py-0 px-8.5 text-center">
         <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim mb-5 lg:text-32px text-3vw leading-normal" v-html="$t('Contact.topPage.topPageTitle')"/>
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim 2xl:text-24px text-1.5vw font-regular m-auto xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ $t('Contact.topPage.description') }}</h2>
       </div>
       <ArrowScroll/>
     </section>
 
-    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="containerForm" data-aos="fade-up" class="flex relative items-center justify-center w-full max-w-screen min-h-screen flex-col pb-15 mx-auto pt-14 mb-0 xl:px-7.5 px-96">
-      <!--      <h2 class="sm:text-24px">{{ $t('Contact.form.title') }}</h2>-->
-      <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="containerForm" class="flex bg-white relative items-center justify-center w-full max-w-screen min-h-screen flex-col pb-15 mx-auto pt-14 mb-0 xl:px-8.5 px-96">
+      <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 text-2.5vw font-bold leading-normal xs:leading-5 md:text-xl md:leading-6">
         <client-only>
           {{ $t('Contact.form.title') }}
           <vue-typer
@@ -30,13 +30,13 @@
       </h2>
       <form v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible w-full xl:max-w-640 text-base" method="post" @submit.prevent="sendForm" id="form" novalidate>
         <div class="formGroup" :class="{ formGroupError: $v.form.name.$error }">
-          <label class="text-1vw md:text-xl" for="name">{{ $t('Contact.form.labelName') }} *</label>
-          <input class="text-1vw md:text-xl leading-normal" id="name" type="text" inputmode="text" v-model.trim="form.name" @value="setName"/>
+          <label class="text-1vw md:text-base" for="name">{{ $t('Contact.form.labelName') }} *</label>
+          <input class="text-1vw md:text-base leading-normal" id="name" type="text" inputmode="text" v-model.trim="form.name" @value="setName"/>
           <span class="error text-1vw md:text-sm leading-normal" v-if="$v.form.name.$error">{{ $t('Contact.form.errorName') }}</span>
         </div>
         <div class="formGroup" :class="{ formGroupError: $v.form.email.$error }">
-          <label class="text-1vw md:text-xl" for="email">{{ $t('Contact.form.labelEmail') }} *</label>
-          <input class="text-1vw md:text-xl leading-normal" id="email" type="email" inputmode="email" v-model.trim="form.email" @value="setEmail"/>
+          <label class="text-1vw md:text-base" for="email">{{ $t('Contact.form.labelEmail') }} *</label>
+          <input class="text-1vw md:text-base leading-normal" id="email" type="email" inputmode="email" v-model.trim="form.email" @value="setEmail"/>
           <template v-if="$v.form.email.$error">
             <span class="error leading-normal text-1vw md:text-sm" v-if="!$v.form.email.required">{{ $t('Contact.form.errorEmail') }}</span>
             <span class="error leading-normal text-1vw md:text-sm" v-if="!$v.form.email.maxLength">{{ $t('Contact.form.errorEmailLength') }}</span>
@@ -44,8 +44,8 @@
           </template>
         </div>
         <div class="formGroup" :class="{ formGroupError: $v.form.message.$error }">
-          <label class="text-1vw md:text-xl" for="message">{{ $t('Contact.form.labelMessage') }} *</label>
-          <textarea class="text-1vw md:text-xl leading-normal" id="message" v-model.trim="form.message" @value="setMessage"/>
+          <label class="text-1vw md:text-base" for="message">{{ $t('Contact.form.labelMessage') }} *</label>
+          <textarea class="text-1vw md:text-base leading-normal" id="message" v-model.trim="form.message" @value="setMessage"/>
           <span class="error leading-normal text-1vw md:text-sm" v-if="$v.form.message.$error">{{ $t('Contact.form.errorMessage') }}</span>
         </div>
         <div class="flex items-baseline mt-7">
@@ -58,8 +58,8 @@
       </form>
     </section>
 
-    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="ourTeam" class="bg-lightGray">
-      <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-2/4">
+    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="ourTeam" class="bg-lightGray" leftImage="/projects/left.webp" rightImage="/projects/right.webp">
+      <div class="text-center flex mx-auto flex-col justify-between md:py-0 md:w-full w-2/4 px-8.5">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Passez à la maison</h2>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl">
           {{ $t('Contact.contact.schedulesPart1') }}<br>
@@ -76,8 +76,8 @@
       </div>
     </UiSectionSides>
 
-    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="contact" class="bg-yellow">
-      <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2">
+    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="contact" class="bg-yellow" leftImage="/projects/left.webp" rightImage="/projects/right.webp">
+      <div class="text-center flex mx-auto flex-col justify-between md:py-0 md:w-full w-1/2 px-8.5">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Besoin de nous parler directement ?</h2>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal md:text-xl text-white">
           On est joignable au<br>
@@ -91,7 +91,7 @@
       </div>
     </UiSectionSides>
 
-<!--    <section id="joinUs" class="flex flex-col items-center px-7.5 pt-26 pb-18.5">
+<!--    <section id="joinUs" class="flex flex-col items-center px-8.5 pt-26 pb-18.5">
           <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible mb-4 text-2.5vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6" v-html="$t('Contact.joinUs.title')"/>
           <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl" v-html="$t('Contact.joinUs.subtitle')"/>
           <div class="containerCards flex justify-center w-full max-w-4xl mt-10">
@@ -150,7 +150,6 @@
 <script>
 import { validationMixin } from 'vuelidate'
 import { required, email, maxLength } from 'vuelidate/lib/validators'
-import header from "~/mixins/header";
 
 export default {
   data() {
@@ -164,7 +163,7 @@ export default {
       }
     }
   },
-  mixins: [validationMixin, header],
+  mixins: [validationMixin],
   validations: {
     form: {
       name: {
