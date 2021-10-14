@@ -109,7 +109,7 @@
     </UiSectionSides>
 
     <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="carousel" class="overflow-hidden relative w-full text-center max-w-full h-screen bg-blue flex items-left z-10">
-      <div v-if="this.prevProject !== undefined" class="h-screen flex flex-col items-center justify-center md:p-5 p-10" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/Rectangle 569.png'); background-size: cover; background-repeat: no-repeat; min-width: 50vw; max-width: 50vw;">
+      <div v-if="this.prevProject !== undefined" class="h-screen flex flex-col filter grayscale hover:grayscale-0 items-center justify-center md:p-5 p-10" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/Rectangle 569.png'); background-size: cover; background-repeat: no-repeat; min-width: 50vw; max-width: 50vw;">
         <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">{{ this.prevProject.name }}</h2>
         <client-only>
           <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5" v-html="$md.render(this.prevProject.description)"/>
@@ -118,7 +118,7 @@
         <p class="p text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Spécialités : <span v-for="(speciality, index) in this.prevProject.client.specialities" :key="index" class="font-bold">{{ speciality.name }}{{ index + 1 !== project[0].client.specialities.length ? ', ' : '' }}</span></p>
         <UiArrow :to="localePath({name: 'projects-slug', params: {slug: this.prevProject.slug}})"/>
       </div>
-      <div v-if="this.nextProject !== undefined" class="h-screen flex flex-col items-center justify-center md:p-5 p-10" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/ESIEE-JOURNÉE29-06-32.2.png'); background-size: cover; background-repeat: no-repeat; min-width: 50vw; max-width: 50vw;">
+      <div v-if="this.nextProject !== undefined" class="h-screen flex flex-col filter grayscale hover:grayscale-0 items-center justify-center md:p-5 p-10" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/ESIEE-JOURNÉE29-06-32.2.png'); background-size: cover; background-repeat: no-repeat; min-width: 50vw; max-width: 50vw;">
         <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">{{ this.nextProject.name }}</h2>
         <client-only>
           <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5" v-html="$md.render(this.nextProject.description)"/>

@@ -4,6 +4,9 @@ export default {
   mounted() {
   },
   methods: {
+    hiddenVideo(entry) {
+      entry.entry.target.classList.toggle('hidden', !entry.entry.isIntersecting)
+    },
     visibility(entry) {
       if (entry.entry.isIntersecting) {
         this.$gsap.to(entry.entry.target, {

@@ -118,11 +118,11 @@ export default {
       locales: ['fr', 'en', 'ja'],
 
       //modal opener (cookie control)
-      controlButton: false,
+      controlButton: true,
 
       //or if you want to set initialState to false (default value for initialState is true)
       blockIframe: {
-        initialState: false
+        initialState: true
       },
 
       //position of cookie bar:
@@ -133,9 +133,9 @@ export default {
       //default colors
       //if you want to disable colors set colors property to false
       colors: {
-        barTextColor: '#fff',
+        barTextColor: '#000',
         modalOverlay: '#000',
-        barBackground: '#000',
+        barBackground: '#fff',
         barButtonColor: '#000',
         modalTextColor: '#000',
         modalBackground: '#fff',
@@ -166,9 +166,9 @@ export default {
           fr: {
             barTitle: 'Paramètrage des cookies',
             barDescription: 'Nous utilisons nos propres cookies et des cookies tiers afin de pouvoir vous montrer ce site web et de mieux comprendre comment vous l\'utilisez, en vue d\'améliorer les services que nous proposons. Si vous continuez à naviguer, nous considérons que vous avez accepté les cookies.',
-            acceptAll: 'Autoriser tous les cookies',
+            acceptAll: 'Accepter tous les cookies',
             declineAll: 'Interdire tous les cookies',
-            manageCookies: 'Gérer les cookies',
+            manageCookies: 'En savoir plus',
             unsaved: 'Vous avez des paramètres non sauvegardés',
             close: 'Fermer',
             save: 'Sauvegarder',
@@ -243,7 +243,7 @@ export default {
             },
 
             initialState: true,
-            src:  'https://www.googletagmanager.com/gtag/js?id=<API-KEY>',
+            src:  'https://www.googletagmanager.com/gtag/js?id=GTM-KSPDZMM',
             async:  true,
             cookies: ['_ga', '_gat', '_gid'],
             accepted: () =>{
@@ -282,32 +282,32 @@ export default {
         index: {
           fr: '/',
           en: '/',
-          ja: '/'
+          //  ja: '/'
         },
         culture: {
           fr: '/culture',
           en: '/culture',
-          ja: '/culture'
+          //  ja: '/culture'
         },
         'projects/index': {
           fr: '/travaux',
           en: '/projects',
-          ja: '/projects',
+          //  ja: '/projects',
         },
         'projects/_slug': {
           fr: '/travaux/:slug',
           en: '/projects/:slug',
-          ja: '/projects/:slug',
+          //  ja: '/projects/:slug',
         },
         contact: {
           fr: '/contact',
           en: '/contact',
-          ja: '/contact'
+          //  ja: '/contact'
         },
         'legal-notice': {
           fr: '/mentions-legales',
           en: '/legal-notice',
-          ja: '/legal-notice',
+          //  ja: '/legal-notice',
         }
       },
       locales: [
@@ -323,12 +323,12 @@ export default {
           iso: 'en-EN',
           file: 'en-EN.js'
         },
-        {
+        /*{
           name: 'にほんご',
           code: 'ja',
           iso: 'ja-JA',
           file: 'ja-JA.js'
-        }
+        }*/
       ],
       silentTranslationWarn: true,
       fallbackLocale: ['fr', 'en'],

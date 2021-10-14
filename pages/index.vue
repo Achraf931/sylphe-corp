@@ -23,7 +23,7 @@
       </div>
     </section>
 
-    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="empty" class="w-full max-w-full h-screen mouse-hover show-hover"></section>
+    <section v-observe="{ onEnter: hiddenVideo }" id="empty" class="w-full max-w-full h-screen mouse-hover show-hover"></section>
 
     <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="services" :class="{'flex-col': this.$mq === 'sm'}" class="relative z-10 bg-white w-full max-w-full h-screen px-8.5 md:text-24px md:mx-auto md:mt-auto flex justify-between items-center overflow-hidden">
       <div v-if="this.$mq !== 'sm'" class="relative overflow-hidden w-1/4 h-full">
@@ -79,9 +79,13 @@
     </section>
 
     <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="secret" class="z-10 overflow-hidden relative w-full max-w-full px-8.5 h-screen bg-lightGray flex items-center justify-center">
-      <img class="baloon baloon-1 absolute" style="left: 70%; transform: translate(0, 400%);" width="281" height="567" src="/index/baloon1.webp" alt="Baloon 1">
-      <img class="baloon baloon-2 absolute" style="left: 10%; transform: translate(0, 180%);" width="182" height="404" src="/index/baloon2.webp" alt="Baloon 2">
-      <img class="baloon baloon-3 absolute" style="left: 46%; transform: translate(0, 0);" width="146" height="326" src="/index/baloon3.webp" alt="Baloon 3">
+      <video style="left: 70%; transform: translate(0, 400%); width: 281px; height: 567px;" muted playsinline preload="metadata" loop autoplay="autoplay" width="281" height="567" class="baloon baloon-1 block absolute">
+        <source src="/index/BALLON_4_FUSCHIA.gif" type="video/gif">
+      </video>
+
+      <video style="left: 10%; transform: translate(0, 180%); width: 182px; height: 404px;" muted playsinline preload="metadata" loop autoplay="autoplay" width="182" height="404" class="baloon baloon-2 block absolute">
+        <source src="/index/BALLON_6_JAUNE.gif" type="video/gif">
+      </video>
 
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw font-bold leading-normal">{{ $t('Home.body.title') }}</h2>
@@ -90,7 +94,7 @@
       </div>
     </section>
 
-    <section v-observe="{ onEnter: headerChanged, threshold: 0.1 }" id="teams" :class="{'flex-col py-8.5': this.$mq !== 'lg'}" class="z-10 relative w-full max-w-full h-screen overflow-hidden flex items-center justify-between bg-blue">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.1 }" id="teams" :class="{'flex-col py-8.5': this.$mq !== 'lg'}" class="z-10 relative w-full max-w-full h-screen overflow-hidden flex items-center justify-center bg-blue">
       <div v-if="this.$mq === 'lg'" id="containerToBottom" class="pl-10 w-1/4 overflow-hidden flex flex-col-reverse">
         <img src="/team/samy.webp" alt="Samy" class="w-full to-bottom mb-10 bg-white flex items-center justify-center"/>
         <img src="/team/pierre.webp" alt="Pierre" class="w-full to-bottom mb-10 bg-white flex items-center justify-center"/>
@@ -100,7 +104,7 @@
         <img src="/team/guy.webp" alt="Guy" class="w-full to-bottom mb-10 bg-white flex items-center justify-center"/>
       </div>
 
-      <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2 mx-10" :class="{'px-8.5': this.$mq !== 'lg'}">
+      <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2 mx-10" :class="{'px-8.5 mx-0': this.$mq !== 'lg'}">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold text-white" v-html="$t('Home.teams.title')"/>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw xs:text-base leading-normal text-white" v-html="$t('Home.teams.text')"/>
         <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :class="{'mb-10': this.$mq !== 'lg'}" :link="localePath({name: 'index'})">{{ $t('Home.teams.button') }}</UiButton>
@@ -131,9 +135,9 @@
       </div>
     </section>
 
-    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="projects" class="z-10 relative overflow-hidden w-full max-w-screen h-screen">
-      <div class="flex flex-col bg-white items-center justify-center px-8.5 w-full h-full text-center">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 p-8.5 lg:text-32px text-3vw leading-normal font-bold">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="projects" class="z-10 relative overflow-hidden w-full max-w-screen h-screen flex items-center justify-center">
+      <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2 p-8.5">
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">
           Vous voulez connaître notre niveau de jeu ?
         </h2>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base leading-normal">
@@ -150,19 +154,15 @@
         <UiArrow :to="localePath({name: 'projects-slug', params: {slug: project.slug}})"/>
       </div>
 
-      <div class="project absolute flex flex-col text-center items-center justify-center p-8.5" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/JEUCONCOURS_MINIATURE_la_rentrée_ludique.png'); background-size: cover; background-repeat: no-repeat;">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold text-white">Pour plus<br>de choix</h2>
-
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible mb-10 md:mb-5 md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base leading-normal text-white">
-          Blablabla
-        </p>
+      <div class="project absolute flex flex-col text-center items-center justify-center p-8.5 bg-blue">
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold text-white">On vous réserve encore<br>pleins de surprises …</h2>
         <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mx-auto" :link="localePath({name: 'projects'})" :target="false">J'en veux plus !</UiButton>
       </div>
 
       <div class="absolute left-0 bottom-0 w-full h-4 z-10" style="background: rgba(255, 255, 255, 0.3);"><div id="projects-line" class="h-full bg-white w-0"></div></div>
     </section>
 
-    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="challenge" class="bg-blue" leftImage="/projects/left.webp" rightImage="/projects/right.webp">
+    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="challenge_us" class="bg-blue" leftImage="/projects/left.webp" rightImage="/projects/right.webp">
       <div class="w-2/4 md:w-full mx-auto flex flex-col items-center px-8.5 text-center">
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-white lg:text-32px text-3vw leading-normal font-bold">Challengez-nous !</p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base text-white leading-normal">Petit plus de la maison : nous adorons les besoins compliqués et les réponses sur-mesure.</p>

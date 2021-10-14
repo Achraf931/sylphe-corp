@@ -17,8 +17,8 @@ export default class Cursor {
     this.Item = document.querySelectorAll(".mouse-hover");
     this.bounds = this.Cursor.getBoundingClientRect();
     this.cursorConfigs = {
-      x: { previous: 0, current: 0, amt: 0.3 },
-      y: { previous: 0, current: 0, amt: 0.3 },
+      x: { previous: 0, current: 0, amt: 1 },
+      y: { previous: 0, current: 0, amt: 1 },
     };
 
     const speed = 0.35;

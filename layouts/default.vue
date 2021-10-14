@@ -9,15 +9,9 @@
       </video>
     </div>-->
 <!--    <StartAnimation/>-->
-    <CookieControl :locale="this.$i18n.locale">
+<!--    <CookieControl :locale="this.$i18n.locale">
       <template v-slot:bar>
-        <svg class="cookieControl__ModalClose" xmlns="http://www.w3.org/2000/svg" width="24.332" height="23.614" viewBox="0 0 24.332 23.614">
-          <g id="Groupe_797" data-name="Groupe 797" transform="translate(-294.379 -30)">
-            <line id="Ligne_252" data-name="Ligne 252" y1="0.379" transform="translate(306.59 37.121)" fill="none" stroke="#171716" stroke-linecap="round" stroke-width="3" opacity="0"/>
-            <line id="Ligne_253" data-name="Ligne 253" x2="20" y2="19" transform="translate(296.59 32.121)" fill="none" stroke="#171716" stroke-linecap="round" stroke-width="3"/>
-            <line id="Ligne_254" data-name="Ligne 254" y1="19.372" x2="20.09" transform="translate(296.5 32.121)" fill="none" stroke="#171716" stroke-linecap="round" stroke-width="3"/>
-          </g>
-        </svg>
+        <p>En poursuivant votre navigation</p>
       </template>
       <template v-slot:cookie="{config}">
         <span v-for="c in config" :key="c.id" v-text="c.cookies"/>
@@ -26,7 +20,7 @@
         <h3 class="font-bold lg:text-32px text-3vw leading-normal">{{ $cookies.text.barTitle }}</h3>
         <p class="2xl:text-base text-1vw leading-normal">{{ $cookies.text.barDescription }}</p>
       </template>
-    </CookieControl>
+    </CookieControl>-->
     <IncludesHeader/>
     <Nuxt id="nuxtMain" class="min-h-screen"/>
     <IncludesFooter/>
@@ -190,6 +184,7 @@
 
     .cookieControl__BarButtons button {
       padding: 0;
+      line-height: normal;
 
       &:last-child {
         padding: 10px 20px;
