@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="topPage" class="z-10 relative w-full max-w-full h-screen bg-blue flex items-center justify-center flex-col text-white">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="topPage" class="z-10 relative w-full max-w-full h-screen bg-yellow flex items-center justify-center flex-col text-white">
       <UiDrawSection/>
       <div class="box-content py-0 px-8.5 text-center">
         <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible leave-anim mb-5 lg:text-32px text-3vw leading-normal" v-html="$t('Contact.topPage.topPageTitle')"/>
@@ -162,6 +162,9 @@ export default {
         message: ''
       }
     }
+  },
+  mounted() {
+    window.scrollTo(0, 0)
   },
   mixins: [validationMixin],
   validations: {

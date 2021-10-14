@@ -1,3 +1,5 @@
+import * as http from "http";
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -35,6 +37,21 @@ export default {
   css: [
     "~/assets/fonts/css/fonts.css"
   ],
+
+  env: {
+    baseUrl: process.env.BASE_URL || 'https://sylphe-corp-api.herokuapp.com',
+    siteUrl: process.env.SITE_URL || 'https://sylphe-corp.herokuapp.com'
+  },
+
+  render: {
+    // HTTP2: https://nuxtjs.org/api/configuration-render/#http2
+    http2: {
+      push: true,
+      pushAssets: (req, res, publicPath, preloadFiles) => preloadFiles
+        .filter(f => f.asType === 'script' && f.file === 'runtime.js')
+        .map(f => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`)
+    }
+  },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -83,6 +100,165 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    ['nuxt-cookie-control', {
+      //default css (true)
+      //if css is set to false, you will still be able to access
+      //your color variables (example. background-color: var(--cookie-control-barBackground))
+      css: true,
+
+      //enable or disable css variables polyfill
+      cssPolyfill: true,
+
+      //in case you have subdomains (shop.yourdomain.com)
+      domain: function () {
+        return process.env.siteUrl.replace('https://', '') || 'sylphe-corp.herokuapp.com'
+      },
+
+      //if you want to tree-shake locales set locales you want to use
+      locales: ['fr', 'en', 'ja'],
+
+      //modal opener (cookie control)
+      controlButton: false,
+
+      //or if you want to set initialState to false (default value for initialState is true)
+      blockIframe: {
+        initialState: false
+      },
+
+      //position of cookie bar:
+      //'top-left', 'top-right', 'top-full',
+      //'bottom-left', 'bottom-right', 'bottom-full'
+      barPosition: 'bottom-full',
+
+      //default colors
+      //if you want to disable colors set colors property to false
+      colors: {
+        barTextColor: '#fff',
+        modalOverlay: '#000',
+        barBackground: '#000',
+        barButtonColor: '#000',
+        modalTextColor: '#000',
+        modalBackground: '#fff',
+        modalOverlayOpacity: 0.8,
+        modalButtonColor: '#fff',
+        modalUnsavedColor: '#fff',
+        barButtonHoverColor: '#fff',
+        barButtonBackground: '#fff',
+        modalButtonHoverColor: '#fff',
+        modalButtonBackground: '#000',
+        controlButtonIconColor: '#000',
+        controlButtonBackground: '#fff',
+        barButtonHoverBackground: '#333',
+        checkboxActiveBackground: '#000',
+        checkboxInactiveBackground: '#000',
+        modalButtonHoverBackground: '#333',
+        checkboxDisabledBackground: '#ddd',
+        controlButtonIconHoverColor: '#fff',
+        controlButtonHoverBackground: '#000',
+        checkboxActiveCircleBackground: '#fff',
+        checkboxInactiveCircleBackground: '#fff',
+        checkboxDisabledCircleBackground: '#fff',
+      },
+
+      //default texts
+      text: {
+        locale: {
+          fr: {
+            barTitle: 'Paramètrage des cookies',
+            barDescription: 'Nous utilisons nos propres cookies et des cookies tiers afin de pouvoir vous montrer ce site web et de mieux comprendre comment vous l\'utilisez, en vue d\'améliorer les services que nous proposons. Si vous continuez à naviguer, nous considérons que vous avez accepté les cookies.',
+            acceptAll: 'Autoriser tous les cookies',
+            declineAll: 'Interdire tous les cookies',
+            manageCookies: 'Gérer les cookies',
+            unsaved: 'Vous avez des paramètres non sauvegardés',
+            close: 'Fermer',
+            save: 'Sauvegarder',
+            necessary: 'Cookies obligatoire',
+            optional: 'Cookies facultatifs',
+            functional: 'Cookies fonctionnels',
+            blockedIframe: 'Pour voir cela, veuillez activer les cookies fonctionnels',
+            here: 'Ici'
+          },
+          en: {
+            barTitle: 'Cookies',
+            barDescription: 'We use our own cookies and third-party cookies so that we can show you this website and better understand how you use it, with a view to improving the services we offer. If you continue browsing, we consider that you have accepted the cookies.',
+            acceptAll: 'Accept all',
+            declineAll: 'Delete all',
+            manageCookies: 'Manage cookies',
+            unsaved: 'You have unsaved settings',
+            close: 'Close',
+            save: 'Save',
+            necessary: 'Necessary cookies',
+            optional: 'Optional cookies',
+            functional: 'Functional cookies',
+            blockedIframe: 'To see this, please enable functional cookies',
+            here: 'here'
+          },
+          ja: {
+            barTitle: 'クッキー',
+            barDescription: '当社は、お客様に本ウェブサイトをご案内し、お客様のご利用状況をより良く理解して、当社が提供するサービスを改善するために、当社独自のクッキーおよび第三者のクッキーを使用しています。お客様が閲覧を続けた場合、お客様がクッキーを受け入れたものとみなします。',
+            acceptAll: 'すべてのクッキーを許可する',
+            declineAll: 'すべてのクッキーを無効にする',
+            manageCookies: 'クッキーの管理',
+            unsaved: '保存されていない設定がある',
+            close: '閉じる',
+            save: 'セーブ',
+            necessary: '必要なクッキー',
+            optional: 'オプションのクッキー',
+            functional: '機能性クッキー',
+            blockedIframe: 'これを見るには、機能的なクッキーを有効にしてください。',
+            here: 'これ'
+          }
+        }
+      },
+      cookies: {
+        necessary: [
+          {
+            //if multilanguage
+            name: {
+              fr: 'Cookies par défaut',
+              en: 'Default Cookies',
+              ja: 'デフォルトクッキー'
+            },
+
+            //if multilanguage
+            description: {
+              fr: 'Utilisé pour le contrôle des cookies.',
+              en: 'Used for cookie control.',
+              ja: 'クッキーの制御に使用します。'
+            },
+
+            cookies: ['cookie_control_consent', 'cookie_control_enabled_cookies']
+          }
+        ],
+        optional: [
+          {
+            name:  'Google Analitycs',
+            //if you don't set identifier, slugified name will be used
+            identifier: 'ga',
+            //if multilanguage
+            description: {
+              fr: 'Google GTM est ...',
+              en: 'Google GTM is ...',
+              ja: 'Google GTM is ...'
+            },
+
+            initialState: true,
+            src:  'https://www.googletagmanager.com/gtag/js?id=<API-KEY>',
+            async:  true,
+            cookies: ['_ga', '_gat', '_gid'],
+            accepted: () =>{
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+              });
+            },
+            declined: () =>{
+            }
+          }
+        ]
+      }
+    }],
     '@nuxtjs/markdownit',
     '@nuxtjs/strapi',
     'nuxt-polyfill',
@@ -173,7 +349,7 @@ export default {
 
   strapi: {
     entities: ['projects', 'clients', 'specialities'],
-    url: 'https://sylphe-corp-api.herokuapp.com'
+    url: process.env.baseUrl || 'https://sylphe-corp-api.herokuapp.com'
   },
 
   markdownit: {
@@ -184,7 +360,7 @@ export default {
   },
 
   sitemap: {
-    hostname: "https://sylphe-corp.herokuapp.com", // L'adresse de votre site, que vous pouvez placer comme ici dans une variable d'environnement.
+    hostname: process.env.siteUrl || 'https://sylphe-corp.herokuapp.com', // L'adresse de votre site, que vous pouvez placer comme ici dans une variable d'environnement.
     path: '/sitemap.xml', // L'emplacement de votre fichier sitemap.
     cacheTime: 1000 * 60 * 15, // La durée avant que le sitemap soit regénéré. Ici 15mn.
     gzip: true,
@@ -195,7 +371,7 @@ export default {
   robots: {
     UserAgent: "*",
     Disallow: "/",
-    Sitemap: "https://sylphe-corp.herokuapp.com/sitemap.xml"
+    Sitemap: `${process.env.siteUrl || 'https://sylphe-corp.herokuapp.com'}/sitemap.xml`
   },
 
   serverMiddleware: [

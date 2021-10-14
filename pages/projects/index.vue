@@ -10,12 +10,12 @@
     </section>
 
     <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="projects_list" class="fixed z-0 top-0 left-0 h-screen w-full flex flex-col flex-wrap">
-      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'test'}})" v-for="index in 20" :key="index" class="project filter grayscale hover:grayscale-0 transition-all duration-100 ease-in-out text-white text-center relative flex flex-col items-center justify-center bg-pink p-5" style="height: 50vh; width: 50vh;">
-        <p class="w-full lg:text-32px text-3vw leading-normal my-auto font-bold">Projet</p>
+      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: 'test'}})" v-for="(project, index) in this.projects" :key="index" class="project filter grayscale hover:grayscale-0 transition-all duration-100 ease-in-out text-white text-center relative flex flex-col items-center justify-center bg-pink p-5" style="height: 50vh; width: 50vh;">
+        <p class="w-full lg:text-32px text-3vw leading-normal my-auto font-bold">{{ project.name }}</p>
         <p>
-          Client : <span class="font-bold">Tokyo Verdy</span>
+          Client : <span class="font-bold">{{ project.client.name }}</span>
           <br>
-          Spécialités : <span class="font-bold">brand identity, typography, and creative direction</span>
+          Spécialités : <span v-for="(speciality, index) in project.client.specialities" :key="index" class="font-bold">{{ speciality.name }}{{ index + 1 !== project.client.specialities.length ? ', ' : '' }}</span>
         </p>
       </NuxtLink>
     </section>
@@ -37,7 +37,13 @@
 
 <script>
 export default {
+  async asyncData ({ $strapi, i18n }) {
+    return {
+      projects: await $strapi.$projects.find({_locale: i18n.locale})
+    }
+  },
   mounted() {
+    window.scrollTo(0, 0)
     const projects = document.getElementById('projects_list')
     const project = this.$gsap.utils.toArray('.project')
 
@@ -47,8 +53,7 @@ export default {
         pin: true,
         start: 'top center',
         end: '+=' + (project[0].offsetWidth * (project.length / 2)),
-        scrub: 0,
-        markers: true
+        scrub: 0
       },
       ease: 'linear.in'
     })

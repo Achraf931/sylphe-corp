@@ -37,8 +37,10 @@ export default {
               })
           }*/
 
-          window.scrollY = 0
-          window.scrollTo(0, window.scrollY)
+          window.scrollTo(0, 0)
+          this.scrollToTop = true
+          document.body.scrollTop = document.documentElement.scrollTop = 0;
+
 
           this.$gsap.timeline()
             .fromTo('.containerLoader', {

@@ -6,7 +6,7 @@
         <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible lg:text-32px text-3vw leading-normal">{{ $t('Home.topPageTitlePart1') }}</h1>
         <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible lg:text-32px text-3vw leading-normal font-bold mb-5">{{ $t('Home.topPageTitlePart2') }}</h1>
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" v-html="$t('Home.description')"
-            class="is-visible 2xl:text-24px text-1.5vw font-regular m-auto 2xl:w-full w-1/2 2xl:max-w-640 xs:text-base xs:leading-5 md:text-xl md:leading-6"/>
+            class="is-visible 2xl:text-24px text-1.5vw font-regular m-auto 2xl:w-full w-1/2 2xl:max-w-640 xs:text-base xs:leading-5 md:text-xl md:leading-6 leading-normal"/>
       </div>
       <ArrowScroll/>
     </section>
@@ -86,7 +86,7 @@
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw font-bold leading-normal">{{ $t('Home.body.title') }}</h2>
 
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw xs:text-base" v-html="$t('Home.body.text')"/>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw xs:text-base leading-normal" v-html="$t('Home.body.text')"/>
       </div>
     </section>
 
@@ -102,7 +102,7 @@
 
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2 mx-10" :class="{'px-8.5': this.$mq !== 'lg'}">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold text-white" v-html="$t('Home.teams.title')"/>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw xs:text-base text-white" v-html="$t('Home.teams.text')"/>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw xs:text-base leading-normal text-white" v-html="$t('Home.teams.text')"/>
         <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :class="{'mb-10': this.$mq !== 'lg'}" :link="localePath({name: 'index'})">{{ $t('Home.teams.button') }}</UiButton>
       </div>
 
@@ -115,7 +115,7 @@
         <img src="/team/mehdi.webp" alt="Mehdi" class="to-top mt-10 bg-white flex items-center justify-center"/>
       </div>
 
-      <div v-else class="flex items-center overflow-x-scroll" style="overscroll-behavior-x: contain; scroll-snap-type: x mandatory;">
+      <div v-else class="flex items-center overflow-y-hidden overflow-x-scroll" style="overscroll-behavior-x: contain; scroll-snap-type: x mandatory;">
         <img src="/team/samy.webp" alt="Samy" class="w-full bg-white flex items-center justify-center mr-5 xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
         <img src="/team/pierre.webp" alt="Pierre" class="w-full bg-white flex items-center justify-center mr-5 xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
         <img src="/team/allison.webp" alt="Allison" class="w-full bg-white flex items-center justify-center mr-5 xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
@@ -136,7 +136,7 @@
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 p-8.5 lg:text-32px text-3vw leading-normal font-bold">
           Vous voulez connaître notre niveau de jeu ?
         </h2>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base">
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base leading-normal">
           On n’a pas le droit de montrer tous nos projets, mais on a quand même fait une belle petite sélection pour que vous puissiez avoir une idée de ce qu’on sait faire.
         </p>
       </div>
@@ -144,30 +144,28 @@
       <div v-for="project in this.projects" :key="project.id" class="project absolute flex flex-col text-center items-center justify-center p-8.5" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/JEUCONCOURS_MINIATURE_la_rentrée_ludique.png'); background-size: cover; background-repeat: no-repeat;">
         <h2 class="lg:text-32px text-4vw leading-normal p text-white font-bold">{{ project.name }}</h2>
         <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5">{{ project.description }}</p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white text-white">Client : <span class="font-bold">{{ project.client.name }}</span></p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Spécialités : <span v-for="(speciality, index) in project.client.specialities" :key="index" class="font-bold">{{ speciality.name }}{{ index + 1 !== project.client.specialities.length ? ', ' : '' }}</span>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white text-white leading-normal">Client : <span class="font-bold">{{ project.client.name }}</span></p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white leading-normal">Spécialités : <span v-for="(speciality, index) in project.client.specialities" :key="index" class="font-bold">{{ speciality.name }}{{ index + 1 !== project.client.specialities.length ? ', ' : '' }}</span>
         </p>
         <UiArrow :to="localePath({name: 'projects-slug', params: {slug: project.slug}})"/>
+      </div>
+
+      <div class="project absolute flex flex-col text-center items-center justify-center p-8.5" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/JEUCONCOURS_MINIATURE_la_rentrée_ludique.png'); background-size: cover; background-repeat: no-repeat;">
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold text-white">Pour plus<br>de choix</h2>
+
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible mb-10 md:mb-5 md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base leading-normal text-white">
+          Blablabla
+        </p>
+        <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mx-auto" :link="localePath({name: 'projects'})" :target="false">J'en veux plus !</UiButton>
       </div>
 
       <div class="absolute left-0 bottom-0 w-full h-4 z-10" style="background: rgba(255, 255, 255, 0.3);"><div id="projects-line" class="h-full bg-white w-0"></div></div>
     </section>
 
-    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="activity" class="overflow-hidden relative w-full max-w-full h-screen bg-lightGray flex items-center justify-center">
-      <div class="text-center flex flex-col items-center justify-between md:py-0">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">Pour plus<br>de choix</h2>
-
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base">
-          Blablabla
-        </p>
-        <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" link="" :target="false">J'en veux plus !</UiButton>
-      </div>
-    </section>
-
     <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="challenge" class="bg-blue" leftImage="/projects/left.webp" rightImage="/projects/right.webp">
       <div class="w-2/4 md:w-full mx-auto flex flex-col items-center px-8.5 text-center">
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-white lg:text-32px text-3vw leading-normal font-bold">Challengez-nous !</p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base text-white">Petit plus de la maison : nous adorons les besoins compliqués et les réponses sur-mesure.</p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base text-white leading-normal">Petit plus de la maison : nous adorons les besoins compliqués et les réponses sur-mesure.</p>
         <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :link="'https://calendly.com/sylphe/reunion'" :target="false">{{ $t('nav.call') }}</UiButton>
       </div>
     </UiSectionSides>
@@ -188,6 +186,8 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      window.scrollTo(0, 0)
+
       requestAnimationFrame(() => {
         this.baloonsAnimation()
         if (this.$mq === 'lg') {

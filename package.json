@@ -26,12 +26,12 @@
     "lodash": "^4.17.21",
     "nodemailer": "^6.6.3",
     "nuxt": "^2.15.7",
+    "nuxt-cookie-control": "^1.9.8",
     "nuxt-mq": "^2.0.2",
     "nuxt-polyfill": "^1.0.3",
     "smooth-scrollbar": "^8.6.3",
     "smoothscroll-polyfill": "^0.4.4",
     "url-polyfill": "^1.1.12",
-    "vue-smooth-scrollbar": "^0.1.2",
     "vue-typer": "^1.2.0",
     "vuelidate": "^0.7.6"
   },

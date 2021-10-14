@@ -278,6 +278,14 @@
   </div>
 </template>
 
+<script>
+export default {
+  mounted() {
+    window.scrollTo(0, 0)
+  }
+}
+</script>
+
 <style lang="scss" scoped>
 .img {
   transition: filter .2s ease-in-out;

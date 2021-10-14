@@ -9,21 +9,24 @@
       </video>
     </div>-->
 <!--    <StartAnimation/>-->
-<!--    <CookieControl :locale="this.$i18n.locale">
-      <template v-slot:modal>
-&lt;!&ndash;        <svg class="cookieControl__ModalClose" xmlns="http://www.w3.org/2000/svg" width="24.332" height="23.614" viewBox="0 0 24.332 23.614">
+    <CookieControl :locale="this.$i18n.locale">
+      <template v-slot:bar>
+        <svg class="cookieControl__ModalClose" xmlns="http://www.w3.org/2000/svg" width="24.332" height="23.614" viewBox="0 0 24.332 23.614">
           <g id="Groupe_797" data-name="Groupe 797" transform="translate(-294.379 -30)">
             <line id="Ligne_252" data-name="Ligne 252" y1="0.379" transform="translate(306.59 37.121)" fill="none" stroke="#171716" stroke-linecap="round" stroke-width="3" opacity="0"/>
             <line id="Ligne_253" data-name="Ligne 253" x2="20" y2="19" transform="translate(296.59 32.121)" fill="none" stroke="#171716" stroke-linecap="round" stroke-width="3"/>
             <line id="Ligne_254" data-name="Ligne 254" y1="19.372" x2="20.09" transform="translate(296.5 32.121)" fill="none" stroke="#171716" stroke-linecap="round" stroke-width="3"/>
           </g>
-        </svg>&ndash;&gt;
-        <h3 class="font-bold 2xl:text-35px text-1.5vw">Paramètrage des cookies</h3>
-        <p class="2xl:text-base text-1vw leading-normal">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-        </p>
+        </svg>
       </template>
-    </CookieControl>-->
+      <template v-slot:cookie="{config}">
+        <span v-for="c in config" :key="c.id" v-text="c.cookies"/>
+      </template>
+      <template v-slot:modal>
+        <h3 class="font-bold lg:text-32px text-3vw leading-normal">{{ $cookies.text.barTitle }}</h3>
+        <p class="2xl:text-base text-1vw leading-normal">{{ $cookies.text.barDescription }}</p>
+      </template>
+    </CookieControl>
     <IncludesHeader/>
     <Nuxt id="nuxtMain" class="min-h-screen"/>
     <IncludesFooter/>
@@ -163,7 +166,7 @@
       justify-content: center;
       height: 32px;
 
-      &:nth-child(2) {
+      &:nth-child(1) {
         display: none;
       }
 
@@ -195,7 +198,6 @@
 
     & > div:first-child {
       p {
-        @apply text-1vw 2xl:text-base;
         font-family: SoleilBold, SoleilSemiBold, SoleilBook, SoleilRegular, Arial, sans-serif;
       }
 
@@ -213,7 +215,6 @@
   .cookieControl__Bar {
     button {
       font-family: SoleilBold, SoleilSemiBold, SoleilBook, SoleilRegular, Arial, sans-serif;
-      @apply text-1vw 2xl:text-base;
     }
 
     & button:first-child:hover {

@@ -164,6 +164,7 @@ export default {
     }
   },
   mounted() {
+    window.scrollTo(0, 0)
     if (this.$mq === 'lg') {
       const images = this.$gsap.utils.toArray('.image-bg')
 

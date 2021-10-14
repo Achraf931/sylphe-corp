@@ -10,6 +10,9 @@ module.exports = {
       rounded: {
         5: '5px'
       },
+      brightness: {
+        30: '.3'
+      },
       fontSize: {
         '0.7vw': '0.7vw',
         '1vw': '1vw',
@@ -123,7 +126,8 @@ module.exports = {
         pink: '#EB7D91',
       },
       borderWidth: {
-        DEFAULT: '1px'
+        DEFAULT: '1px',
+        '1.5': '1.5px'
       },
       borderColor: ({
         gray: '#888888',
