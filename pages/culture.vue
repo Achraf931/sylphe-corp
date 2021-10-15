@@ -9,12 +9,22 @@
       <ArrowScroll/>
     </section>
 
-    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="love" leftImage="/projects/left.webp" rightImage="/projects/right.webp">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="love" class="bg-white z-10 relative overflow-hidden w-full max-w-screen h-screen flex items-center justify-center">
+      <img width="300px" height="auto" class="sidebar-left block absolute top-0" src="/culture/POLA@2x.png" alt="Left image" style="left: -100%; transform: rotate(16deg); max-width: 300px; top: 10%">
+      <img width="300px" height="auto" class="sidebar-left block absolute top-0" src="/culture/POLA@2x.png" alt="Left image" style="left: -100%; transform: rotate(37deg); max-width: 300px; top: 30%">
+      <img width="300px" height="auto" class="sidebar-left block absolute top-0" src="/culture/POLA@2x.png" alt="Left image" style="left: -100%; transform: rotate(-15deg); max-width: 300px; top: 50%">
+      <img width="300px" height="auto" class="sidebar-left block absolute top-0" src="/culture/POLA@2x.png" alt="Left image" style="left: -100%; transform: rotate(24deg); max-width: 300px; top: 70%">
+
       <div class="text-center mx-auto flex flex-col justify-between md:py-0 md:w-full w-1/2 px-8.5">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-4 lg:text-32px text-3vw leading-normal font-bold">{{ $t('Culture.goodVibes.title') }}</h2>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl" v-html="$t('Culture.goodVibes.text')"/>
       </div>
-    </UiSectionSides>
+
+      <img width="300px" height="auto" class="sidebar-right block absolute top-0" src="/culture/POLA@2x.png" alt="Right image" style="right: -100%; transform: rotate(24deg); max-width: 300px; top: 10%">
+      <img width="300px" height="auto" class="sidebar-right block absolute top-0" src="/culture/POLA@2x.png" alt="Right image" style="right: -100%; transform: rotate(-15deg); max-width: 300px; top: 30%">
+      <img width="300px" height="auto" class="sidebar-right block absolute top-0" src="/culture/POLA@2x.png" alt="Right image" style="right: -100%; transform: rotate(37deg); max-width: 300px; top: 50%">
+      <img width="300px" height="auto" class="sidebar-right block absolute top-0" src="/culture/POLA@2x.png" alt="Right image" style="right: -100%; transform: rotate(16deg); max-width: 300px; top: 70%">
+    </section>
 
     <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="ourTeam" class="z-10 px-8.5 overflow-hidden relative w-full max-w-full h-screen bg-lightGray flex items-center justify-center">
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2">
@@ -282,6 +292,32 @@
 export default {
   mounted() {
     window.scrollTo(0, 0)
+    const polaLeft = this.$gsap.utils.toArray('.sidebar-left')
+    const polaRight = this.$gsap.utils.toArray('.sidebar-right')
+
+
+    const tl = this.$gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '#love',
+          start: 'top bottom',
+          end: '+=100%',
+          scrub: 0.1
+        },
+        ease: 'power2.inOut'
+      })
+    for (let i = 0; i < polaLeft.length; i++) {
+      tl.to(polaLeft[i], {
+        left: 0,
+        duration: 4,
+        rotate: Math.floor(Math.random() * 180) + 'deg'
+      }, 0)
+        .to(polaRight[i], {
+          right: 0,
+          duration: 4,
+          rotate: Math.floor(Math.random() * 180) + 'deg'
+        }, 0)
+    }
   }
 }
 </script>

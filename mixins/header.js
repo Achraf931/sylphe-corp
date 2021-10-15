@@ -47,7 +47,7 @@ export default {
     },
     changeHeader(section) {
       const tl = this.$gsap.timeline({delay: 0, duration: 0.05})
-      if (section === 'services' || section === 'secret' || section === 'containerForm' || section === 'projects' || section === 'activity' || section === 'love' || section === 'ourTeam' || section === 'ourResponse' || section === 'levelThree' || section === 'mac' || section === 'clients' || section === 'content') {
+      if (section === 'services' || section === 'secret' || section === 'containerForm' || section === 'challenge-us' || section === 'projects' || section === 'activity' || section === 'love' || section === 'ourTeam' || section === 'ourResponse' || section === 'levelThree' || section === 'mac' || section === 'clients' || section === 'content') {
         tl
           .call(() => {
             this.addOrRemoveClass(document.querySelector('nav'), 'black-nav', true);

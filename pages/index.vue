@@ -25,16 +25,12 @@
 
     <section v-observe="{ onEnter: hiddenVideo }" id="empty" class="w-full max-w-full h-screen mouse-hover show-hover"></section>
 
-    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="services" :class="{'flex-col': this.$mq === 'sm'}" class="relative z-10 bg-white w-full max-w-full h-screen px-8.5 md:text-24px md:mx-auto md:mt-auto flex justify-between items-center overflow-hidden">
-      <div v-if="this.$mq !== 'sm'" class="relative overflow-hidden w-1/4 h-full">
-        <div class="sidebar-service w-full h-full bg-white" style="transform: translateX(-100%)"></div>
-      </div>
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="services" :class="{'flex-col': this.$mq === 'sm', 'px-8.5': this.$mq !== 'sm'}" class="relative z-10 bg-white w-full max-w-full h-screen md:text-24px md:mx-auto md:mt-auto flex justify-between items-center overflow-hidden">
+      <img v-if="this.$mq !== 'sm'" class="sidebar-service block absolute top-0 h-full" style="left: -100%;" :src="'/index/services/' + currentService + '/left.webp'" alt="Left image">
 
-      <div v-else class="bg-black y-service w-full" style="transform: translateY(-100%); height: 50px;">
-        <div class="w-full"></div>
-      </div>
+      <div v-else class="y-service block w-full h-1/4 bg-cover bg-bottom bg-no-repeat" style="transform: translateY(-100%);" :style="'background-image: url(/index/services/' + currentService + '/top.webp)!important'"></div>
 
-      <div :class="{'w-full': this.$mq === 'sm', }" class="w-2/4 flex items-center flex-col">
+      <div :class="{'w-full px-8.5': this.$mq === 'sm', }" class="m-auto flex items-center flex-col">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw font-bold leading-normal text-center">On vous aide avec</h2>
 
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" :class="{'service-selected': currentService === 'events', 'mb-5': this.$mq === 'sm'}" @click="changeIllustration('events');"
@@ -61,7 +57,7 @@
            @mouseleave="leaveService('products')"
            class="is-visible text-stroke font-bold lg:text-24px text-3vw text-transparent leading-normal text-center">
           {{ $t('tmp.home.production') }}</p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" :class="{'service-selected': currentService === 'design', 'mb-5': this.$mq === 'sm'}" @click="changeIllustration('design');"
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" :class="{'service-selected': currentService === 'design'}" @click="changeIllustration('design');"
            @mouseover="currentService = 'design'"
            @mouseenter="enterService('design')"
            @mouseleave="leaveService('design')"
@@ -69,22 +65,18 @@
           {{ $t('tmp.home.design') }}</p>
       </div>
 
-      <div v-if="this.$mq !== 'sm'" class="relative overflow-hidden w-1/4 h-full">
-        <div class="sidebar-service w-full h-full bg-white" style="transform: translateX(100%)"></div>
-      </div>
+      <img v-if="this.$mq !== 'sm'" class="sidebar-service block absolute top-0 h-full" style="right: -100%;" :src="'/index/services/' + currentService + '/right.webp'" alt="Right image">
 
-      <div v-else class="bg-black y-service w-full" style="transform: translateY(100%); height: 50px;">
-        <div class="w-full"></div>
-      </div>
+      <div v-else class="y-service block w-full h-1/4 bg-cover bg-top bg-no-repeat" style="transform: translateY(100%);" :style="'background-image: url(/index/services/' + currentService + '/bottom.webp)!important'"></div>
     </section>
 
     <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="secret" class="z-10 overflow-hidden relative w-full max-w-full px-8.5 h-screen bg-lightGray flex items-center justify-center">
       <video style="left: 70%; transform: translate(0, 400%); width: 281px; height: 567px;" muted playsinline preload="metadata" loop autoplay="autoplay" width="281" height="567" class="baloon baloon-1 block absolute">
-        <source src="/index/BALLON_4_FUSCHIA.gif" type="video/gif">
+        <source src="/index/BALLON_4_FUSCHIA.webm" type="video/webm">
       </video>
 
       <video style="left: 10%; transform: translate(0, 180%); width: 182px; height: 404px;" muted playsinline preload="metadata" loop autoplay="autoplay" width="182" height="404" class="baloon baloon-2 block absolute">
-        <source src="/index/BALLON_6_JAUNE.gif" type="video/gif">
+        <source src="/index/BALLON_6_JAUNE.webm" type="video/webm">
       </video>
 
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2">
@@ -104,7 +96,7 @@
         <img src="/team/guy.webp" alt="Guy" class="w-full to-bottom mb-10 bg-white flex items-center justify-center"/>
       </div>
 
-      <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2 mx-10" :class="{'px-8.5 mx-0': this.$mq !== 'lg'}">
+      <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2 mx-10" :class="{'px-8.5 mx-0 w-full': this.$mq !== 'lg'}">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold text-white" v-html="$t('Home.teams.title')"/>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw xs:text-base leading-normal text-white" v-html="$t('Home.teams.text')"/>
         <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :class="{'mb-10': this.$mq !== 'lg'}" :link="localePath({name: 'index'})">{{ $t('Home.teams.button') }}</UiButton>
@@ -135,7 +127,7 @@
       </div>
     </section>
 
-    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="projects" class="z-10 relative overflow-hidden w-full max-w-screen h-screen flex items-center justify-center">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="projects" class="bg-white z-10 relative overflow-hidden w-full max-w-screen h-screen flex items-center justify-center">
       <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2 p-8.5">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">
           Vous voulez connaître notre niveau de jeu ?
@@ -145,7 +137,7 @@
         </p>
       </div>
 
-      <div v-for="project in this.projects" :key="project.id" class="project absolute flex flex-col text-center items-center justify-center p-8.5" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/projects/JEUCONCOURS_MINIATURE_la_rentrée_ludique.png'); background-size: cover; background-repeat: no-repeat;">
+      <div v-for="project in this.projects" :key="project.id" class="project absolute flex flex-col text-center items-center justify-center p-8.5" :style="'background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + project.background.url + '); background-size: cover; background-repeat: no-repeat;'">
         <h2 class="lg:text-32px text-4vw leading-normal p text-white font-bold">{{ project.name }}</h2>
         <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5">{{ project.description }}</p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white text-white leading-normal">Client : <span class="font-bold">{{ project.client.name }}</span></p>
@@ -162,13 +154,17 @@
       <div class="absolute left-0 bottom-0 w-full h-4 z-10" style="background: rgba(255, 255, 255, 0.3);"><div id="projects-line" class="h-full bg-white w-0"></div></div>
     </section>
 
-    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="challenge_us" class="bg-blue" leftImage="/projects/left.webp" rightImage="/projects/right.webp">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="challenge-us" class="bg-lightGray z-10 relative overflow-hidden w-full max-w-screen h-screen flex items-center justify-center">
+      <img id="sidebar-left-challenge-us" class="block absolute top-0 h-full" src="/index/challenge/left.webp" alt="Left image" style="left: -100%;">
+
       <div class="w-2/4 md:w-full mx-auto flex flex-col items-center px-8.5 text-center">
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-white lg:text-32px text-3vw leading-normal font-bold">Challengez-nous !</p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base text-white leading-normal">Petit plus de la maison : nous adorons les besoins compliqués et les réponses sur-mesure.</p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">Challengez-nous !</p>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base leading-normal">Petit plus de la maison : nous adorons les besoins compliqués et les réponses sur-mesure.</p>
         <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :link="'https://calendly.com/sylphe/reunion'" :target="false">{{ $t('nav.call') }}</UiButton>
       </div>
-    </UiSectionSides>
+
+      <img id="sidebar-right-challenge-us" class="block absolute top-0 h-full" src="/index/challenge/right.webp" alt="Right image" style="right: -100%;">
+    </section>
   </div>
 </template>
 
@@ -176,7 +172,7 @@
 export default {
   data() {
     return {
-      currentService: 'events'
+      currentService: ''
     }
   },
   async asyncData ({ $strapi, i18n }) {
@@ -191,6 +187,7 @@ export default {
       requestAnimationFrame(() => {
         this.baloonsAnimation()
         if (this.$mq === 'lg') {
+          this.lastSection()
           this.cardsAnimation()
         }
         this.projectsAnimation()
@@ -198,14 +195,33 @@ export default {
     })
   },
   methods: {
+    lastSection() {
+      this.$gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: '#challenge-us',
+            start: 'top bottom',
+            end: '+=100%',
+            scrub: 0.1
+          },
+          ease: 'power2.inOut'
+        })
+        .to('#sidebar-left-challenge-us', {
+          left: 0,
+          duration: .4
+        })
+        .to('#sidebar-right-challenge-us', {
+          right: 0,
+          duration: .4
+        }, '<')
+    },
     changeIllustration(service) {
       this.currentService = service
-
       this.$gsap
-        .timeline({ ease: 'power2.inOut' })
-        .to(this.$gsap.utils.toArray('.y-service'), {
+        .timeline({ease: 'power2.inOut'})
+        .to('.y-service', {
           y: 0,
-          duration: 0.2
+          duration: .4
         })
     },
     baloonsAnimation() {
@@ -222,8 +238,8 @@ export default {
       for (let i = 0; i < baloons.length; i++) {
         btl.to(baloons[i], {
           y: '-50%',
-          yPercent: -baloons[i].height / 3,
-          duration: 10
+          yPercent: -baloons[i].height / 4,
+          duration: 20
         }, 0)
       }
     },
@@ -342,27 +358,39 @@ export default {
       ptl.to({}, { duration: 4 })
     },
     enterService(service) {
-      if (this.$mq !== 'sm') {
-        this.$gsap
-          .timeline({ ease: 'power2.inOut' })
-          .to('.sidebar-service', {
-            x: 0,
-            duration: 0.2
-          })
+      const sidebar = this.$gsap.utils.toArray('.sidebar-service')
+
+      if (service === this.currentService) {
+        if (this.$mq !== 'sm') {
+          this.$gsap
+            .timeline({ease: 'power2.inOut'})
+            .to(sidebar[0], {
+              left: 0,
+              duration: .4
+            })
+            .to(sidebar[1], {
+              right: 0,
+              duration: .4
+            }, '<')
+        }
       }
     },
     leaveService(service) {
-      if (this.$mq !== 'sm') {
-        this.$gsap
-          .timeline({ ease: 'power2.inOut' })
-          .to(this.$gsap.utils.toArray('.sidebar-service')[0], {
-            x: '-100%',
-            duration: 0.2
-          })
-          .to(this.$gsap.utils.toArray('.sidebar-service')[1], {
-            x: '100%',
-            duration: 0.2
-          }, 0)
+      const sidebar = this.$gsap.utils.toArray('.sidebar-service')
+
+      if (service === this.currentService) {
+        if (this.$mq !== 'sm') {
+          this.$gsap
+            .timeline({ease: 'power2.inOut'})
+            .to(sidebar[0], {
+              left: '-100%',
+              duration: .4
+            })
+            .to(sidebar[1], {
+              right: '-100%',
+              duration: .4
+            }, '<')
+        }
       }
     }
   }
