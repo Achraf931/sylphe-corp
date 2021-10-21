@@ -53,7 +53,14 @@
 
 <!--    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="empty-gif" class="w-full max-w-full h-screen z-10"></section>-->
 
-    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="activity" :leftImage="this.project[0].aside_images_section[0].left_image ? this.project[0].aside_images_section[0].left_image.url : ''" :rightImage="this.project[0].aside_images_section[0].right_image ? this.project[0].aside_images_section[0].right_image.url : ''" :style="this.project[0].aside_images_section[0].background_image ? 'background: url(' + this.project[0].aside_images_section[0].background_image.url + ') center center no-repeat; background-size: cover;' : 'background:' + this.project[0].aside_images_section[0].background_color" class="z-10">
+    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }"
+                    gsapTarget="activity"
+                    :leftImage="this.project[0].aside_images_section[0].left_image ? this.project[0].aside_images_section[0].left_image.url : ''"
+                    :rightImage="this.project[0].aside_images_section[0].right_image ? this.project[0].aside_images_section[0].right_image.url : ''"
+                    :topImage="this.project[0].aside_images_section[0].top_image ? this.project[0].aside_images_section[0].top_image.url : ''"
+                    :bottomImage="this.project[0].aside_images_section[0].bottom_image ? this.project[0].aside_images_section[0].bottom_image.url : ''"
+                    :style="this.project[0].aside_images_section[0].background_image ? 'background: url(' + this.project[0].aside_images_section[0].background_image.url + ') center center no-repeat; background-size: cover;' : 'background:' + this.project[0].aside_images_section[0].background_color"
+                    class="z-10">
       <div v-for="(activity, index) in this.project[0].aside_images_section[0].part_level" :key="index" class="intro-activity mx-auto text-center flex flex-col items-center justify-between md:py-0 md:w-full px-8.5 w-1/2">
         <h2 class="uppercase text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ activity.intro }}</h2>
         <h2 class="mb-10 md:mb-4 text-2.5vw lg:text-32px text-3vw leading-normal font-bold">{{ activity.title }}</h2>
@@ -62,13 +69,24 @@
           <p class="max-w-640 text-1.5vw leading-normal font-regular md:text-xl" v-html="$md.render(activity.text)"/>
         </client-only>
       </div>
+
+      <div v-if="$mq !== 'lg' && this.project[0].slider.length" v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="slider" class="max-w-screen w-full mt-10 overflow-y-hidden flex items-center overflow-x-scroll relative bg-blue z-10" style="overscroll-behavior-x: contain; scroll-snap-type: x mandatory;">
+        <img v-for="(image, index) in this.project[0].slider" :key="index" class="object-cover" style="min-width: 80vw; max-width: 80vw; height: 80vw; scroll-snap-align: start;" :alt="image.name" :src="image.url"/>
+      </div>
     </UiSectionSides>
 
-    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="slider" @mousedown="mouseDown" @mouseleave="isDown = false" @mouseup="isDown = false" @mousemove="mouseMove" class="mouse-hover slide-hover overflow-y-hidden flex overflow-x-scroll relative w-full max-w-full h-screen bg-blue z-10">
+    <section v-if="$mq === 'lg'" v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="slider" @mousedown="mouseDown" @mouseleave="isDown = false" @mouseup="isDown = false" @mousemove="mouseMove" class="mouse-hover slide-hover overflow-y-hidden flex overflow-x-scroll relative w-full max-w-full h-screen bg-blue z-10">
       <img v-for="(image, index) in this.project[0].slider" :key="index" class="h-screen object-cover select-none" style="min-width: 50vw; max-width: 50vw;" :alt="image.name" :src="image.url"/>
     </section>
 
-    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="levelTwo" :leftImage="this.project[0].aside_images_section[1].left_image ? this.project[0].aside_images_section[1].left_image.url : ''" :rightImage="this.project[0].aside_images_section[1].right_image ? this.project[0].aside_images_section[1].right_image.url : ''" :style="this.project[0].aside_images_section[1].background_image ? 'background: url(' + this.project[0].aside_images_section[1].background_image.url + ') center center no-repeat; background-size: cover;' : 'background:' + this.project[0].aside_images_section[1].background_color" class="z-10">
+    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }"
+                    gsapTarget="levelTwo"
+                    :leftImage="this.project[0].aside_images_section[1].left_image ? this.project[0].aside_images_section[1].left_image.url : ''"
+                    :rightImage="this.project[0].aside_images_section[1].right_image ? this.project[0].aside_images_section[1].right_image.url : ''"
+                    :topImage="this.project[0].aside_images_section[1].top_image ? this.project[0].aside_images_section[1].top_image.url : ''"
+                    :bottomImage="this.project[0].aside_images_section[1].bottom_image ? this.project[0].aside_images_section[1].bottom_image.url : ''"
+                    :style="this.project[0].aside_images_section[1].background_image ? 'background: url(' + this.project[0].aside_images_section[1].background_image.url + ') center center no-repeat; background-size: cover;' : 'background:' + this.project[0].aside_images_section[1].background_color"
+                    class="z-10">
       <div v-for="(levelTwo, index) in this.project[0].aside_images_section[1].part_level" :key="index" class="intro-levelTwo mx-auto text-center flex flex-col items-center justify-between md:py-0 md:w-full px-8.5 w-1/2">
         <h2 class="uppercase text-white text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ levelTwo.intro }}</h2>
         <h2 class="text-white mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">{{ levelTwo.title }}</h2>
@@ -79,7 +97,14 @@
       </div>
     </UiSectionSides>
 
-    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="levelThree" class="z-10" :leftImage="this.project[0].aside_images_section[2].left_image ? this.project[0].aside_images_section[2].left_image.url : ''" :rightImage="this.project[0].aside_images_section[2].right_image ? this.project[0].aside_images_section[2].right_image.url : ''" :style="this.project[0].aside_images_section[2].background_image ? 'background: url(' + this.project[0].aside_images_section[2].background_image.url + ') center center no-repeat; background-size: cover;' : 'background:' + this.project[0].aside_images_section[2].background_color">
+    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }"
+                    gsapTarget="levelThree"
+                    class="z-10"
+                    :leftImage="this.project[0].aside_images_section[2].left_image ? this.project[0].aside_images_section[2].left_image.url : ''"
+                    :rightImage="this.project[0].aside_images_section[2].right_image ? this.project[0].aside_images_section[2].right_image.url : ''"
+                    :topImage="this.project[0].aside_images_section[2].top_image ? this.project[0].aside_images_section[2].top_image.url : ''"
+                    :bottomImage="this.project[0].aside_images_section[2].bottom_image ? this.project[0].aside_images_section[2].bottom_image.url : ''"
+                    :style="this.project[0].aside_images_section[2].background_image ? 'background: url(' + this.project[0].aside_images_section[2].background_image.url + ') center center no-repeat; background-size: cover;' : 'background:' + this.project[0].aside_images_section[2].background_color">
       <div v-for="(levelThree, index) in this.project[0].aside_images_section[2].part_level" :key="index" class="intro-levelThree mx-auto text-center flex flex-col items-center justify-between md:py-0 md:w-full px-8.5 w-1/2">
         <h2 class="uppercase text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ levelThree.intro }}</h2>
         <h2 class="mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">{{ levelThree.title }}</h2>
@@ -97,7 +122,14 @@
     </section>
     <img v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="mac" class="w-full max-w-screen h-screen object-cover" v-else :src="this.project[0].video.url" alt="Image de fond">
 
-    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="results" :leftImage="this.project[0].aside_images_section[3].left_image ? this.project[0].aside_images_section[3].left_image.url : ''" :rightImage="this.project[0].aside_images_section[3].right_image ? this.project[0].aside_images_section[3].right_image.url : ''" :style="this.project[0].aside_images_section[3].background_image ? 'background: url(' + this.project[0].aside_images_section[3].background_image.url + ') center center no-repeat; background-size: cover;' : 'background:' + this.project[0].aside_images_section[3].background_color" class="z-10">
+    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }"
+                    gsapTarget="results"
+                    :leftImage="this.project[0].aside_images_section[3].left_image ? this.project[0].aside_images_section[3].left_image.url : ''"
+                    :rightImage="this.project[0].aside_images_section[3].right_image ? this.project[0].aside_images_section[3].right_image.url : ''"
+                    :topImage="this.project[0].aside_images_section[3].top_image ? this.project[0].aside_images_section[3].top_image.url : ''"
+                    :bottomImage="this.project[0].aside_images_section[3].bottom_image ? this.project[0].aside_images_section[3].bottom_image.url : ''"
+                    :style="this.project[0].aside_images_section[3].background_image ? 'background: url(' + this.project[0].aside_images_section[3].background_image.url + ') center center no-repeat; background-size: cover;' : 'background:' + this.project[0].aside_images_section[3].background_color"
+                    class="z-10">
       <div v-for="(result, index) in this.project[0].aside_images_section[3].part_level" :key="index" class="intro-result mx-auto text-center flex flex-col items-center justify-between md:py-0 md:w-full px-8.5 w-1/2">
         <h2 class="uppercase text-white text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ result.intro }}</h2>
         <h2 class="text-white mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">{{ result.title }}</h2>
@@ -266,5 +298,11 @@ div.intro-item:not(:first-child), div.intro-activity:not(:first-child), div.intr
   opacity: 0;
   visibility: hidden;
   display: none;
+}
+
+@media all and (max-width: 450px) {
+  #activity {
+    justify-content: end!important;
+  }
 }
 </style>

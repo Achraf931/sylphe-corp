@@ -58,7 +58,7 @@
       </form>
     </section>
 
-    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="ourTeam" class="bg-lightGray" leftImage="/projects/left.webp" rightImage="/projects/right.webp">
+    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="ourTeam" class="bg-lightGray" leftImage="/contact/team/left.webp" rightImage="/contact/team/right.webp" topImage="/contact/team/top.webp" bottomImage="/contact/team/bottom.webp">
       <div class="text-center flex mx-auto flex-col justify-between md:py-0 md:w-full w-2/4 px-8.5">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6">Passez à la maison</h2>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal font-regular md:text-xl">
@@ -76,7 +76,7 @@
       </div>
     </UiSectionSides>
 
-    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="contact" class="bg-yellow" leftImage="/projects/left.webp" rightImage="/projects/right.webp">
+    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="contact" class="bg-yellow" leftImage="/contact/contact/left.webp" rightImage="/contact/contact/right.webp" topImage="/contact/contact/top.webp" bottomImage="/contact/contact/bottom.webp">
       <div class="text-center flex mx-auto flex-col justify-between md:py-0 md:w-full w-1/2 px-8.5">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Besoin de nous parler directement ?</h2>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal md:text-xl text-white">

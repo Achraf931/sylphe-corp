@@ -128,7 +128,7 @@
     </section>
 
     <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="projects" class="bg-white z-10 relative overflow-hidden w-full max-w-screen h-screen flex items-center justify-center">
-      <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2 p-8.5">
+      <div class="text-center flex flex-col mx-auto justify-between md:py-0 md:w-full w-1/2 p-8.5">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">
           Vous voulez connaître notre niveau de jeu ?
         </h2>
@@ -154,17 +154,13 @@
       <div class="absolute left-0 bottom-0 w-full h-4 z-10" style="background: rgba(255, 255, 255, 0.3);"><div id="projects-line" class="h-full bg-white w-0"></div></div>
     </section>
 
-    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="challenge-us" class="bg-lightGray z-10 relative overflow-hidden w-full max-w-screen h-screen flex items-center justify-center">
-      <img id="sidebar-left-challenge-us" class="block absolute top-0 h-full" src="/index/challenge/left.webp" alt="Left image" style="left: -100%;">
-
+    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="challenge-us" class="bg-lightGray" leftImage="/index/challenge/left.webp" rightImage="/index/challenge/right.webp" topImage="/index/challenge/top.webp" bottomImage="/index/challenge/bottom.webp">
       <div class="w-2/4 md:w-full mx-auto flex flex-col items-center px-8.5 text-center">
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">Challengez-nous !</p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base leading-normal">Petit plus de la maison : nous adorons les besoins compliqués et les réponses sur-mesure.</p>
         <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :link="'https://calendly.com/sylphe/reunion'" :target="false">{{ $t('nav.call') }}</UiButton>
       </div>
-
-      <img id="sidebar-right-challenge-us" class="block absolute top-0 h-full" src="/index/challenge/right.webp" alt="Right image" style="right: -100%;">
-    </section>
+    </UiSectionSides>
   </div>
 </template>
 
@@ -172,7 +168,7 @@
 export default {
   data() {
     return {
-      currentService: ''
+      currentService: 'events'
     }
   },
   async asyncData ({ $strapi, i18n }) {
@@ -216,13 +212,23 @@ export default {
         }, '<')
     },
     changeIllustration(service) {
+      const services = this.$gsap.utils.toArray('.y-service')
+
       this.currentService = service
       this.$gsap
         .timeline({ease: 'power2.inOut'})
-        .to('.y-service', {
+        .fromTo(services[0], {
+          y: '-100%'
+        },{
           y: 0,
           duration: .4
         })
+        .fromTo(services[1], {
+          y: '100%'
+        },{
+          y: 0,
+          duration: .4
+        }, '<')
     },
     baloonsAnimation() {
       const baloons = this.$gsap.utils.toArray('.baloon')
@@ -413,6 +419,14 @@ export default {
 .hoverShowreel:hover p, .hoverShowreel:hover h2 {
   transform: translate(-3px, -3px) !important;
   text-shadow: 3px 3px black;
+}
+
+#teams {
+  scrollbar-width: none;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .project {

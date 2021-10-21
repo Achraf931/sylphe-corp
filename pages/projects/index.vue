@@ -25,8 +25,8 @@
 
     <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="empty" class="w-full relative max-w-full h-screen pointer-events-none"></section>
 
-    <UiGlobalSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="activity" class="bg-lightGray">
-      <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2 px-8.5">
+    <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="activity" class="bg-lightGray" leftImage="/index/challenge/left.webp" rightImage="/index/challenge/right.webp" topImage="/index/challenge/top.webp" bottomImage="/index/challenge/bottom.webp">
+      <div class="text-center flex flex-col mx-auto justify-between md:py-0 md:w-full w-1/2 px-8.5">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">Challengez-nous</h2>
 
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible max-w-640 text-1.5vw leading-normal font-regular md:text-xl">
@@ -34,7 +34,7 @@
         </p>
         <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :link="'https://calendly.com/sylphe/reunion'" :target="false">{{ $t('nav.call') }}</UiButton>
       </div>
-    </UiGlobalSectionSides>
+    </UiSectionSides>
   </div>
 </template>
 
