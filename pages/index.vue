@@ -18,8 +18,8 @@
         Your browser does not support the video tag.
       </video>
       <div :class="{'text-shadow': this.$mq === 'sm'}" class="py-2.5 hoverShowreel flex items-center justify-between z-0">
-        <h2 class="transition-all duration-100 ease-in-out lg:text-32px text-3vw leading-normal text-white">Showreel</h2>
-        <p class="transition-all duration-100 ease-in-out ml-2 text-white text-4xl font-bold">→</p>
+        <h2 class="transition-all duration-100 ease-in-out lg:text-32px text-3vw leading-normal text-white text-stroke">Showreel</h2>
+        <p class="transition-all duration-100 ease-in-out ml-2 text-white text-4xl font-bold text-stroke">→</p>
       </div>
     </section>
 
@@ -132,7 +132,7 @@
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">
           Vous voulez connaître notre niveau de jeu ?
         </h2>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base leading-normal">
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw xs:text-base leading-normal">
           On n’a pas le droit de montrer tous nos projets, mais on a quand même fait une belle petite sélection pour que vous puissiez avoir une idée de ce qu’on sait faire.
         </p>
       </div>
