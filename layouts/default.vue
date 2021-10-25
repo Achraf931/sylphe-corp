@@ -87,6 +87,12 @@
   transform: translateX(-30px);
 }
 
+#slider::-webkit-scrollbar, #team-slider::-webkit-scrollbar {
+  display: none!important;
+  opacity: 0;
+  visibility: hidden;
+}
+
 .homeloaderblack {
   position: fixed;
   z-index: 5002;

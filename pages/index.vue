@@ -111,7 +111,7 @@
         <img src="/team/mehdi.webp" alt="Mehdi" class="to-top mt-10 bg-white flex items-center justify-center"/>
       </div>
 
-      <div v-else class="flex items-center overflow-y-hidden overflow-x-scroll" style="overscroll-behavior-x: contain; scroll-snap-type: x mandatory;">
+      <div id="team-slider" v-else class="flex items-center overflow-y-hidden overflow-x-scroll" style="overscroll-behavior-x: contain; scroll-snap-type: x mandatory;">
         <img src="/team/samy.webp" alt="Samy" class="w-full bg-white flex items-center justify-center mr-5 xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
         <img src="/team/pierre.webp" alt="Pierre" class="w-full bg-white flex items-center justify-center mr-5 xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
         <img src="/team/allison.webp" alt="Allison" class="w-full bg-white flex items-center justify-center mr-5 xs:w-80vw md:w-50vw w-20vw" style="scroll-snap-align: center;"/>
