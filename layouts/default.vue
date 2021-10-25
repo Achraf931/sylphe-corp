@@ -105,7 +105,7 @@
 
   html {
     font-size: 100%;
-    //cursor: none;
+    cursor: none;
   }
 
   body {
@@ -122,7 +122,7 @@
     list-style: none;
     text-decoration: none;
     outline: none;
-    //cursor: none!important;
+    cursor: none!important;
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch; /* Touch scroll by default */
   }
