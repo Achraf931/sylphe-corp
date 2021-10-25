@@ -1,7 +1,7 @@
 <template>
   <header ref="header" class="transition-all z-50 duration-100 ease-in w-full fixed pointer-events-none">
     <nav class="flex justify-between py-8 px-16 md:py-4 md:px-3.8">
-      <NuxtLink v-observe="{ onEnter: visibility, once: true }" class="is-visible-top flex items-center max-w-8vw 2xl:max-w-none agent-1 pointer-events-auto" :to="localePath({name: 'index'})" style="border: none!important;">
+      <NuxtLink v-observe="{ onEnter: visibility, once: true }" class="is-visible-top mouse-hover simple-hover flex items-center max-w-8vw 2xl:max-w-none agent-1 pointer-events-auto" :to="localePath({name: 'index'})" style="border: none!important;">
         <svg id="logo" xmlns="http://www.w3.org/2000/svg" width="123.307" height="31.185" viewBox="0 0 123.307 31.185">
           <path id="Tracé_1" data-name="Tracé 1" d="M2456.712,298.619l-1.029-1.028a11.281,11.281,0,0,0-8.03-3.326h-4.69a11.357,11.357,0,0,0-8.994,18.292L2427.525,319l-1.028,1.028,1.028,1.028a11.283,11.283,0,0,0,8.031,3.326h4.689a11.357,11.357,0,0,0,8.994-18.292l6.443-6.444Zm-14.153,7.406a9.9,9.9,0,0,1-14.005,14l7.406-7.406a9.9,9.9,0,0,1,14.005-14Z" transform="translate(-2426.497 -294.264)" fill="#fff"/>
           <g v-if="this.$mq !== 'sm'" id="Groupe_1" data-name="Groupe 1" transform="translate(40.251 4.594)">
@@ -15,9 +15,9 @@
         </svg>
 
       </NuxtLink>
-      <div :class="{'hidden': this.$route.name.includes('projects-slug')}" v-observe="{ onEnter: visibility, once: true }" @mouseover="enterAnim()" @mouseleave="leaveAnim()" class="is-visible-top flex ml-auto pointer-events-auto">
-        <p @click="switchLanguage(locale.code)" class="lang is-visible-lang uppercase mr-5 opacity-50 cursor-pointer hover:opacity-100 transition-all duration-150 ease-in-out" v-for="locale in $i18n.locales" :key="locale.code" v-if="locale.code !== $i18n.locale">{{ locale.code }}</p>
-        <p ref="lang" id="lang" class="lang uppercase font-bold mr-5 cursor-default">{{ $i18n.locales.find(elem => elem.code === $i18n.locale).code }}</p>
+      <div id="container-lang" :class="{'hidden': this.$route.name.includes('projects-slug')}" v-observe="{ onEnter: visibility, once: true }" @mouseover="enterAnim()" @mouseleave="leaveAnim()" class="is-visible-top flex ml-auto pointer-events-auto">
+        <p @click="switchLanguage(locale.code)" class="lang is-visible-lang mouse-hover simple-hover uppercase mr-5 opacity-50 cursor-pointer hover:opacity-100 transition-all duration-150 ease-in-out" v-for="locale in $i18n.locales" :key="locale.code" v-if="locale.code !== $i18n.locale">{{ locale.code }}</p>
+        <p ref="lang" id="lang" class="lang uppercase font-bold mr-5 mouse-hover simple-hover cursor-default">{{ $i18n.locales.find(elem => elem.code === $i18n.locale).code }}</p>
       </div>
       <IncludesBurger burgerColor="black"/>
     </nav>

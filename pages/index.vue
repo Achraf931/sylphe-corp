@@ -17,9 +17,9 @@
         <source src="/showreel/showreel.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <div :class="{'text-shadow': this.$mq === 'sm'}" class="py-2.5 hoverShowreel flex items-center justify-between z-0">
-        <h2 class="transition-all duration-100 ease-in-out lg:text-32px text-3vw leading-normal text-white text-stroke">Showreel</h2>
-        <p class="transition-all duration-100 ease-in-out ml-2 text-white text-4xl font-bold text-stroke">→</p>
+      <div :class="{'text-shadow': this.$mq === 'sm'}" class="py-2.5 hoverShowreel mouse-hover simple-hover flex items-center justify-between z-0">
+        <h2 class="transition-all duration-100 ease-in-out lg:text-32px text-3vw leading-none text-white text-stroke">Showreel</h2>
+        <p class="transition-all duration-100 ease-in-out ml-2 text-white text-4xl font-bold leading-none text-stroke">→</p>
       </div>
     </section>
 
@@ -137,13 +137,14 @@
         </p>
       </div>
 
-      <div v-for="project in this.projects" :key="project.id" class="project absolute flex flex-col text-center items-center justify-center p-8.5" :style="'background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + project.background.url + '); background-size: cover; background-repeat: no-repeat;'">
+      <div v-for="project in this.projects" :key="project.id" class="project absolute flex flex-col text-center items-center justify-center p-8.5" :style="$mq !== 'lg' ? 'background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + project.background_mobile.url + '); background-size: cover; background-repeat: no-repeat;' : 'background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + project.background.url + '); background-size: cover; background-repeat: no-repeat;'">
         <h2 class="lg:text-32px text-4vw leading-normal p text-white font-bold">{{ project.name }}</h2>
+        <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" v-if="project.logo !== null" class="is-visible block mx-auto mb-6 mt-2.5 w-full max-w-424" :src="project.logo.url" alt="Logo">
         <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5">{{ project.description }}</p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white text-white leading-normal">Client : <span class="font-bold">{{ project.client.name }}</span></p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white leading-normal">Spécialités : <span v-for="(speciality, index) in project.client.specialities" :key="index" class="font-bold">{{ speciality.name }}{{ index + 1 !== project.client.specialities.length ? ', ' : '' }}</span>
         </p>
-        <UiArrow :to="localePath({name: 'projects-slug', params: {slug: project.slug}})"/>
+        <UiArrow v-observe="{ onEnter: visibilityWithoutDelay, threshold: 1 }" class="is-visible" :to="localePath({name: 'projects-slug', params: {slug: project.slug}})"/>
       </div>
 
       <div class="project absolute flex flex-col text-center items-center justify-center p-8.5 bg-blue">
@@ -183,7 +184,6 @@ export default {
       requestAnimationFrame(() => {
         this.baloonsAnimation()
         if (this.$mq === 'lg') {
-          this.lastSection()
           this.cardsAnimation()
         }
         this.projectsAnimation()
@@ -191,26 +191,6 @@ export default {
     })
   },
   methods: {
-    lastSection() {
-      this.$gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: '#challenge-us',
-            start: 'top bottom',
-            end: '+=100%',
-            scrub: 0.1
-          },
-          ease: 'power2.inOut'
-        })
-        .to('#sidebar-left-challenge-us', {
-          left: 0,
-          duration: .4
-        })
-        .to('#sidebar-right-challenge-us', {
-          right: 0,
-          duration: .4
-        }, '<')
-    },
     changeIllustration(service) {
       const services = this.$gsap.utils.toArray('.y-service')
 

@@ -1,11 +1,11 @@
 <template>
-  <a v-if="link !== '' && target" :href="link" target="_blank" rel="noreferrer noopener" class="defaultButton hoverAnimation">
+  <a v-if="link !== '' && target" :href="link" target="_blank" rel="noreferrer noopener" class="defaultButton mouse-hover simple-hover hoverAnimation">
     <slot></slot>
   </a>
-  <NuxtLink v-else-if="link !== '' && !target" :to="link" class="defaultButton hoverAnimation">
+  <NuxtLink v-else-if="link !== '' && !target" :to="link" class="defaultButton mouse-hover simple-hover hoverAnimation">
     <slot></slot>
   </NuxtLink>
-  <button v-else-if="link === '' && !target" type="submit" class="defaultButton hoverAnimation">
+  <button v-else-if="link === '' && !target" type="submit" class="defaultButton mouse-hover simple-hover hoverAnimation">
     <slot/>
   </button>
 </template>

@@ -7,7 +7,10 @@ import Cursor from "@/utils/cursor";
 
 export default {
   mounted() {
-    new Cursor(document.getElementById('cursor'))
+    let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    let mouse = { x: pos.x, y: pos.y };
+
+    new Cursor(document.getElementById('cursor'), pos, mouse)
   }
 }
 </script>

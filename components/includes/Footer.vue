@@ -1,7 +1,7 @@
 <template>
   <footer class="relative w-full max-w-screen bg-black py-5 px-8.5 z-10 flex justify-between flex-wrap">
     <div id="links_footer" class="flex items-center text-grayFooter md:w-full justify-between xs:flex-col">
-      <NuxtLink class="2xl:text-11px text-1vw leading-normal hover:text-white transition-all duration-150 ease-in-out md:mr-0 lg:mr-10 mr-20" :to="localePath('legal-notice')">Mentions légales</NuxtLink>
+      <NuxtLink class="2xl:text-11px mouse-hover simple-hover text-1vw leading-normal hover:text-white transition-all duration-150 ease-in-out md:mr-0 lg:mr-10 mr-20" :to="localePath('legal-notice')">Mentions légales</NuxtLink>
       <p class="leading-none 2xl:text-11px text-1vw leading-normal md:ml-0 lg:ml-10 ml-20">© 2021 Sylphe. Tous droits réservés</p>
     </div>
 

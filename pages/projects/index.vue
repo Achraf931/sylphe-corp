@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-x-hidden">
+  <div class="overflow-x-hidden bg-cyan">
     <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="topPage" class="z-10 relative w-full h-screen bg-cyan flex items-center justify-center flex-col text-white">
       <UiDrawSection/>
       <div class="box-content py-0 px-8.5 text-center">
@@ -9,8 +9,8 @@
       <ArrowScroll/>
     </section>
 
-    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="projects_list" class="fixed z-0 top-0 h-screen grid grid-flow-col gap-1" style="grid-template-rows: auto auto;">
-      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: project.slug}})" v-for="(project, index) in this.projects" :key="index" class="project filter grayscale hover:filter-none hover:grayscale-0 transition-all duration-100 ease-in-out text-white text-center relative flex flex-col items-center justify-center bg-pink p-5" style="height: 50vh; width: 50vh;" :style="'background: url(' + project.background.url + ') center center no-repeat; background-size: cover;'">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="projects_list" class="fixed z-0 top-0 h-screen p-1 grid grid-flow-col gap-1" style="grid-template-rows: auto auto;">
+      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: project.slug}})" v-for="(project, index) in this.projects" :key="index" class="project transition-all duration-100 ease-in-out mouse-hover simple-hover text-white text-center relative flex flex-col items-center justify-center bg-pink p-5" style="height: 50vh; width: 50vh;" :style="$mq !== 'lg' ? 'background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + project.background_mobile.url + '); background-size: cover; background-repeat: no-repeat;' : 'background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + project.background.url + '); background-size: cover; background-repeat: no-repeat;'">
         <p class="2xl:text-24px text-1.5vw font-bold m-auto md:text-xl">{{ project.name }}</p>
         <p class="absolute bottom-5 left-1/2 w-full" style="transform: translateX(-50%)">
           Client : <span class="font-bold">{{ project.client.name }}</span>
@@ -23,7 +23,7 @@
       </div>
     </section>
 
-    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="empty" class="w-full relative max-w-full h-screen pointer-events-none"></section>
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="empty" class="w-full relative max-w-full h-screen"></section>
 
     <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="activity" class="bg-lightGray" leftImage="/index/challenge/left.webp" rightImage="/index/challenge/right.webp" topImage="/index/challenge/top.webp" bottomImage="/index/challenge/bottom.webp">
       <div class="text-center flex flex-col mx-auto justify-between md:py-0 md:w-full w-1/2 px-8.5">
@@ -54,7 +54,7 @@ export default {
           scrollTrigger: {
             trigger: '#empty',
             pin: true,
-            start: 'top center',
+            start: 'top bottom',
             end: '+=' + projects.offsetWidth,
             scrub: true
           },
@@ -76,7 +76,16 @@ export default {
   left: 120vw;
 }
 
-.pin-spacer {
+.pin-spacer, #empty {
   pointer-events: none!important;
+  z-index: -1!important;
+}
+
+.project:not(:last-child) {
+  filter: grayscale(1);
+
+  &:hover {
+    filter: grayscale(0);
+  }
 }
 </style>

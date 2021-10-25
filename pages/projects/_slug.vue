@@ -1,9 +1,10 @@
 <template>
   <div>
-    <img v-for="(image, index) in project[0].head_of_page.background" :key="index" class="fixed image-bg object-cover" style="z-index: -3;" :src="image.url" alt="Background image">
+    <img v-if="$mq === 'lg'" v-for="(image, index) in project[0].head_of_page.background" :key="index" class="fixed image-bg object-cover" style="z-index: -3;" :src="image.url" alt="Background image">
+    <img v-else :src="project[0].background_mobile.url" alt="Background image" class="fixed image-bg object-cover" style="z-index: -3;">
 
     <section v-observe="{ onEnter: headerChanged, threshold: 0.5 }" id="topPage" class="w-full max-w-screen overflow-x-hidden flex items-center flex-col text-white z-10">
-      <div class="relative py-0 px-7.5 text-center w-full h-screen flex flex-col justify-center items-center">
+      <div class="relative py-0 px-8.5 text-center w-full h-screen flex flex-col justify-center items-center">
         <h1 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-white lg:text-32px text-3vw leading-normal">{{ project[0].name }}</h1>
         <img v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" v-if="this.project[0].logo !== null" class="is-visible block mx-auto mb-6 mt-2.5 w-full max-w-424" :src="this.project[0].logo.url" alt="Logo">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible 2xl:text-24px text-1.5vw font-regular max-w-640 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 mb-5">{{ project[0].head_of_page.subtitle }}</h2>
@@ -13,27 +14,27 @@
       </div>
     </section>
 
-    <section v-observe="{ onEnter: headerChanged, threshold: 0.5 }" id="container-intro" class="relative py-0 px-7.5 text-center w-full max-w-screen h-screen flex flex-col justify-center items-center z-10">
-      <div v-for="(intro, index) in this.project[0].intro" :key="index" class="intro-item flex flex-col">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.5 }" id="container-intro" class="relative py-0 px-8.5 text-center w-full max-w-screen h-screen flex flex-col justify-center items-center z-10">
+      <div v-for="(intro, index) in this.project[0].intro" :key="index" class="intro-item flex flex-col items-center md:w-full w-1/2">
         <h2 class="uppercase text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">{{ intro.intro }}</h2>
         <h1 class="text-white mb-10 md:mb-4 lg:text-32px text-3vw max-w-640 2xl:w-full leading-normal font-bold">{{ intro.title }}</h1>
         <client-only>
-          <p class="text-1.5vw leading-normal font-regular md:text-xl max-w-640 2xl:w-full text-white" v-html="$md.render(intro.text)"/>
+          <p class="2xl:text-24px 2xl:w-full font-regular md:leading-6 md:text-xl text-1.5vw xs:text-base default-text text-white" v-html="$md.render(intro.text)"/>
         </client-only>
       </div>
     </section>
 
-    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="ourResponse" class="overflow-hidden relative w-full max-w-full px-7.5 h-screen bg-white flex items-center justify-center z-10">
-      <div class="text-center flex flex-col justify-between md:py-0">
+    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="ourResponse" class="overflow-hidden relative w-full max-w-full px-8.5 min-h-screen bg-white flex items-center justify-center z-10">
+      <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw lg:text-32px text-3vw leading-normal font-bold">{{ this.project[0].our_response.title }}</h2>
 
         <client-only>
-          <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible max-w-640 text-1.5vw leading-normal font-regular md:text-xl" v-html="$md.render(this.project[0].our_response.text)"/>
+          <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible 2xl:text-24px 2xl:w-full font-regular md:leading-6 md:text-xl text-1.5vw xs:text-base default-text" v-html="$md.render(this.project[0].our_response.text)"/>
         </client-only>
 
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="mt-7 mb-5 uppercase font-bold is-visible text-1.5vw leading-normal md:text-xl">Les actions</p>
         <ul v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible">
-          <li class="max-w-640 text-1.5vw leading-normal font-regular md:text-xl" v-for="(action, index) in this.project[0].our_response.actions" :key="index">{{ action.title }}</li>
+          <li class="text-1.5vw leading-normal font-regular md:text-xl" v-for="(action, index) in this.project[0].our_response.actions" :key="index">{{ action.title }}</li>
         </ul>
       </div>
     </section>
@@ -66,7 +67,7 @@
         <h2 class="mb-10 md:mb-4 text-2.5vw lg:text-32px text-3vw leading-normal font-bold">{{ activity.title }}</h2>
 
         <client-only>
-          <p class="max-w-640 text-1.5vw leading-normal font-regular md:text-xl" v-html="$md.render(activity.text)"/>
+          <p class="2xl:text-24px 2xl:w-full font-regular md:leading-6 md:text-xl text-1.5vw xs:text-base default-text" v-html="$md.render(activity.text)"/>
         </client-only>
       </div>
 
@@ -76,7 +77,7 @@
     </UiSectionSides>
 
     <section v-if="$mq === 'lg'" v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="slider" @mousedown="mouseDown" @mouseleave="isDown = false" @mouseup="isDown = false" @mousemove="mouseMove" class="mouse-hover slide-hover overflow-y-hidden flex overflow-x-scroll relative w-full max-w-full h-screen bg-blue z-10">
-      <img v-for="(image, index) in this.project[0].slider" :key="index" class="h-screen object-cover select-none" style="min-width: 50vw; max-width: 50vw;" :alt="image.name" :src="image.url"/>
+      <img v-for="(image, index) in this.project[0].slider" :key="index" class="h-screen pointer-events-none object-cover select-none" style="min-width: 50vw; max-width: 50vw;" :alt="image.name" :src="image.url"/>
     </section>
 
     <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }"
@@ -92,7 +93,7 @@
         <h2 class="text-white mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">{{ levelTwo.title }}</h2>
 
         <client-only>
-          <p class="text-white max-w-640 text-1.5vw leading-normal font-regular md:text-xl" v-html="$md.render(levelTwo.text)"/>
+          <p class="text-white 2xl:text-24px 2xl:w-full font-regular md:leading-6 md:text-xl text-1.5vw xs:text-base default-text" v-html="$md.render(levelTwo.text)"/>
         </client-only>
       </div>
     </UiSectionSides>
@@ -110,7 +111,7 @@
         <h2 class="mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">{{ levelThree.title }}</h2>
 
         <client-only>
-          <p class="max-w-640 text-1.5vw leading-normal font-regular md:text-xl" v-html="$md.render(levelThree.text)"/>
+          <p class="2xl:text-24px 2xl:w-full font-regular md:leading-6 md:text-xl text-1.5vw xs:text-base default-text" v-html="$md.render(levelThree.text)"/>
         </client-only>
       </div>
     </UiSectionSides>
@@ -135,13 +136,13 @@
         <h2 class="text-white mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">{{ result.title }}</h2>
 
         <client-only>
-          <p class="text-white max-w-640 text-1.5vw leading-normal font-regular md:text-xl" v-html="$md.render(result.text)"/>
+          <p class="text-white 2xl:text-24px 2xl:w-full font-regular md:leading-6 md:text-xl text-1.5vw xs:text-base default-text" v-html="$md.render(result.text)"/>
         </client-only>
       </div>
     </UiSectionSides>
 
-    <section v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="carousel" class="overflow-hidden relative w-full text-center max-w-full h-screen bg-blue flex items-left z-10">
-      <div v-if="this.prevProject !== undefined" class="h-screen flex flex-col filter grayscale transition-all duration-150 ease-in-out hover:grayscale-0 items-center justify-center md:p-5 p-10" :style="'background-image: url(' + this.prevProject.background.url + '); background-size: cover; background-repeat: no-repeat; min-width: 50vw; max-width: 50vw;'">
+    <section v-if="$mq === 'lg'" v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="carousel" class="overflow-hidden relative w-full text-center max-w-full h-screen bg-blue flex items-left z-10">
+      <div v-if="this.prevProject !== undefined" class="h-screen next-prev-project flex flex-col items-center justify-center md:p-5 p-10" :style="'background-image: url(' + this.prevProject.background.url + '); background-size: cover; background-repeat: no-repeat; min-width: 50vw; max-width: 50vw;'">
         <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">{{ this.prevProject.name }}</h2>
         <client-only>
           <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5" v-html="$md.render(this.prevProject.description)"/>
@@ -150,7 +151,7 @@
         <p class="p text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Spécialités : <span v-for="(speciality, index) in this.prevProject.client.specialities" :key="index" class="font-bold">{{ speciality.name }}{{ index + 1 !== project[0].client.specialities.length ? ', ' : '' }}</span></p>
         <UiArrow :to="localePath({name: 'projects-slug', params: {slug: this.prevProject.slug}})"/>
       </div>
-      <div v-if="this.nextProject !== undefined" class="h-screen flex flex-col filter grayscale transition-all duration-150 ease-in-out hover:grayscale-0 items-center justify-center md:p-5 p-10" :style="'background-image: url(' + this.nextProject.background.url + '); background-size: cover; background-repeat: no-repeat; min-width: 50vw; max-width: 50vw;'">
+      <div v-if="this.nextProject !== undefined" class="h-screen next-prev-project flex flex-col items-center justify-center md:p-5 p-10" :style="'background-image: url(' + this.nextProject.background.url + '); background-size: cover; background-repeat: no-repeat; min-width: 50vw; max-width: 50vw;'">
         <h2 class="text-4vw leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 p text-white font-bold">{{ this.nextProject.name }}</h2>
         <client-only>
           <p class="p 2xl:text-24px text-center text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white mb-5" v-html="$md.render(this.nextProject.description)"/>
@@ -158,6 +159,15 @@
         <p class="p text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Client : <span class="font-bold">{{ this.nextProject.client.name }}</span></p>
         <p class="p text-center text-1vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Spécialités : <span v-for="(speciality, index) in this.nextProject.client.specialities" :key="index" class="font-bold">{{ speciality.name }}{{ index + 1 !== project[0].client.specialities.length ? ', ' : '' }}</span></p>
         <UiArrow :to="localePath({name: 'projects-slug', params: {slug: this.nextProject.slug}})"/>
+      </div>
+    </section>
+
+    <section v-else class="flex justify-between items-center">
+      <div v-if="this.prevProject !== undefined" v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible flex items-center justify-center text-center w-1/2" :style="'background-color: ' + this.prevProject.background_project">
+        <p class="text-1.5vw my-10 md:my-5 leading-normal font-bold md:text-xl text-white">{{ this.prevProject.name }}</p>
+      </div>
+      <div v-if="this.nextProject !== undefined" v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible flex items-center justify-center text-center w-1/2" :style="'background-color: ' + this.nextProject.background_project">
+        <p class="text-1.5vw my-10 md:my-5 leading-normal font-bold md:text-xl text-white">{{ this.nextProject.name }}</p>
       </div>
     </section>
   </div>
@@ -178,8 +188,8 @@ export default {
 
     for (let i = 0; i < projects.length; i++) {
       if (projects[i].id === project[0].id) {
-        prevProject = projects[i - 1]
-        nextProject = projects[i + 1]
+        prevProject = projects[i - 1] === undefined ? projects[projects.length - 1] : projects[i - 1]
+        nextProject = projects[i + 1] === undefined ? projects[0] : projects[i + 1]
       }
     }
 
@@ -285,7 +295,18 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.next-prev-project {
+  filter: grayscale(1);
+
+  &:hover {
+    filter: grayscale(0);
+  }
+}
+.default-text::v-deep p {
+  line-height: normal;
+}
+
 .image-bg {
   width: 110%;
   max-width: 110%;

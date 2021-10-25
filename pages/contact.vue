@@ -78,14 +78,14 @@
 
     <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="contact" class="bg-yellow" leftImage="/contact/contact/left.webp" rightImage="/contact/contact/right.webp" topImage="/contact/contact/top.webp" bottomImage="/contact/contact/bottom.webp">
       <div class="text-center flex mx-auto flex-col justify-between md:py-0 md:w-full w-1/2 px-8.5">
-        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Besoin de nous parler directement ?</h2>
+        <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 text-2.5vw font-bold leading-normal xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">Besoin de nous parler directement&nbsp;?</h2>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal md:text-xl text-white">
           On est joignable au<br>
           01 00 00 00 00
         </p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw my-10 md:my-5 leading-normal font-bold md:text-xl text-white">
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible block text-1.5vw my-10 md:my-5 leading-normal md:text-xl text-white">
           Ou par mail<br>
-          hello@sylphe.co
+          <a href="mailto:hello@sylphe.co" class="block text-1.5vw leading-normal font-normal hover:font-bold md:text-xl text-white mouse-hover simple-hover">hello@sylphe.co</a>
         </p>
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible text-1.5vw leading-normal md:text-xl text-white">N'hésitez pas, on adore les mots doux.</p>
       </div>

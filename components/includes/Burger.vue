@@ -3,22 +3,22 @@
   <div ref="containerBurger" id="burger" :class="{'active': isBurgerActive}">
     <div id="menu" class="bg-white max-w-screen w-full fixed top-0 left-0 pointer-events-auto" style="z-index: -1;">
       <ul class="flex flex-col justify-center w-full h-full items-center">
-        <li class="cursor-pointer item-burger z-10">
+        <li class="cursor-pointer item-burger mouse-hover simple-hover z-10">
           <p class="md:text-24px leading-normal text-3vw font-semibold transition-all duration-200 ease-in border-2 hover:text-blue border-solid border-transparent" @click="navigate('index')">{{ $t('nav.home') }}</p>
         </li>
         <!--          <li class="mb-6" @click="closeSidebarPanel">
                     <NuxtLink class="text-24px font-semibold text-black transition-all duration-200 ease-in border-2 border-solid border-transparent" :to="localePath({name: 'services'})">{{ $t('nav.services') }}</NuxtLink>
                   </li>-->
-        <li class="cursor-pointer item-burger">
+        <li class="cursor-pointer item-burger mouse-hover simple-hover">
           <p class="md:text-24px leading-normal text-3vw font-semibold transition-all duration-200 ease-in border-2 hover:text-pink border-solid border-transparent" @click="navigate('culture')">{{ $t('nav.culture') }}</p>
         </li>
-        <li class="cursor-pointer item-burger">
+        <li class="cursor-pointer item-burger mouse-hover simple-hover">
           <p class="md:text-24px leading-normal text-3vw font-semibold transition-all duration-200 ease-in border-2 hover:text-cyan border-solid border-transparent" @click="navigate('projects')">{{ $t('nav.works') }}</p>
         </li>
-        <li class="cursor-pointer mb-6 item-burger">
+        <li class="cursor-pointer mb-6 item-burger mouse-hover simple-hover">
           <p class="md:text-24px leading-normal text-3vw font-semibold transition-all duration-200 ease-in border-2 hover:text-yellow border-solid border-transparent" @click="navigate('contact')">{{ $t('nav.contact') }}</p>
         </li>
-        <a href="https://calendly.com/sylphe/reunion" target="_blank" rel="noreferrer noopener" class="item-burger defaultButton hoverAnimation">{{ $t('nav.call') }}</a>
+        <a href="https://calendly.com/sylphe/reunion" target="_blank" rel="noreferrer noopener" class="item-burger defaultButton mouse-hover simple-hover hoverAnimation">{{ $t('nav.call') }}</a>
       </ul>
 
       <div id="footerBurger" class="absolute bottom-0 left-0 w-full p-10 flex justify-center items-center">
@@ -39,13 +39,11 @@
         </a>
       </div>
     </div>
-    <slot>
-      <button v-observe="{ onEnter: visibility, once: true }" type="button" ref="burger" class="is-visible-top burger-button pointer-events-auto">
-        <span class="burger-bar burger-bar--1"></span>
-        <span class="burger-bar burger-bar--2"></span>
-        <span class="burger-bar burger-bar--3"></span>
-      </button>
-    </slot>
+    <button v-observe="{ onEnter: visibility, once: true }" type="button" ref="burger" class="is-visible-top mouse-hover simple-hover burger-button pointer-events-auto">
+      <span class="burger-bar burger-bar--1"></span>
+      <span class="burger-bar burger-bar--2"></span>
+      <span class="burger-bar burger-bar--3"></span>
+    </button>
   </div>
 </template>
 <script>
