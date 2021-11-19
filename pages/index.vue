@@ -96,10 +96,10 @@
         <img src="/team/guy.webp" alt="Guy" class="w-full to-bottom mb-10 bg-white flex items-center justify-center"/>
       </div>
 
-      <div class="text-center flex flex-col justify-between md:py-0 md:w-full w-1/2 mx-10" :class="{'px-8.5 mx-0 w-full': this.$mq !== 'lg'}">
+      <div class="text-center flex flex-col items-center justify-between md:py-0 md:w-full w-1/2 mx-10" :class="{'px-8.5 mx-0 w-full': this.$mq !== 'lg'}">
         <h2 v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold text-white" v-html="$t('Home.teams.title')"/>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw xs:text-base leading-normal text-white" v-html="$t('Home.teams.text')"/>
-        <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :class="{'mb-10': this.$mq !== 'lg'}" :link="localePath({name: 'index'})">{{ $t('Home.teams.button') }}</UiButton>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px mb-10 md:mb-5 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw xs:text-base leading-normal text-white" v-html="$t('Home.teams.text')"/>
+        <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mx-auto" :class="{'mb-10': this.$mq !== 'lg'}" :link="localePath({name: 'culture'})">{{ $t('Home.teams.button') }}</UiButton>
       </div>
 
       <div v-if="this.$mq === 'lg'" id="containerToTop" class="pr-10 w-1/4 overflow-hidden">
@@ -158,8 +158,8 @@
     <UiSectionSides v-observe="{ onEnter: headerChanged, threshold: 0.9 }" gsapTarget="challenge-us" class="bg-lightGray" leftImage="/index/challenge/left.webp" rightImage="/index/challenge/right.webp" topImage="/index/challenge/top.webp" bottomImage="/index/challenge/bottom.webp">
       <div class="w-2/4 md:w-full mx-auto flex flex-col items-center px-8.5 text-center">
         <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">Challengez-nous !</p>
-        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base leading-normal">Petit plus de la maison : nous adorons les besoins compliqués et les réponses sur-mesure.</p>
-        <UiButton v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mt-10 md:mt-5 mx-auto" :link="'https://calendly.com/sylphe/reunion'" :target="false">{{ $t('nav.call') }}</UiButton>
+        <p v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="2xl:text-24px 2xl:w-full mb-10 md:mb-5 font-regular is-visible md:leading-6 md:text-xl text-1.5vw w-1/2 xs:text-base leading-normal">Petit plus de la maison : nous adorons les besoins compliqués et les réponses sur-mesure.</p>
+        <a v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible mx-auto defaultButton mouse-hover simple-hover hoverAnimation" href="https://calendly.com/sylphe/reunion" target="_blank" rel="noreferrer noopener">{{ $t('nav.call') }}</a>
       </div>
     </UiSectionSides>
   </div>
@@ -299,19 +299,10 @@ export default {
             scrub: true,
             toggleActions: "play complete reset",
             onUpdate: self => {
-              if (self.progress.toFixed(2) >= 0.20 || self.progress === 1) {
-                this.addOrRemoveClass(document.querySelector('nav'), 'black-nav', false);
-              }
-
               this.$gsap
                 .to('#projects-line', {
                   width: `${self.progress.toFixed(2) * 100}%`
                 })
-            },
-            onEnterBack: self => {
-              if (self.progress.toFixed(2) >= 0.20 || self.progress === 1) {
-                this.addOrRemoveClass(document.querySelector('nav'), 'black-nav', false);
-              }
             }
           },
           ease: 'power2.inOut'
@@ -384,6 +375,21 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.defaultButton {
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  min-height: 45px;
+  justify-content: center;
+  font-family: SoleilBold, SoleilSemiBold, SoleilBook, SoleilRegular, Arial, sans-serif;
+  @apply md:text-13px text-1.2vw leading-normal;
+}
+
 .text-shadow {
   text-shadow: 1px 1px 0 black;
 }

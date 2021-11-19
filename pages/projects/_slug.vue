@@ -15,7 +15,7 @@
     </section>
 
     <section v-observe="{ onEnter: headerChanged, threshold: 0.5 }" id="container-intro" class="relative py-0 px-8.5 text-center w-full max-w-screen h-screen flex flex-col justify-center items-center z-10">
-      <div v-for="(intro, index) in this.project[0].intro" :key="index" class="intro-item flex flex-col items-center md:w-full w-1/2">
+      <div v-for="(intro, index) in this.project[0].intro" :key="index" :class="{'item': index > 0}" class="intro-item flex flex-col items-center md:w-full w-1/2">
         <h2 class="uppercase text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6 text-white">{{ intro.intro }}</h2>
         <h1 class="text-white mb-10 md:mb-4 lg:text-32px text-3vw max-w-640 2xl:w-full leading-normal font-bold">{{ intro.title }}</h1>
         <client-only>
@@ -62,7 +62,7 @@
                     :bottomImage="this.project[0].aside_images_section[0].bottom_image ? this.project[0].aside_images_section[0].bottom_image.url : ''"
                     :style="this.project[0].aside_images_section[0].background_image ? 'background: url(' + this.project[0].aside_images_section[0].background_image.url + ') center center no-repeat; background-size: cover;' : 'background:' + this.project[0].aside_images_section[0].background_color"
                     class="z-10">
-      <div v-for="(activity, index) in this.project[0].aside_images_section[0].part_level" :key="index" class="intro-activity mx-auto text-center flex flex-col items-center justify-between md:py-0 md:w-full px-8.5 w-1/2">
+      <div v-for="(activity, index) in this.project[0].aside_images_section[0].part_level" :key="index" :class="{'item': index > 0}" class="intro-activity mx-auto text-center flex flex-col items-center justify-between md:py-0 md:w-full px-8.5 w-1/2">
         <h2 class="uppercase text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ activity.intro }}</h2>
         <h2 class="mb-10 md:mb-4 text-2.5vw lg:text-32px text-3vw leading-normal font-bold">{{ activity.title }}</h2>
 
@@ -76,7 +76,7 @@
       </div>
     </UiSectionSides>
 
-    <section v-if="$mq === 'lg'" v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="slider" @mousedown="mouseDown" @mouseleave="isDown = false" @mouseup="isDown = false" @mousemove="mouseMove" class="mouse-hover slide-hover overflow-y-hidden flex overflow-x-scroll relative w-full max-w-full h-screen bg-blue z-10">
+    <section v-if="$mq === 'lg'" v-observe="{ onEnter: headerChanged, threshold: 0.9 }" id="slider" @mousedown="mouseDown" @mouseleave="isDown = false" @mouseup="isDown = false" @mousemove="mouseMove" class="mouse-hover simple-hover overflow-y-hidden flex overflow-x-scroll relative w-full max-w-full h-screen bg-blue z-10">
       <img v-for="(image, index) in this.project[0].slider" :key="index" class="h-screen pointer-events-none object-cover select-none" style="min-width: 50vw; max-width: 50vw;" :alt="image.name" :src="image.url"/>
     </section>
 
@@ -88,7 +88,7 @@
                     :bottomImage="this.project[0].aside_images_section[1].bottom_image ? this.project[0].aside_images_section[1].bottom_image.url : ''"
                     :style="this.project[0].aside_images_section[1].background_image ? 'background: url(' + this.project[0].aside_images_section[1].background_image.url + ') center center no-repeat; background-size: cover;' : 'background:' + this.project[0].aside_images_section[1].background_color"
                     class="z-10">
-      <div v-for="(levelTwo, index) in this.project[0].aside_images_section[1].part_level" :key="index" class="intro-levelTwo mx-auto text-center flex flex-col items-center justify-between md:py-0 md:w-full px-8.5 w-1/2">
+      <div v-for="(levelTwo, index) in this.project[0].aside_images_section[1].part_level" :key="index" :class="{'item': index > 0}" class="intro-levelTwo mx-auto text-center flex flex-col items-center justify-between md:py-0 md:w-full px-8.5 w-1/2">
         <h2 class="uppercase text-white text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ levelTwo.intro }}</h2>
         <h2 class="text-white mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">{{ levelTwo.title }}</h2>
 
@@ -106,7 +106,7 @@
                     :topImage="this.project[0].aside_images_section[2].top_image ? this.project[0].aside_images_section[2].top_image.url : ''"
                     :bottomImage="this.project[0].aside_images_section[2].bottom_image ? this.project[0].aside_images_section[2].bottom_image.url : ''"
                     :style="this.project[0].aside_images_section[2].background_image ? 'background: url(' + this.project[0].aside_images_section[2].background_image.url + ') center center no-repeat; background-size: cover;' : 'background:' + this.project[0].aside_images_section[2].background_color">
-      <div v-for="(levelThree, index) in this.project[0].aside_images_section[2].part_level" :key="index" class="intro-levelThree mx-auto text-center flex flex-col items-center justify-between md:py-0 md:w-full px-8.5 w-1/2">
+      <div v-for="(levelThree, index) in this.project[0].aside_images_section[2].part_level" :key="index" :class="{'item': index > 0}" class="intro-levelThre mx-auto text-center flex flex-col items-center justify-between md:py-0 md:w-full px-8.5 w-1/2">
         <h2 class="uppercase text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ levelThree.intro }}</h2>
         <h2 class="mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">{{ levelThree.title }}</h2>
 
@@ -131,7 +131,7 @@
                     :bottomImage="this.project[0].aside_images_section[3].bottom_image ? this.project[0].aside_images_section[3].bottom_image.url : ''"
                     :style="this.project[0].aside_images_section[3].background_image ? 'background: url(' + this.project[0].aside_images_section[3].background_image.url + ') center center no-repeat; background-size: cover;' : 'background:' + this.project[0].aside_images_section[3].background_color"
                     class="z-10">
-      <div v-for="(result, index) in this.project[0].aside_images_section[3].part_level" :key="index" class="intro-result mx-auto text-center flex flex-col items-center justify-between md:py-0 md:w-full px-8.5 w-1/2">
+      <div v-for="(result, index) in this.project[0].aside_images_section[3].part_level" :key="index" :class="{'item': index > 0}" class="intro-result mx-auto text-center flex flex-col items-center justify-between md:py-0 md:w-full px-8.5 w-1/2">
         <h2 class="uppercase text-white text-1.5vw font-regular 2xl:w-full xs:text-base xs:leading-5 md:text-xl md:leading-6">{{ result.intro }}</h2>
         <h2 class="text-white mb-10 md:mb-4 lg:text-32px text-3vw leading-normal font-bold">{{ result.title }}</h2>
 
@@ -163,12 +163,12 @@
     </section>
 
     <section v-else class="flex justify-between items-center">
-      <div v-if="this.prevProject !== undefined" v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible flex items-center justify-center text-center w-1/2" :style="'background-color: ' + this.prevProject.background_project">
-        <p class="text-1.5vw my-10 md:my-5 leading-normal font-bold md:text-xl text-white">{{ this.prevProject.name }}</p>
-      </div>
-      <div v-if="this.nextProject !== undefined" v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible flex items-center justify-center text-center w-1/2" :style="'background-color: ' + this.nextProject.background_project">
-        <p class="text-1.5vw my-10 md:my-5 leading-normal font-bold md:text-xl text-white">{{ this.nextProject.name }}</p>
-      </div>
+      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: this.prevProject.slug}})" v-if="this.prevProject !== undefined" v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible flex items-center justify-center text-center w-1/2" :style="'background-color: ' + this.prevProject.background_project">
+        <p class="text-1.5vw my-10 md:my-5 leading-normal font-bold md:text-base text-white">{{ this.prevProject.name }}</p>
+      </NuxtLink>
+      <NuxtLink :to="localePath({name: 'projects-slug', params: {slug: this.nextProject.slug}})" v-if="this.nextProject !== undefined" v-observe="{ onEnter: visibilityWithoutDelay, threshold: 0.5 }" class="is-visible flex items-center justify-center text-center w-1/2" :style="'background-color: ' + this.nextProject.background_project">
+        <p class="text-1.5vw my-10 md:my-5 leading-normal font-bold md:text-base text-white">{{ this.nextProject.name }}</p>
+      </NuxtLink>
     </section>
   </div>
 </template>
@@ -315,7 +315,7 @@ export default {
   top: -5%;
 }
 
-div.intro-item:not(:first-child), div.intro-activity:not(:first-child), div.intro-levelTwo:not(:first-child), div.intro-levelThree:not(:first-child), div.intro-result:not(:first-child) {
+.item {
   opacity: 0;
   visibility: hidden;
   display: none;

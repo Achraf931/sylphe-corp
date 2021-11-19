@@ -5,6 +5,7 @@
     <div v-else-if="!!this.topImage && this.$mq !== 'lg'" :class="'y-' + gsapTarget" class="block w-full h-1/3 bg-cover bg-bottom bg-no-repeat" style="transform: translateY(-100%);" :style="'background-image: url(' + topImage + ')!important'"></div>
 
     <slot/>
+
     <img v-if="!!this.rightImage && this.$mq === 'lg'" :class="'sidebar-right-' + gsapTarget" class="block absolute top-0 h-full" :src="rightImage" alt="Right image" style="right: -100%; z-index: -1;">
 <!--    <img v-else-if="!!this.rightImage && this.$mq === 'sm'" :class="'y-' + gsapTarget" class="block absolute left-0 bottom-0 w-full h-full object-cover" :src="rightImage" alt="Right image" style="transform: translateY(100%); z-index: -1;">-->
     <div v-else-if="!!this.bottomImage && this.$mq !== 'lg'" :class="'y-' + gsapTarget" class="block w-full h-1/3 bg-cover bg-top bg-no-repeat" style="transform: translateY(100%);" :style="this.topImage === '' && this.bottomImage !== '' ? 'justify-content: end; margin-top: 40px; background-image: url(' + bottomImage + ')!important' : 'background-image: url(' + bottomImage + ')!important'"></div>
