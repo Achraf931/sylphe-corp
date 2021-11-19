@@ -1,7 +1,7 @@
 <template>
   <div>
     <CustomMouse v-if="this.$mq !== 'sm'"/>
-
+    <StartAnimation/>
     <Loader/>
     <IncludesHeader/>
     <Nuxt id="nuxtMain" class="min-h-screen"/>

@@ -4,7 +4,7 @@ export default {
       return {
         appear: true,
         enter(el, done) {
-/*        if (from === undefined) {
+        if (from === undefined) {
             const sylpheVideo = document.getElementById('sylphe')
             this.$gsap
               .timeline()
@@ -35,25 +35,7 @@ export default {
               .call(() => {
                 this.$viewportObserverState.active = true
               })
-          }*/
-
-          window.scrollTo(0, 0)
-          this.scrollToTop = true
-          document.body.scrollTop = document.documentElement.scrollTop = 0;
-
-
-          this.$gsap.timeline()
-            .fromTo('.containerLoader', {
-                y: 0
-              },
-              {
-                y: '-100%',
-                duration: 0.6,
-                ease: 'power3.inOut'
-              }, 0)
-            .call(() => {
-              this.$viewportObserverState.active = true
-            })
+          }
         },
         leave(el, done) {
           const loader = this.$gsap.utils.toArray('.loader')
